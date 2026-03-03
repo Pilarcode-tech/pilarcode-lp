@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <defs>
+    <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#278deb" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#211cda" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#278deb" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="wave-glow" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#278deb" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#211cda" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background glow -->
+  <ellipse cx="600" cy="200" rx="400" ry="300" fill="url(#wave-glow)"/>
+
+  <!-- Wave shapes -->
+  <path d="M0 300 Q200 150 400 250 T800 200 V600 H0 Z" fill="url(#wave-grad)"/>
+  <path d="M0 400 Q250 280 500 350 T800 300 V600 H0 Z" fill="#278deb" fill-opacity="0.06"/>
+  <path d="M0 450 Q300 350 550 420 T800 380 V600 H0 Z" fill="#211cda" fill-opacity="0.04"/>
+
+  <!-- Floating circles -->
+  <circle cx="650" cy="150" r="60" stroke="#278deb" stroke-width="0.8" fill="none" opacity="0.15"/>
+  <circle cx="700" cy="100" r="30" stroke="#278deb" stroke-width="0.5" fill="none" opacity="0.1"/>
+  <circle cx="550" cy="250" r="40" stroke="#211cda" stroke-width="0.5" fill="none" opacity="0.1"/>
+</svg>

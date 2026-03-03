@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Blisstwin";
+  src: url("/fonts/Blisstwin.eot"); /* IE9 Compat Modes */
+  src: url("/fonts/Blisstwin.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("/fonts/Blisstwin.woff") format("woff"),
+    /* Modern Browsers */ url("/fonts/Blisstwin.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-jakarta: var(--font-jakarta-sans);
+  --font-manrope: var(--font-manrope-mono);
+  --font-dm: var(--font-dm-sans) !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jakarta-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  /* Smooth scroll for in-page anchor navigation */
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions for better UX */
+* {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+@layer utilities {
+  .border-gradient-bottom {
+    border-width: 1px;
+    border-image: linear-gradient(to bottom, transparent, #fff) 1 100%;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
