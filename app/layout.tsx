@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
-import GoogleAnalytics from "./components/GoogleAnalytics";
+import Script from "next/script";
 import "./globals.css";
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const manropeSans = Manrope({
   variable: "--font-manrope-mono",
@@ -106,6 +108,24 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="beforeInteractive"
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_MEASUREMENT_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -200,7 +220,6 @@ export default function RootLayout({
       <body
         className={`${DMSans.variable} ${manropeSans.variable} ${plusJakartaSans.variable} antialiased`}
       >
-        <GoogleAnalytics />
         {children}
       </body>
     </html>
