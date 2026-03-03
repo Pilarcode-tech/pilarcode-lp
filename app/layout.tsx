@@ -17,6 +17,7 @@ const DMSans = DM_Sans({
   subsets: ["latin"],
 });
 
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -87,7 +88,10 @@ export const metadata: Metadata = {
   category: "technology",
   applicationName: "Pilarcode",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
+    ],
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
@@ -193,7 +197,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${DMSans.variable}  ${manropeSans.variable} ${plusJakartaSans.variable} antialiased`}
+        className={`${DMSans.variable} ${manropeSans.variable} ${plusJakartaSans.variable} antialiased`}
       >
         {children}
       </body>

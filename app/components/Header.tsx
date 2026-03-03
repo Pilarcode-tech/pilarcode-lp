@@ -146,8 +146,16 @@ const Header = () => {
 
       <div className="mx-auto xl:container w-full px-4 sm:px-0 relative z-10">
         <nav className="flex items-center justify-between py-4 gap-4 lg:gap-8">
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <Image alt="Pilarcode Logo" src="/logo.png" width={160} height={40} className="h-8 lg:h-10 w-auto" />
+          <div className="flex items-center gap-2.5">
+            <Image alt="Pilarcode" src="/icon.png" width={50} height={37} className="h-8 w-auto lg:h-10 shrink-0" />
+            <div className="flex flex-col leading-none" style={{ fontFamily: "OpenSauceOne, sans-serif" }}>
+              <span className="font-bold text-[20px] lg:text-[24px] text-white lg:text-gray-900 tracking-tight leading-none">
+                pilarcode
+              </span>
+              <span className="font-semibold text-[7px] lg:text-[8px] text-white/70 lg:text-[#278deb] tracking-wide uppercase leading-none mt-[6px]">
+                tech
+              </span>
+            </div>
           </div>
 
           <div className="hidden lg:flex items-center space-x-8">
