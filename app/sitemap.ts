@@ -1,6 +1,14 @@
 import type { MetadataRoute } from "next";
+import { services } from "./data/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `https://pilarcode.com.br/servicos/${service.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     {
       url: "https://pilarcode.com.br",
@@ -8,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    ...servicePages,
     {
       url: "https://pilarcode.com.br/politica-de-privacidade",
       lastModified: new Date(),

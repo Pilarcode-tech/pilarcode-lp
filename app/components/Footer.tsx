@@ -77,7 +77,18 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full gap-2 md:gap-2 lg:gap-3 xl:flex-row justify-between items-center xl:items-end mt-10">
+      <div className="mt-10 pb-8 border-b border-white/10">
+        <h3 className="font-semibold text-sm mb-4">Nossos Serviços</h3>
+        <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Serviços">
+          <Link href="/servicos/desenvolvimento-de-apps" className="text-sm text-white/60 hover:text-white transition-colors">Desenvolvimento de Apps</Link>
+          <Link href="/servicos/desenvolvimento-web" className="text-sm text-white/60 hover:text-white transition-colors">Desenvolvimento Web</Link>
+          <Link href="/servicos/software-sob-medida" className="text-sm text-white/60 hover:text-white transition-colors">Software Sob Medida</Link>
+          <Link href="/servicos/integracao-de-sistemas" className="text-sm text-white/60 hover:text-white transition-colors">Integração de Sistemas</Link>
+          <Link href="/servicos/e-commerce" className="text-sm text-white/60 hover:text-white transition-colors">E-Commerce</Link>
+          <Link href="/servicos/automacao-de-processos" className="text-sm text-white/60 hover:text-white transition-colors">Automação de Processos</Link>
+        </nav>
+      </div>
+      <div className="flex flex-col w-full gap-2 md:gap-2 lg:gap-3 xl:flex-row justify-between items-center xl:items-end mt-6">
         <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 text-xs">
           <p className="w-full text-center xl:text-left">
             &copy; 2026 Pilarcode - Todos os direitos reservados.

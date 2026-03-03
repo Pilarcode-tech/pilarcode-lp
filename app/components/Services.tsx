@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CodeIcon from "@mui/icons-material/Code";
@@ -16,6 +17,7 @@ interface ServiceCardProps {
   description: string;
   icon: React.ReactNode;
   gradient: string;
+  slug: string;
 }
 
 const serviceCards: ServiceCardProps[] = [
@@ -25,6 +27,7 @@ const serviceCards: ServiceCardProps[] = [
       "Aplicativos intuitivos e de alta performance, personalizados para as necessidades do seu negócio.",
     icon: <CodeIcon sx={{ fontSize: 32, color: "#fff" }} />,
     gradient: "from-[#278deb] to-[#211cda]",
+    slug: "desenvolvimento-de-apps",
   },
   {
     title: "Desenvolvimento Web",
@@ -32,6 +35,7 @@ const serviceCards: ServiceCardProps[] = [
       "Sites atraentes, funcionais e otimizados para todos os dispositivos, com foco em conversão.",
     icon: <WebIcon sx={{ fontSize: 32, color: "#fff" }} />,
     gradient: "from-[#03515d] to-[#278deb]",
+    slug: "desenvolvimento-web",
   },
   {
     title: "Software Sob Medida",
@@ -39,6 +43,7 @@ const serviceCards: ServiceCardProps[] = [
       "Soluções de software personalizadas que atendem às necessidades específicas da sua empresa.",
     icon: <SettingsIcon sx={{ fontSize: 32, color: "#fff" }} />,
     gradient: "from-[#211cda] to-[#060554]",
+    slug: "software-sob-medida",
   },
   {
     title: "Integração de Sistemas",
@@ -46,6 +51,7 @@ const serviceCards: ServiceCardProps[] = [
       "Conectamos sistemas distintos para criar um ambiente de TI coeso e eficiente.",
     icon: <IntegrationInstructionsIcon sx={{ fontSize: 32, color: "#fff" }} />,
     gradient: "from-[#278deb] to-[#211cda]",
+    slug: "integracao-de-sistemas",
   },
   {
     title: "E-Commerce",
@@ -53,6 +59,7 @@ const serviceCards: ServiceCardProps[] = [
       "Plataformas de comércio eletrônico eficientes, projetadas para impulsionar suas vendas online.",
     icon: <ShoppingCartIcon sx={{ fontSize: 32, color: "#fff" }} />,
     gradient: "from-[#278deb] to-[#03515d]",
+    slug: "e-commerce",
   },
   {
     title: "Automação de Processos",
@@ -60,6 +67,7 @@ const serviceCards: ServiceCardProps[] = [
       "Otimize operações, reduza erros e aumente a eficiência com automação inteligente.",
     icon: <AutoFixHighIcon sx={{ fontSize: 32, color: "#fff" }} />,
     gradient: "from-[#211cda] to-[#278deb]",
+    slug: "automacao-de-processos",
   },
 ];
 
@@ -80,10 +88,12 @@ const ServiceCard = ({
   description,
   icon,
   gradient,
+  slug,
 }: ServiceCardProps) => {
   return (
-    <div
-      className="min-w-[325px] max-w-[325px] h-[450px] rounded-3xl shadow-2xl shadow-black/10 my-4 p-3.5 bg-white flex flex-col"
+    <Link
+      href={`/servicos/${slug}`}
+      className="min-w-[325px] max-w-[325px] h-[450px] rounded-3xl shadow-2xl shadow-black/10 my-4 p-3.5 bg-white flex flex-col group hover:shadow-xl transition-shadow duration-300"
       style={{
         boxShadow:
           "0 0px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px 0px rgba(0, 0, 0, 0.05)",
@@ -96,7 +106,7 @@ const ServiceCard = ({
           </span>
           <div className="w-4 h-4 bg-black/20 rounded-full" />
         </div>
-        <h3 className="font-medium text-[22px] mb-2 w-[220px]">{title}</h3>
+        <h3 className="font-medium text-[22px] mb-2 w-[220px] group-hover:text-[#211cda] transition-colors">{title}</h3>
         <span className="text-[#A0A0A0] text-[14px]">{description}</span>
       </div>
       <div
@@ -104,7 +114,7 @@ const ServiceCard = ({
       >
         {icon}
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -193,6 +203,7 @@ const Services = () => {
             description={card.description}
             icon={card.icon}
             gradient={card.gradient}
+            slug={card.slug}
           />
         ))}
       </HorizontalScroll>

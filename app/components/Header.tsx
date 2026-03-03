@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { openWhatsAppChat } from "../utils/whatsapp";
 
 const Header = () => {
@@ -10,6 +12,8 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("inicio");
   const scrollingProgrammaticallyRef = useRef(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +48,7 @@ const Header = () => {
   };
 
   useEffect(() => {
+    if (!isHome) return;
     const sections = sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean) as HTMLElement[];
@@ -71,9 +76,10 @@ const Header = () => {
     );
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
+    if (!isHome) return;
     const handleManualScroll = () => {
       if (scrollingProgrammaticallyRef.current) return;
       const scrollPos = window.scrollY + getHeaderOffset() + 4;
@@ -87,9 +93,10 @@ const Header = () => {
     };
     window.addEventListener("scroll", handleManualScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleManualScroll);
-  }, [activeSection]);
+  }, [activeSection, isHome]);
 
   useEffect(() => {
+    if (!isHome) return;
     if (location.hash) {
       const id = location.hash.replace("#", "");
       if (sectionIds.includes(id)) {
@@ -106,12 +113,20 @@ const Header = () => {
         });
       }
     }
-  }, []);
+  }, [isHome]);
+
+  const getNavHref = (id: string) => {
+    return isHome ? `#${id}` : `/#${id}`;
+  };
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     id: string
   ) => {
+    if (!isHome) {
+      closeMobileMenu();
+      return;
+    }
     e.preventDefault();
     const el = document.getElementById(id);
     if (!el) return;
@@ -146,7 +161,7 @@ const Header = () => {
 
       <div className="mx-auto xl:container w-full px-4 sm:px-0 relative z-10">
         <nav className="flex items-center justify-between py-4 gap-4 lg:gap-8">
-          <div className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <Image alt="Pilarcode" src="/icon.png" width={50} height={37} className="h-8 w-auto lg:h-10 shrink-0" />
             <div className="flex flex-col leading-none" style={{ fontFamily: "OpenSauceOne, sans-serif" }}>
               <span className="font-bold text-[20px] lg:text-[24px] text-white lg:text-gray-900 tracking-tight leading-none">
@@ -156,16 +171,16 @@ const Header = () => {
                 tech
               </span>
             </div>
-          </div>
+          </Link>
 
           <div className="hidden lg:flex items-center space-x-8">
             {sectionIds.map((id) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={getNavHref(id)}
                 onClick={(e) => handleNavClick(e, id)}
                 className={`transition-colors duration-200 text-sm font-medium tracking-wide ${
-                  activeSection === id
+                  isHome && activeSection === id
                     ? "text-gray-900"
                     : "text-gray-500 hover:text-gray-900"
                 }`}
@@ -242,10 +257,10 @@ const Header = () => {
             {sectionIds.map((id) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={getNavHref(id)}
                 onClick={(e) => handleNavClick(e, id)}
                 className={`block px-4 py-3 rounded-lg transition-colors duration-200 text-sm font-medium ${
-                  activeSection === id
+                  isHome && activeSection === id
                     ? "bg-white/15 text-white"
                     : "text-white hover:bg-white/10"
                 }`}
