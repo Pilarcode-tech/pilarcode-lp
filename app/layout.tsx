@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
 
 const manropeSans = Manrope({
@@ -199,6 +200,7 @@ export default function RootLayout({
       <body
         className={`${DMSans.variable} ${manropeSans.variable} ${plusJakartaSans.variable} antialiased`}
       >
+        <GoogleAnalytics />
         {children}
       </body>
     </html>

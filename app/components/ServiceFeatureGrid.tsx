@@ -1,67 +1,44 @@
-import type { ServiceBenefit } from "../data/services";
-import SpeedIcon from "@mui/icons-material/Speed";
-import DesignServicesIcon from "@mui/icons-material/DesignServices";
-import DevicesIcon from "@mui/icons-material/Devices";
-import ApiIcon from "@mui/icons-material/Api";
-import StoreMallDirectoryIcon from "@mui/icons-material/StoreMallDirectory";
-import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import SecurityIcon from "@mui/icons-material/Security";
-import TuneIcon from "@mui/icons-material/Tune";
-import ShieldIcon from "@mui/icons-material/Shield";
-import TouchAppIcon from "@mui/icons-material/TouchApp";
-import AssessmentIcon from "@mui/icons-material/Assessment";
-import KeyIcon from "@mui/icons-material/Key";
-import HubIcon from "@mui/icons-material/Hub";
-import AutoModeIcon from "@mui/icons-material/AutoMode";
-import SyncIcon from "@mui/icons-material/Sync";
-import MonitoringIcon from "@mui/icons-material/MonitorHeart";
-import ScatterPlotIcon from "@mui/icons-material/ScatterPlot";
-import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import InventoryIcon from "@mui/icons-material/Inventory";
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import AnalyticsIcon from "@mui/icons-material/Analytics";
-import SavingsIcon from "@mui/icons-material/Savings";
-import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import ScheduleIcon from "@mui/icons-material/Schedule";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import SummarizeIcon from "@mui/icons-material/Summarize";
+"use client";
 
-const iconMap: Record<string, React.ComponentType<{ sx?: object }>> = {
-  Speed: SpeedIcon,
-  DesignServices: DesignServicesIcon,
-  Devices: DevicesIcon,
-  Api: ApiIcon,
-  StoreMallDirectory: StoreMallDirectoryIcon,
-  SupportAgent: SupportAgentIcon,
-  TravelExplore: TravelExploreIcon,
-  TrendingUp: TrendingUpIcon,
-  EditNote: EditNoteIcon,
-  Security: SecurityIcon,
-  Tune: TuneIcon,
-  Shield: ShieldIcon,
-  TouchApp: TouchAppIcon,
-  Assessment: AssessmentIcon,
-  Key: KeyIcon,
-  Hub: HubIcon,
-  AutoMode: AutoModeIcon,
-  Sync: SyncIcon,
-  Monitoring: MonitoringIcon,
-  ScatterPlot: ScatterPlotIcon,
-  ShoppingCartCheckout: ShoppingCartCheckoutIcon,
-  CreditCard: CreditCardIcon,
-  Inventory: InventoryIcon,
-  PhoneIphone: PhoneIphoneIcon,
-  Analytics: AnalyticsIcon,
-  Savings: SavingsIcon,
-  VerifiedUser: VerifiedUserIcon,
-  Schedule: ScheduleIcon,
-  AccountTree: AccountTreeIcon,
-  Summarize: SummarizeIcon,
+import { lazy, Suspense } from "react";
+import type { ServiceBenefit } from "../data/services";
+
+const iconImports: Record<string, React.LazyExoticComponent<React.ComponentType<{ sx?: object }>>> = {
+  Speed: lazy(() => import("@mui/icons-material/Speed")),
+  DesignServices: lazy(() => import("@mui/icons-material/DesignServices")),
+  Devices: lazy(() => import("@mui/icons-material/Devices")),
+  Api: lazy(() => import("@mui/icons-material/Api")),
+  StoreMallDirectory: lazy(() => import("@mui/icons-material/StoreMallDirectory")),
+  SupportAgent: lazy(() => import("@mui/icons-material/SupportAgent")),
+  TravelExplore: lazy(() => import("@mui/icons-material/TravelExplore")),
+  TrendingUp: lazy(() => import("@mui/icons-material/TrendingUp")),
+  EditNote: lazy(() => import("@mui/icons-material/EditNote")),
+  Security: lazy(() => import("@mui/icons-material/Security")),
+  Tune: lazy(() => import("@mui/icons-material/Tune")),
+  Shield: lazy(() => import("@mui/icons-material/Shield")),
+  TouchApp: lazy(() => import("@mui/icons-material/TouchApp")),
+  Assessment: lazy(() => import("@mui/icons-material/Assessment")),
+  Key: lazy(() => import("@mui/icons-material/Key")),
+  Hub: lazy(() => import("@mui/icons-material/Hub")),
+  AutoMode: lazy(() => import("@mui/icons-material/AutoMode")),
+  Sync: lazy(() => import("@mui/icons-material/Sync")),
+  Monitoring: lazy(() => import("@mui/icons-material/MonitorHeart")),
+  ScatterPlot: lazy(() => import("@mui/icons-material/ScatterPlot")),
+  ShoppingCartCheckout: lazy(() => import("@mui/icons-material/ShoppingCartCheckout")),
+  CreditCard: lazy(() => import("@mui/icons-material/CreditCard")),
+  Inventory: lazy(() => import("@mui/icons-material/Inventory")),
+  PhoneIphone: lazy(() => import("@mui/icons-material/PhoneIphone")),
+  Analytics: lazy(() => import("@mui/icons-material/Analytics")),
+  Savings: lazy(() => import("@mui/icons-material/Savings")),
+  VerifiedUser: lazy(() => import("@mui/icons-material/VerifiedUser")),
+  Schedule: lazy(() => import("@mui/icons-material/Schedule")),
+  AccountTree: lazy(() => import("@mui/icons-material/AccountTree")),
+  Summarize: lazy(() => import("@mui/icons-material/Summarize")),
 };
+
+const IconPlaceholder = () => (
+  <div className="w-6 h-6 rounded bg-[#211cda]/20 animate-pulse" />
+);
 
 interface ServiceFeatureGridProps {
   benefits: ServiceBenefit[];
@@ -78,17 +55,17 @@ const ServiceFeatureGrid = ({ benefits }: ServiceFeatureGridProps) => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {benefits.map((benefit, index) => {
-          const IconComponent = iconMap[benefit.icon];
+          const LazyIcon = iconImports[benefit.icon];
           return (
             <div
               key={index}
               className="bg-white border border-gray-100 rounded-2xl p-6 lg:p-8 hover:shadow-lg hover:border-[#211cda]/10 transition-all duration-300"
             >
               <div className="w-12 h-12 rounded-xl bg-[#211cda]/10 flex items-center justify-center mb-5">
-                {IconComponent && (
-                  <IconComponent
-                    sx={{ fontSize: 24, color: "#211cda" }}
-                  />
+                {LazyIcon && (
+                  <Suspense fallback={<IconPlaceholder />}>
+                    <LazyIcon sx={{ fontSize: 24, color: "#211cda" }} />
+                  </Suspense>
                 )}
               </div>
               <h3 className="font-manrope font-semibold text-lg text-gray-900 mb-2">
