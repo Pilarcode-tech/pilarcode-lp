@@ -161,7 +161,7 @@ export default async function ServicePage({ params }: PageProps) {
             title={service.title}
             subtitle={service.subtitle}
             gradient={service.gradient}
-            whatsappMessage={service.whatsappMessage}
+            source={`service-header-${service.slug}`}
           />
         </div>
 
@@ -209,7 +209,7 @@ export default async function ServicePage({ params }: PageProps) {
 
         <ServiceCTA
           serviceName={service.shortTitle}
-          whatsappMessage={service.whatsappMessage}
+          source={`service-cta-${service.slug}`}
         />
       </main>
 

@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useMobile } from "../hooks";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 const AboutBanner = () => {
   const isMobile = useMobile();
@@ -43,23 +42,18 @@ const AboutBanner = () => {
             </p>
             {isMobile ? (
               <button
-                onClick={() => openWhatsAppChat()}
-                className="bg-[#25D366] hover:bg-[#20BA5A] mx-auto text-white font-medium py-3 px-6 rounded-lg mt-4 flex items-center gap-2 transition-colors duration-200"
+                onClick={() => openOrcamento("about-mobile")}
+                className="bg-white hover:bg-white/90 mx-auto text-[#211cda] font-semibold py-3 px-6 rounded-lg mt-4 flex items-center gap-2 transition-colors duration-200"
               >
-                <div className="relative w-[20px] h-[20px]">
-                  <Image alt="whatsapp" src="/whatsapp-outline.svg" fill={true} />
-                </div>
-                Converse no WhatsApp
+                Solicitar orçamento
+                <ArrowOutwardIcon fontSize="small" />
               </button>
             ) : (
               <button
-                onClick={() => openWhatsAppChat()}
-                className="text-white font-medium flex text-xs items-center gap-2 mt-4"
+                onClick={() => openOrcamento("about-desktop")}
+                className="text-white font-medium flex text-xs items-center gap-2 mt-4 hover:text-[#278deb] transition-colors"
               >
-                <div className="relative w-[20px] h-[20px]">
-                  <Image alt="whatsapp" src="/whatsapp-filled.svg" fill={true} />
-                </div>
-                Converse no WhatsApp <ArrowOutwardIcon fontSize="small" />
+                Solicitar orçamento <ArrowOutwardIcon fontSize="small" />
               </button>
             )}
           </div>

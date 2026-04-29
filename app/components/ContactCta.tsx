@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useMobile } from "../hooks";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 const ContactCta = () => {
   const isMobile = useMobile();
@@ -49,27 +48,24 @@ const ContactCta = () => {
           Quer começar seu projeto de tecnologia?
         </p>
         <p className="text-sm text-white/60 font-manrope mt-2 max-w-sm">
-          Converse agora com nosso time, sem compromisso.
-          Descubra como a Pilarcode pode transformar seu negócio.
+          Responda 4 perguntas rápidas e receba uma proposta personalizada em
+          até 24h, sem compromisso.
         </p>
         <button
-          onClick={() => openWhatsAppChat()}
-          className="text-white font-medium flex text-xs items-center gap-2 mt-4"
+          onClick={() => openOrcamento("contact-cta-link")}
+          className="text-white font-medium flex text-xs items-center gap-2 mt-4 hover:text-[#278deb] transition-colors"
         >
-          <div className="relative w-[20px] h-[20px]">
-            <Image alt="whatsapp" src="/whatsapp-filled.svg" fill={true} />
-          </div>
-          Converse no WhatsApp <ArrowOutwardIcon fontSize="small" />
+          Solicitar orçamento <ArrowOutwardIcon fontSize="small" />
         </button>
       </div>
 
       <div className="px-8 lg:pr-16 pb-10 lg:pb-0 flex items-center z-10">
         <div
-          className="flex items-center gap-2"
-          onClick={() => openWhatsAppChat()}
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => openOrcamento("contact-cta")}
         >
           <button className="p-4 px-6 bg-white rounded-full font-manrope font-semibold text-xs cursor-pointer hover:bg-white/90 transition-colors">
-            ENTRE EM CONTATO
+            SOLICITAR ORÇAMENTO
           </button>
           <button className="p-4 border border-white/40 hover:border-white text-white rounded-full font-manrope font-semibold text-xs cursor-pointer transition-colors">
             <ArrowForward fontSize="small" />

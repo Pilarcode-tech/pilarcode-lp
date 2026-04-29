@@ -1,20 +1,21 @@
 "use client";
 
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
 
 interface ServicePageHeaderProps {
   title: string;
   subtitle: string;
   gradient: string;
-  whatsappMessage: string;
+  /** UTM source identifier (e.g. "service-apps") */
+  source?: string;
 }
 
 const ServicePageHeader = ({
   title,
   subtitle,
   gradient,
-  whatsappMessage,
+  source,
 }: ServicePageHeaderProps) => {
   return (
     <section
@@ -36,7 +37,7 @@ const ServicePageHeader = ({
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <button
-            onClick={() => openWhatsAppChat(whatsappMessage)}
+            onClick={() => openOrcamento(source ?? "service-page-header")}
             className="bg-white text-[#211cda] px-6 py-3.5 rounded-full font-manrope font-semibold text-sm hover:bg-white/90 transition-colors cursor-pointer flex items-center gap-2"
           >
             Solicitar Orçamento

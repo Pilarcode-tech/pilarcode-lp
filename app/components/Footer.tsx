@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento, ORCAMENTO_URL } from "../utils/orcamento";
 
 const Footer = () => {
   return (
@@ -13,12 +13,17 @@ const Footer = () => {
         <h2 className="text-3xl lg:text-4xl 2xl:text-5x1">Entre em contato</h2>
         <div className="border-t-2 flex-1 mt-2 hidden md:block" aria-hidden="true"></div>
         <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); openWhatsAppChat(); }}
+          href={ORCAMENTO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => {
+            e.preventDefault();
+            openOrcamento("footer-cta");
+          }}
           className="text-2xl lg:text-4xl 2xl:text-6x1 text-white/20 hover:text-white/40 transition-colors"
-          aria-label="Ligar para WhatsApp +55 11 91895-8384"
+          aria-label="Solicitar orçamento online"
         >
-          +55 (11) 91895-8384
+          Solicitar orçamento
         </a>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 mt-10 md:grid-cols-2 xl:grid-cols-3 gap-10 lg:gap-0 pb-10 xl:pb-0 border-b border-white">
@@ -41,14 +46,19 @@ const Footer = () => {
             </a>
           </div>
           <div className="flex flex-col w-full gap-1 xl:w-fit md:gap-2 lg:gap-3">
-            <Image alt="Ícone de WhatsApp" src="/message.svg" width={24} height={24} />
-            <h3 className="font-semibold">WhatsApp</h3>
+            <Image alt="Ícone de orçamento" src="/message.svg" width={24} height={24} />
+            <h3 className="font-semibold">Orçamento</h3>
             <a
-              href="#"
-              onClick={(e) => { e.preventDefault(); openWhatsAppChat(); }}
+              href={ORCAMENTO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.preventDefault();
+                openOrcamento("footer-orcamento");
+              }}
               className="font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors"
             >
-              +55 (11) 91895-8384
+              orcamento.pilarcode.com.br
             </a>
           </div>
         </div>

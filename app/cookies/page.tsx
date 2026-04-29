@@ -162,7 +162,17 @@ export default function Cookies() {
                   contato@pilarcode.com.br
                 </a>
               </li>
-              <li>WhatsApp: +55 (11) 91895-8384</li>
+              <li>
+                Solicite um orçamento:{" "}
+                <a
+                  href="https://orcamento.pilarcode.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#211cda] hover:underline"
+                >
+                  orcamento.pilarcode.com.br
+                </a>
+              </li>
             </ul>
           </section>
         </div>

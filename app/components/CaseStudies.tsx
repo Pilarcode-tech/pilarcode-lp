@@ -1,7 +1,7 @@
 "use client";
 
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 interface CaseCardProps {
   title: string;
@@ -94,12 +94,11 @@ const CaseStudies = () => {
       </div>
       <div className="flex justify-center mt-8">
         <button
-          onClick={() =>
-            openWhatsAppChat("Olá! Gostaria de saber mais sobre os projetos da Pilarcode.")
-          }
+          onClick={() => openOrcamento("case-studies")}
           className="text-[#211cda] hover:text-[#060554] font-medium flex text-sm items-center gap-1 transition-colors duration-200"
         >
-          Quer um projeto como esses? Fale conosco <ArrowOutwardIcon fontSize="small" />
+          Quer um projeto como esses? Solicite seu orçamento{" "}
+          <ArrowOutwardIcon fontSize="small" />
         </button>
       </div>
     </div>

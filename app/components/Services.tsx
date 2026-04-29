@@ -10,7 +10,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 interface ServiceCardProps {
   title: string;
@@ -141,7 +141,7 @@ const ServiceCardOnboard = () => {
       </div>
       <div
         className="flex items-center align-center gap-2 cursor-pointer"
-        onClick={() => openWhatsAppChat()}
+        onClick={() => openOrcamento("services-onboard")}
       >
         <span className="text-black text-[12px] bg-white p-4 px-7 rounded-full font-semibold">
           Descubra

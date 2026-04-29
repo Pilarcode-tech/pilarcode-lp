@@ -1,16 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 interface ServiceCTAProps {
   serviceName: string;
-  whatsappMessage: string;
+  /** UTM source identifier (e.g. "service-cta-apps") */
+  source?: string;
 }
 
-const ServiceCTA = ({ serviceName, whatsappMessage }: ServiceCTAProps) => {
+const ServiceCTA = ({ serviceName, source }: ServiceCTAProps) => {
+  const utm = source ?? "service-cta";
   return (
     <section className="mx-4 lg:mx-auto lg:max-w-[1514px] mb-16 lg:mb-24">
       <div className="bg-[#211cda] min-h-[350px] flex flex-col lg:flex-row items-center gap-6 rounded-3xl overflow-hidden relative">
@@ -47,23 +48,20 @@ const ServiceCTA = ({ serviceName, whatsappMessage }: ServiceCTAProps) => {
             seu projeto.
           </p>
           <button
-            onClick={() => openWhatsAppChat(whatsappMessage)}
-            className="text-white font-medium flex text-xs items-center gap-2 mt-4 cursor-pointer"
+            onClick={() => openOrcamento(`${utm}-link`)}
+            className="text-white font-medium flex text-xs items-center gap-2 mt-4 cursor-pointer hover:text-[#278deb] transition-colors"
           >
-            <div className="relative w-[20px] h-[20px]">
-              <Image alt="whatsapp" src="/whatsapp-filled.svg" fill={true} />
-            </div>
-            Converse no WhatsApp <ArrowOutwardIcon fontSize="small" />
+            Solicitar orçamento <ArrowOutwardIcon fontSize="small" />
           </button>
         </div>
 
         <div className="px-8 lg:pr-16 pb-10 lg:pb-0 flex items-center z-10">
           <div
-            className="flex items-center gap-2"
-            onClick={() => openWhatsAppChat(whatsappMessage)}
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => openOrcamento(utm)}
           >
             <button className="p-4 px-6 bg-white rounded-full font-manrope font-semibold text-xs cursor-pointer hover:bg-white/90 transition-colors">
-              FALAR COM ESPECIALISTA
+              SOLICITAR ORÇAMENTO
             </button>
             <button className="p-4 border border-white/40 hover:border-white text-white rounded-full font-manrope font-semibold text-xs cursor-pointer transition-colors">
               <ArrowForward fontSize="small" />

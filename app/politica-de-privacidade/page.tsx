@@ -47,8 +47,8 @@ export default function PoliticaDePrivacidade() {
             <ul className="list-disc pl-6 space-y-1 mt-2">
               <li>
                 <strong>Dados de contato:</strong> nome, e-mail e número de
-                telefone/WhatsApp fornecidos voluntariamente por você ao entrar
-                em contato conosco.
+                telefone fornecidos voluntariamente por você ao entrar em
+                contato conosco ou solicitar um orçamento.
               </li>
               <li>
                 <strong>Dados de navegação:</strong> endereço IP, tipo de
@@ -199,7 +199,17 @@ export default function PoliticaDePrivacidade() {
                   contato@pilarcode.com.br
                 </a>
               </li>
-              <li>WhatsApp: +55 (11) 91895-8384</li>
+              <li>
+                Solicite um orçamento:{" "}
+                <a
+                  href="https://orcamento.pilarcode.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#211cda] hover:underline"
+                >
+                  orcamento.pilarcode.com.br
+                </a>
+              </li>
               <li>São Paulo, Brasil</li>
             </ul>
           </section>

@@ -31,7 +31,6 @@ export interface ServiceData {
   technologies: string[];
   faq: ServiceFAQ[];
   relatedSlugs: string[];
-  whatsappMessage: string;
 }
 
 export const services: ServiceData[] = [
@@ -172,8 +171,6 @@ export const services: ServiceData[] = [
       },
     ],
     relatedSlugs: ["desenvolvimento-web", "software-sob-medida", "integracao-de-sistemas"],
-    whatsappMessage:
-      "Olá! Gostaria de saber mais sobre desenvolvimento de aplicativos para meu negócio.",
   },
   {
     slug: "desenvolvimento-web",
@@ -310,8 +307,6 @@ export const services: ServiceData[] = [
       },
     ],
     relatedSlugs: ["e-commerce", "desenvolvimento-de-apps", "software-sob-medida"],
-    whatsappMessage:
-      "Olá! Gostaria de saber mais sobre desenvolvimento de sites e aplicações web.",
   },
   {
     slug: "software-sob-medida",
@@ -453,8 +448,6 @@ export const services: ServiceData[] = [
       "automacao-de-processos",
       "desenvolvimento-web",
     ],
-    whatsappMessage:
-      "Olá! Gostaria de saber mais sobre desenvolvimento de software sob medida para minha empresa.",
   },
   {
     slug: "integracao-de-sistemas",
@@ -596,8 +589,6 @@ export const services: ServiceData[] = [
       "automacao-de-processos",
       "e-commerce",
     ],
-    whatsappMessage:
-      "Olá! Gostaria de saber mais sobre integração de sistemas para minha empresa.",
   },
   {
     slug: "e-commerce",
@@ -740,8 +731,6 @@ export const services: ServiceData[] = [
       "integracao-de-sistemas",
       "automacao-de-processos",
     ],
-    whatsappMessage:
-      "Olá! Gostaria de saber mais sobre criação de loja virtual / e-commerce.",
   },
   {
     slug: "automacao-de-processos",
@@ -884,8 +873,6 @@ export const services: ServiceData[] = [
       "software-sob-medida",
       "desenvolvimento-de-apps",
     ],
-    whatsappMessage:
-      "Olá! Gostaria de saber mais sobre automação de processos para minha empresa.",
   },
 ];
 

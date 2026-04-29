@@ -5,7 +5,7 @@ import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -192,10 +192,10 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center space-x-4">
             <button
-              onClick={() => openWhatsAppChat()}
+              onClick={() => openOrcamento("header-desktop")}
               className="bg-[#211cda] hover:bg-[#060554] text-white px-4 lg:px-3 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 shadow-lg flex items-center space-x-2 group cursor-pointer"
             >
-              <span className="font-normal text-sm">Fale Conosco</span>
+              <span className="font-normal text-sm">Solicitar orçamento</span>
               <div className="bg-white/20 p-1.5 rounded-lg flex">
                 <ArrowForward
                   fontSize="small"
@@ -210,10 +210,10 @@ const Header = () => {
 
           <div className="flex lg:hidden items-center space-x-2">
             <button
-              onClick={() => openWhatsAppChat()}
+              onClick={() => openOrcamento("header-mobile")}
               className="bg-gradient-to-r from-[#211cda] to-[#060554] hover:from-[#060554] hover:to-[#211cda] text-white px-3 py-2 rounded-lg font-semibold text-xs transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              Contato
+              Orçamento
             </button>
 
             <button

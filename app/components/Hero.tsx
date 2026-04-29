@@ -2,7 +2,7 @@
 
 import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
 import { useMobile } from "../hooks";
-import { openWhatsAppChat } from "../utils/whatsapp";
+import { openOrcamento } from "../utils/orcamento";
 
 const Hero = () => {
   const isMobile = useMobile();
@@ -25,10 +25,10 @@ const Hero = () => {
           </div>
           <div className="flex items-center gap-3 justify-center md:justify-start">
             <button
-              onClick={() => openWhatsAppChat("Olá! Gostaria de conhecer as soluções da Pilarcode.")}
+              onClick={() => openOrcamento("hero")}
               className="bg-[#211cda] hover:bg-[#060554] text-white px-6 py-3 rounded-xl font-medium text-sm transition-all duration-200 shadow-lg flex items-center gap-2 cursor-pointer"
             >
-              Quero inovar
+              Solicitar orçamento
               <div className="bg-white/20 p-1 rounded-lg flex">
                 <ArrowForward sx={{ width: 16, height: 16 }} />
               </div>
