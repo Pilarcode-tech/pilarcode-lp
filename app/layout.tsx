@@ -162,7 +162,7 @@ export default function RootLayout({
               },
               sameAs: [
                 "https://instagram.com/pilarcode",
-                "https://linkedin.com/company/pilarcode",
+                "https://www.linkedin.com/company/pilarcode",
               ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",

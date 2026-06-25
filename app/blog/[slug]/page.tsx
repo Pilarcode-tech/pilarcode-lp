@@ -2,8 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getPublishedPosts, getPostBySlug, formatDateBR } from "../../data/blog";
+import { getAuthorByName, authorProfileUrl } from "../../data/authors";
 import { Header, Footer } from "../../components";
+import AuthorBio from "../_components/AuthorBio";
 import { mdxComponents } from "../../../mdx-components";
 
 // So gera as paginas dos artigos publicados; slugs de draft -> 404 (nao indexavel).
@@ -73,6 +76,7 @@ export default async function BlogArticle({ params }: PageProps) {
   const fm = post.frontmatter;
   const url = `https://pilarcode.com.br/blog/${fm.slug}`;
   const image = absoluteImage(fm.ogImage);
+  const author = getAuthorByName(fm.author);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -80,10 +84,11 @@ export default async function BlogArticle({ params }: PageProps) {
     headline: fm.title,
     description: fm.description,
     image: [image],
+    // author como Person (sinal de E-E-A-T atribuido a uma pessoa real).
     author: {
-      "@type": "Organization",
+      "@type": "Person",
       name: fm.author,
-      url: "https://pilarcode.com.br",
+      url: author ? authorProfileUrl(author) : "https://pilarcode.com.br",
     },
     publisher: {
       "@type": "Organization",
@@ -188,9 +193,20 @@ export default async function BlogArticle({ params }: PageProps) {
             <MDXRemote
               source={post.content}
               components={mdxComponents}
-              options={{ parseFrontmatter: false }}
+              options={{
+                parseFrontmatter: false,
+                // remark-gfm habilita tabelas, listas de tarefa e strikethrough no MDX.
+                mdxOptions: { remarkPlugins: [remarkGfm] },
+              }}
             />
           </div>
+
+          {/* Bloco de autoria (E-E-A-T) */}
+          {author ? (
+            <div className="max-w-[68ch] mx-auto">
+              <AuthorBio author={author} />
+            </div>
+          ) : null}
         </article>
       </main>
 
