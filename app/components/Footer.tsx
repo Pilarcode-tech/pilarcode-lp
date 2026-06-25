@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="flex gap-4 justify-between items-start">
           <div className="flex flex-col w-full gap-1 md:gap-2 lg:gap-3">
             <Image alt="Bandeira do Brasil" src="/brasil.svg" width={24} height={24} />
-            <h3 className="font-semibold">Brasil, São Paulo</h3>
+            <h3 className="font-semibold">Atendimento em todo o Brasil</h3>
           </div>
           <div className="hidden lg:block" />
         </div>
@@ -104,7 +104,8 @@ const Footer = () => {
             &copy; 2026 Pilarcode - Todos os direitos reservados.
           </p>
         </div>
-        <nav className="flex xl:mt-0 justify-around gap-4 text-white/80 text-sm" aria-label="Links legais">
+        <nav className="flex xl:mt-0 justify-around gap-4 text-white/80 text-sm" aria-label="Navegação do rodapé">
+          <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
           <Link href="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</Link>
           <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
           <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">LGPD</Link>

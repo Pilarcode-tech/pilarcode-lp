@@ -14,6 +14,7 @@ const Header = () => {
   const scrollingProgrammaticallyRef = useRef(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isBlog = pathname.startsWith("/blog");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -188,6 +189,14 @@ const Header = () => {
                 {sectionLabels[id]}
               </a>
             ))}
+            <Link
+              href="/blog"
+              className={`transition-colors duration-200 text-sm font-medium tracking-wide ${
+                isBlog ? "text-gray-900" : "text-gray-500 hover:text-gray-900"
+              }`}
+            >
+              Blog
+            </Link>
           </div>
 
           <div className="hidden lg:flex items-center space-x-4">
@@ -268,6 +277,15 @@ const Header = () => {
                 {sectionLabels[id]}
               </a>
             ))}
+            <Link
+              href="/blog"
+              onClick={closeMobileMenu}
+              className={`block px-4 py-3 rounded-lg transition-colors duration-200 text-sm font-medium ${
+                isBlog ? "bg-white/15 text-white" : "text-white hover:bg-white/10"
+              }`}
+            >
+              Blog
+            </Link>
           </div>
         </div>
       </div>

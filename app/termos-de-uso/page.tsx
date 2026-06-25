@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Termos de Uso",
   description: "Termos de Uso do site da Pilarcode.",
+  alternates: {
+    canonical: "https://pilarcode.com.br/termos-de-uso",
+  },
 };
 
 export default function TermosDeUso() {

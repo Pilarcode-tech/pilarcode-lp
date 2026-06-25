@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Política de Privacidade",
   description:
     "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
+  alternates: {
+    canonical: "https://pilarcode.com.br/politica-de-privacidade",
+  },
 };
 
 export default function PoliticaDePrivacidade() {

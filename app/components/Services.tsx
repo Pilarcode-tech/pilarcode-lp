@@ -194,6 +194,9 @@ const HorizontalScroll = ({ children }: React.PropsWithChildren) => {
 const Services = () => {
   return (
     <div>
+      {/* Título de seção para hierarquia de headings (H1 > H2 > H3) e SEO.
+          sr-only: acessível a leitores de tela e ao Google sem alterar o design. */}
+      <h2 className="sr-only">Nossos Serviços</h2>
       <HorizontalScroll>
         <ServiceCardOnboard />
         {serviceCards.map((card) => (

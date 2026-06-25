@@ -29,7 +29,7 @@ const AboutBanner = () => {
         {/* Left column - text */}
         <div className="lg:w-[45%] flex flex-col gap-6">
           <div>
-            <p className="font-extrabold text-white text-xs tracking-widest">SOBRE NÓS</p>
+            <h2 className="font-extrabold text-white text-xs tracking-widest">SOBRE NÓS</h2>
             <p className="text-2xl lg:text-3xl text-white font-medium mt-3 leading-relaxed">
               Uma equipe de{" "}
               <span className="text-[#278deb] font-bold">especialistas</span>{" "}
