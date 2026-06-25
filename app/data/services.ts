@@ -16,6 +16,8 @@ export interface ProcessStep {
 
 export interface ServiceData {
   slug: string;
+  /** Data ISO (YYYY-MM-DD) da última revisão de conteúdo desta página. Usada no sitemap (lastModified). */
+  updatedAt?: string;
   title: string;
   shortTitle: string;
   subtitle: string;
@@ -36,6 +38,7 @@ export interface ServiceData {
 export const services: ServiceData[] = [
   {
     slug: "desenvolvimento-de-apps",
+    updatedAt: "2026-06-24",
     title: "Desenvolvimento de Apps",
     shortTitle: "Apps",
     subtitle:
@@ -174,6 +177,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "desenvolvimento-web",
+    updatedAt: "2026-06-24",
     title: "Desenvolvimento Web",
     shortTitle: "Web",
     subtitle:
@@ -310,6 +314,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "software-sob-medida",
+    updatedAt: "2026-06-24",
     title: "Software Sob Medida",
     shortTitle: "Software",
     subtitle:
@@ -451,6 +456,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "integracao-de-sistemas",
+    updatedAt: "2026-06-24",
     title: "Integração de Sistemas",
     shortTitle: "Integração",
     subtitle:
@@ -592,6 +598,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "e-commerce",
+    updatedAt: "2026-06-24",
     title: "E-Commerce",
     shortTitle: "E-Commerce",
     subtitle:
@@ -734,6 +741,7 @@ export const services: ServiceData[] = [
   },
   {
     slug: "automacao-de-processos",
+    updatedAt: "2026-06-24",
     title: "Automação de Processos",
     shortTitle: "Automação",
     subtitle:

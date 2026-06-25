@@ -1,0 +1,127 @@
+---
+title: "Quanto custa um sistema sob medida em 2026"
+description: "Faixas reais de R$ 40k a R$ 300k+, o que faz o preço variar e como avaliar uma proposta sem ser surpreendido."
+slug: "quanto-custa-sistema-sob-medida"
+keyword: "quanto custa desenvolver um sistema sob medida"
+keywordsSecundarias:
+  - "preço de software sob medida"
+  - "orçamento de sistema personalizado"
+publishedAt: "2026-06-25"
+updatedAt: "2026-06-25"
+author: "Pilarcode"
+readingTime: "9 min"
+ogImage: "/og-image.png"
+draft: false
+---
+
+Você pediu orçamento pra três fornecedores e recebeu R$ 50 mil, R$ 180 mil e R$ 600 mil pelo "mesmo" sistema. Qual está certo?
+
+Provavelmente nenhum dos três entendeu o seu projeto direito, ou os três entenderam coisas diferentes. Software sob medida não tem tabela de preço fixa pelo mesmo motivo que construção civil não tem: o custo vem do que o sistema precisa fazer, não de quantas telas ele tem.
+
+Este guia mostra as faixas reais praticadas no Brasil em 2026, os fatores que de fato movem o preço, e como ler uma proposta pra não ser surpreendido com aditivo no meio do projeto.
+
+## Quanto custa, em faixas reais de 2026
+
+Antes do "depende", os números. Estas são as faixas praticadas por software houses e fábricas de software de médio porte no Brasil em 2026, considerando time com boas práticas de engenharia (não freelancer avulso, nem consultoria internacional).
+
+| Tipo de sistema | Faixa de investimento | O que costuma incluir |
+|---|---|---|
+| Sistema interno simples | R$ 40k a R$ 80k | 5 a 10 telas, 1 perfil de usuário, fluxo único, sem app mobile. Ex: cadastro de orçamentos com aprovação e geração de PDF. |
+| Sistema operacional médio | R$ 100k a R$ 300k | 15 a 40 telas, 2 a 4 perfis de usuário, 1 ou 2 integrações externas (ERP, gateway, API contábil), painel administrativo separado, talvez app mobile. |
+| Plataforma complexa | R$ 300k a R$ 800k+ | Multi-tenant, alta volumetria, múltiplas integrações críticas, requisitos de compliance setorial (saúde, financeiro, governo), app mobile completo. |
+
+Os valores cobrem discovery, desenvolvimento, testes e entrega. Não incluem hospedagem mensal, manutenção pós-entrega nem licenças de terceiros. Volto nesses custos recorrentes mais pra frente.
+
+Repare numa coisa: a faixa de cada categoria é estreita. O mercado é mais previsível do que parece. O que joga você de uma categoria pra outra são seis fatores. É aí que mora o número final.
+
+## Os 6 fatores que definem o preço
+
+### 1. Complexidade da regra de negócio (não a quantidade de telas)
+
+Esse é o fator número um, e o mais mal interpretado. Quantidade de telas e complexidade são coisas diferentes.
+
+Um sistema de 30 telas que só faz cadastro e listagem é simples. Um sistema de 6 telas que calcula comissão por regra variável, valida estoque em tempo real e aprova workflow em três níveis é complexo. O segundo custa mais, mesmo tendo menos telas.
+
+Quando um fornecedor pergunta "quantas telas você quer", desconfie. A pergunta certa é "o que cada parte do sistema precisa decidir".
+
+### 2. Integrações com outros sistemas
+
+Conectar seu sistema novo ao ERP, ao CRM, ao gateway de pagamento ou a uma API contábil é uma das tarefas mais subestimadas em orçamento.
+
+Integração com sistema legado (ERP antigo, API mal documentada, protocolo proprietário) pode representar de 25% a 40% do custo total em projetos maiores. Documentação escassa e APIs desatualizadas triplicam o tempo. Mapeie todas as integrações necessárias antes de iniciar, não no meio.
+
+### 3. Número de perfis de usuário
+
+Um sistema com um perfil só (todo mundo vê tudo) é simples. Cada novo perfil (administrador, gestor, operador, cliente final) adiciona regras de permissão, telas específicas e lógica de quem pode fazer o quê. Três perfis não custam o triplo de um, mas custam mais, porque cada um é quase um produto dentro do produto.
+
+### 4. Design e interface
+
+Sistema interno de back-office pode usar componentes prontos e ficar profissional sem custo extra de design. Plataforma voltada pro cliente final é outra história: precisa de identidade própria, microinterações, fluxo pensado pra conversão. Isso adiciona de 15% a 30% ao projeto. Não é vaidade, é o que faz o usuário externo usar em vez de abandonar.
+
+### 5. Compliance e segurança
+
+LGPD básica todo projeto sério já faz. Mas alguns setores têm exigências que viram um projeto paralelo: saúde pede certificação SBIS, fintech pede auditoria de padrões do Banco Central, sistema de governo pede acessibilidade eMAG. Cada um desses vira documentação, processo, certificação e teste de invasão. Pode adicionar R$ 50k ou mais dependendo do setor.
+
+### 6. A stack tecnológica escolhida
+
+A escolha de tecnologia afeta o custo inicial pouco, mas o custo de operação e evolução muito. Stack moderna entrega o mesmo software com menos código que stack antiga. Menos código significa menos bug, manutenção mais barata e cada nova funcionalidade custando menos no futuro.
+
+O barato com tecnologia obsoleta cobra caro depois, na forma de manutenção difícil e travamento na hora de evoluir.
+
+<Callout title="Quantidade de telas engana" variant="warning">
+O erro mais comum ao orçar é contar telas. Um sistema de poucas telas pode esconder a lógica mais cara do projeto. Avalie funcionalidade a funcionalidade, não pela quantidade de páginas.
+</Callout>
+
+## Os 3 modelos de contratação (e o risco de cada um)
+
+O mesmo sistema pode ser cobrado de três formas. Entender a diferença evita conflito depois.
+
+**Escopo fechado (preço fixo).** Você paga um valor combinado pra entregar um escopo definido. Funciona quando o produto está bem mapeado e mudança é rara. A previsibilidade orçamentária é a vantagem. A desvantagem: qualquer alteração no meio do caminho vira aditivo, e o time tem incentivo a recusar melhorias que não estão no contrato.
+
+**Time e material (por hora ou por sprint).** Você paga pelo trabalho efetivamente realizado. Funciona quando o escopo ainda vai evoluir e você quer flexibilidade. A vantagem é se adaptar a mudança sem renegociar contrato. A desvantagem: exige sua participação ativa pra não estourar.
+
+**Squad dedicado (time alocado por mês).** Você contrata um time fixo por um período. Funciona pra projeto longo e contínuo, ou pra quem tem demanda recorrente. Costuma ter reajuste anual por índice (IPCA ou IGP-M), o que precisa estar claro no contrato pra não virar disputa.
+
+Não existe modelo certo. Existe o modelo certo pro seu momento. Projeto bem definido com prazo apertado pede escopo fechado. Produto que ainda vai descobrir o que é pede time e material.
+
+## Os custos que não aparecem no orçamento inicial
+
+O valor de desenvolvimento é só uma parte. Antes de assinar, confira estes:
+
+**Hospedagem e infraestrutura.** Quase nunca está incluso no preço de desenvolvimento. Um sistema de tráfego médio roda com R$ 500 a R$ 2.000 por mês de infraestrutura em 2026. Confira se o orçamento separa desenvolvimento (investimento único) de hospedagem (custo mensal).
+
+**Manutenção pós-entrega.** Bug acontece, e sistema precisa de ajuste depois do go-live. Pergunte qual é a garantia (quanto tempo de correção sem custo) e qual é o valor de manutenção mensal depois.
+
+**Retenção de imposto.** Quando sua empresa (pessoa jurídica) contrata o serviço, pode haver retenção na fonte de 1,5% a 4,8% dependendo da classificação. Quem ajusta isso precisa estar no contrato. Uma diferença de 5% a 10% no fim do projeto costuma vir daqui.
+
+**Licenças de terceiros.** Algumas funcionalidades usam serviços pagos (envio de SMS, autenticação avançada, mapa, gateway). Confirme item por item o que é custo do projeto e o que é mensalidade sua depois.
+
+## Como avaliar uma proposta sem ser enrolado
+
+Um orçamento sem requisitos é uma estimativa, não um compromisso. Quem entrega um valor fechado em dez minutos, sem entender seu processo, está chutando, e o chute reaparece como aditivo e atraso.
+
+Antes de assinar, faça estas perguntas ao fornecedor:
+
+- **"Qual foi o último projeto parecido com o meu que vocês entregaram?"** Peça pra ver o sistema em produção e, se possível, falar com o cliente.
+- **"O que acontece se o escopo mudar no meio?"** A resposta tem que ser um processo claro, não "a gente resolve na hora".
+- **"Quem vai ser o responsável técnico no meu projeto?"** Você trabalha com pessoas, não com um logotipo.
+- **"Qual a cobertura de testes ao final?"** Resposta vaga é sinal de alerta.
+- **"O código é meu ao final?"** Em projeto sob medida, a propriedade do código deve ser sua. Confirme isso no contrato.
+
+Uma proposta boa começa com um diagnóstico do seu processo, não com um número. Se o número vem antes do entendimento, desconfie.
+
+## Quando sob medida não vale a pena
+
+Vale a honestidade: nem todo problema pede sistema sob medida.
+
+Se já existe um SaaS pronto que atende 80% ou mais da sua necessidade, e você consegue adaptar seu processo aos 20% que faltam, o pronto provavelmente é mais barato e mais rápido. Sob medida compensa quando o seu diferencial competitivo depende de algo que nenhum sistema de prateleira faz, ou quando a soma das mensalidades de SaaS já passou do que custaria ter o seu próprio.
+
+A conta muda caso a caso. Mas se a resposta honesta for "um sistema pronto resolve", a gente fala isso antes de você gastar com desenvolvimento.
+
+## Resumindo
+
+Sistema sob medida no Brasil em 2026 custa de R$ 40k (interno simples) a R$ 300k+ (operacional médio a complexo). O número final depende de seis fatores, com a complexidade da regra de negócio e as integrações pesando mais que a quantidade de telas. O modelo de contratação certo depende de quão definido está o seu escopo. E os custos recorrentes (infraestrutura, manutenção, imposto) precisam estar na conta desde o começo.
+
+A faixa larga não é falta de transparência do mercado. É reflexo de quão diferente é cada operação. O que separa uma proposta séria de um chute é simples: a séria entende o seu processo antes de dar o preço.
+
+<CtaBox source="blog-quanto-custa-sistema-sob-medida" />

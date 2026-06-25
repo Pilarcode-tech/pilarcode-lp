@@ -4,6 +4,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Política de Cookies",
   description: "Política de Cookies do site da Pilarcode.",
+  alternates: {
+    canonical: "https://pilarcode.com.br/cookies",
+  },
 };
 
 export default function Cookies() {

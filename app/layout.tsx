@@ -62,11 +62,11 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://pilarcode.com.br/",
+    canonical: "https://pilarcode.com.br",
   },
   openGraph: {
     type: "website",
-    url: "https://pilarcode.com.br/",
+    url: "https://pilarcode.com.br",
     siteName: "Pilarcode",
     title: "Pilarcode | Inovação ao seu alcance",
     description:
@@ -112,7 +112,7 @@ export default function RootLayout({
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="beforeInteractive"
+              strategy="afterInteractive"
             />
             <script
               dangerouslySetInnerHTML={{
@@ -131,17 +131,28 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "ProfessionalService",
               name: "Pilarcode",
               url: "https://pilarcode.com.br",
               logo: "https://pilarcode.com.br/logo.png",
+              image: "https://pilarcode.com.br/og-image.png",
+              email: "contato@pilarcode.com.br",
+              priceRange: "$$",
               description:
                 "Soluções tecnológicas sob medida: desenvolvimento de apps, sites, software, integrações e automação de processos.",
+              // Atendimento 100% remoto, sem ponto físico ao público.
+              // Por isso NÃO declaramos streetAddress, geo, hasMap nem openingHours
+              // (campos de loja/estabelecimento presencial). Mantemos só a sede (Arujá/SP, CNPJ).
               address: {
                 "@type": "PostalAddress",
-                addressLocality: "São Paulo",
+                addressLocality: "Arujá",
                 addressRegion: "SP",
                 addressCountry: "BR",
+              },
+              // Alcance de atendimento: todo o território nacional.
+              areaServed: {
+                "@type": "Country",
+                name: "Brasil",
               },
               contactPoint: {
                 "@type": "ContactPoint",
