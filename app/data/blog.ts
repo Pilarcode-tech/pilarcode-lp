@@ -6,6 +6,11 @@ import matter from "gray-matter";
  * Frontmatter de cada artigo do blog (content/blog/*.mdx).
  * Os campos obrigatorios devem existir em todo arquivo; os opcionais tem fallback.
  */
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 export interface PostFrontmatter {
   title: string;
   description: string;
@@ -18,6 +23,8 @@ export interface PostFrontmatter {
   readingTime: string;
   ogImage?: string;
   draft?: boolean;
+  /** Perguntas frequentes: renderiza secao visivel + JSON-LD FAQPage (bom para AI Overviews). */
+  faq?: FaqItem[];
 }
 
 export interface Post {
