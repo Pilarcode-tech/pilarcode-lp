@@ -33,6 +33,8 @@ export interface ServiceData {
   technologies: string[];
   faq: ServiceFAQ[];
   relatedSlugs: string[];
+  /** Slugs de artigos do blog relacionados (fecha o cluster pillar -> conteudo). */
+  relatedPosts?: string[];
 }
 
 export const services: ServiceData[] = [
@@ -453,6 +455,10 @@ export const services: ServiceData[] = [
       "automacao-de-processos",
       "desenvolvimento-web",
     ],
+    relatedPosts: [
+      "quanto-custa-sistema-sob-medida",
+      "sistema-pronto-ou-sob-medida",
+    ],
   },
   {
     slug: "integracao-de-sistemas",
@@ -595,6 +601,7 @@ export const services: ServiceData[] = [
       "automacao-de-processos",
       "e-commerce",
     ],
+    relatedPosts: ["sistema-pronto-ou-sob-medida"],
   },
   {
     slug: "e-commerce",
