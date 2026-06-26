@@ -63,7 +63,7 @@ export const services: ServiceData[] = [
     gradient: "from-[#278deb] to-[#211cda]",
     iconName: "Code",
     introduction: [
-      "Na era mobile-first, ter um aplicativo de qualidade não é mais um diferencial — é uma necessidade. Na Pilarcode, desenvolvemos aplicativos móveis que transformam a forma como sua empresa se conecta com clientes, otimiza operações e gera receita.",
+      "Na era mobile-first, ter um aplicativo de qualidade não é mais um diferencial, é uma necessidade. Na Pilarcode, desenvolvemos aplicativos móveis que transformam a forma como sua empresa se conecta com clientes, otimiza operações e gera receita.",
       "Nosso time de desenvolvedores especializados cria apps nativos e multiplataforma para iOS e Android, garantindo performance excepcional, interfaces intuitivas e integração perfeita com seus sistemas existentes. Do conceito ao lançamento nas lojas, cuidamos de cada etapa.",
       "Seja para um app de vendas, um sistema de gestão interno ou uma plataforma de relacionamento com o cliente, entregamos soluções que combinam tecnologia de ponta com design centrado no usuário.",
     ],
@@ -202,7 +202,7 @@ export const services: ServiceData[] = [
     gradient: "from-[#03515d] to-[#278deb]",
     iconName: "Language",
     introduction: [
-      "Seu site é a vitrine digital da sua empresa — e precisa impressionar em segundos. Na Pilarcode, criamos sites e aplicações web que combinam design moderno, performance excepcional e estratégia de conversão para transformar visitantes em clientes.",
+      "Seu site é a vitrine digital da sua empresa, e precisa impressionar em segundos. Na Pilarcode, criamos sites e aplicações web que combinam design moderno, performance excepcional e estratégia de conversão para transformar visitantes em clientes.",
       "Desenvolvemos desde landing pages de alta conversão até portais corporativos complexos e aplicações web progressivas (PWA). Cada projeto é construído com as tecnologias mais modernas do mercado, garantindo velocidade de carregamento, responsividade perfeita e SEO otimizado.",
       "Com foco em resultados mensuráveis, nossos sites são projetados para ranquear bem no Google, carregar rapidamente e proporcionar uma experiência de navegação excepcional em qualquer dispositivo.",
     ],
@@ -222,7 +222,7 @@ export const services: ServiceData[] = [
       {
         title: "Design Responsivo",
         description:
-          "Layout que se adapta perfeitamente a qualquer tela — desktop, tablet e smartphone — sem perder qualidade visual.",
+          "Layout que se adapta perfeitamente a qualquer tela (desktop, tablet e smartphone) sem perder qualidade visual.",
         icon: "Devices",
       },
       {
@@ -483,7 +483,7 @@ export const services: ServiceData[] = [
     introduction: [
       "Sua empresa usa vários sistemas que não conversam entre si? Dados duplicados, retrabalho manual e informações desatualizadas são sintomas de um ecossistema digital fragmentado. Na Pilarcode, resolvemos isso conectando seus sistemas de forma inteligente e automatizada.",
       "Desenvolvemos integrações robustas entre ERPs, CRMs, plataformas de e-commerce, gateways de pagamento, sistemas de logística e qualquer outro software via API. O resultado? Dados fluindo em tempo real, processos automatizados e uma visão unificada do seu negócio.",
-      "Trabalhamos com APIs REST, GraphQL, webhooks, filas de mensagens e middleware personalizado para garantir que cada integração seja confiável, segura e escalável — independente da complexidade dos seus sistemas.",
+      "Trabalhamos com APIs REST, GraphQL, webhooks, filas de mensagens e middleware personalizado para garantir que cada integração seja confiável, segura e escalável, independente da complexidade dos seus sistemas.",
     ],
     benefits: [
       {
@@ -625,7 +625,7 @@ export const services: ServiceData[] = [
     introduction: [
       "O e-commerce brasileiro não para de crescer, e sua empresa precisa estar preparada para aproveitar esse potencial. Na Pilarcode, desenvolvemos lojas virtuais completas que não apenas vendem, mas criam experiências de compra memoráveis que fidelizam clientes.",
       "De lojas virtuais personalizadas a marketplaces complexos, nossa expertise em e-commerce abrange toda a jornada de compra: catálogo de produtos inteligente, checkout otimizado para reduzir abandono de carrinho, integração com múltiplos meios de pagamento e logística automatizada.",
-      "Cada e-commerce que construímos é pensado para performance, SEO e conversão. Isso significa páginas que carregam rápido, produtos que aparecem no Google e uma experiência mobile impecável — porque mais de 70% das compras online no Brasil são feitas pelo celular.",
+      "Cada e-commerce que construímos é pensado para performance, SEO e conversão. Isso significa páginas que carregam rápido, produtos que aparecem no Google e uma experiência mobile impecável, porque mais de 70% das compras online no Brasil são feitas pelo celular.",
     ],
     benefits: [
       {
@@ -868,7 +868,7 @@ export const services: ServiceData[] = [
         question:
           "Preciso mudar meus sistemas atuais para automatizar?",
         answer:
-          "Não necessariamente. Nossos robôs de automação interagem com seus sistemas existentes — incluindo sistemas legados e planilhas. A automação se adapta à sua infraestrutura, não o contrário.",
+          "Não necessariamente. Nossos robôs de automação interagem com seus sistemas existentes, incluindo sistemas legados e planilhas. A automação se adapta à sua infraestrutura, não o contrário.",
       },
       {
         question: "Como medir o retorno do investimento em automação?",
