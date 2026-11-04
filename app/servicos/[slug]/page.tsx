@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { services, getServiceBySlug, getRelatedServices } from "../../data/services";
+import { getPostBySlug, type Post } from "../../data/blog";
 import { Header, Footer } from "../../components";
 import Breadcrumb from "../../components/Breadcrumb";
 import ServicePageHeader from "../../components/ServicePageHeader";
@@ -66,6 +68,13 @@ export default async function ServicePage({ params }: PageProps) {
   }
 
   const relatedServices = getRelatedServices(service.relatedSlugs);
+
+  // Artigos do blog relacionados (fecha o cluster pillar -> conteudo). So publicados.
+  const relatedPosts = (service.relatedPosts ?? [])
+    .map((postSlug) => getPostBySlug(postSlug))
+    .filter(
+      (post): post is Post => post !== null && post.frontmatter.draft !== true
+    );
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -206,6 +215,33 @@ export default async function ServicePage({ params }: PageProps) {
         <ServiceFAQ faq={service.faq} serviceName={service.title} />
 
         <ServiceRelatedCards services={relatedServices} />
+
+        {relatedPosts.length > 0 ? (
+          <section className="container mx-auto px-4 pb-16 lg:pb-24">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-manrope text-2xl lg:text-3xl font-semibold text-gray-900 mb-6">
+                Do nosso blog
+              </h2>
+              <ul className="space-y-4">
+                {relatedPosts.map((post) => (
+                  <li key={post.frontmatter.slug}>
+                    <Link
+                      href={`/blog/${post.frontmatter.slug}`}
+                      className="group block rounded-2xl border border-gray-200 p-5 hover:border-[#211cda]/30 hover:shadow-lg transition-all"
+                    >
+                      <span className="font-manrope font-semibold text-lg text-gray-900 group-hover:text-[#211cda] transition-colors">
+                        {post.frontmatter.title}
+                      </span>
+                      <span className="block font-dmsans text-sm text-gray-600 leading-relaxed mt-1">
+                        {post.frontmatter.description}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
 
         <ServiceCTA
           serviceName={service.shortTitle}
