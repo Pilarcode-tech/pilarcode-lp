@@ -14,7 +14,7 @@ const ServiceFAQ = ({ faq, serviceName }: ServiceFAQProps) => {
 
   return (
     <section className="container mx-auto px-4 py-16 lg:py-24">
-      <h2 className="font-manrope text-2xl lg:text-4xl font-semibold text-gray-900 text-center mb-4">
+      <h2 className="pilar-section-title text-center mb-4">
         Perguntas Frequentes
       </h2>
       <p className="text-gray-500 font-dmsans text-center max-w-2xl mx-auto mb-12">

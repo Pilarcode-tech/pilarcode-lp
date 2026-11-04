@@ -22,7 +22,8 @@
   font-family: "Blisstwin";
   font-display: swap;
   src: url("/fonts/Blisstwin.eot"); /* IE9 Compat Modes */
-  src: url("/fonts/Blisstwin.eot?#iefix") format("embedded-opentype"),
+  src:
+    url("/fonts/Blisstwin.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/Blisstwin.woff") format("woff"),
     /* Modern Browsers */ url("/fonts/Blisstwin.ttf") format("truetype"); /* Safari, Android, iOS */
   font-style: italic;
@@ -51,9 +52,9 @@ html {
 
 /* Smooth transitions for better UX */
 * {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -74,49 +75,120 @@ html {
 }
 /* Magic UI Shine Border: restrained motion in the Pilarcode palette. */
 @keyframes pilar-shine {
-  0%, 100% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .pilar-shine { animation: pilar-shine var(--shine-duration, 18s) linear infinite; }
+  .pilar-shine {
+    animation: pilar-shine var(--shine-duration, 18s) linear infinite;
+  }
 }
 
 /* Brand rail: one real set and one inert visual copy for a seamless loop. */
 @keyframes pilar-brands {
-  to { transform: translateX(-50%); }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .brand-track { animation: pilar-brands 72s linear infinite; }
+  .brand-track {
+    animation: pilar-brands 72s linear infinite;
+  }
   .brand-cloud:hover .brand-track,
   .brand-cloud:focus-within .brand-track,
-  .brand-cloud:active .brand-track { animation-play-state: paused; }
+  .brand-cloud:active .brand-track {
+    animation-play-state: paused;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .brand-cloud { overflow-x: auto; mask-image: none; }
-  .brand-group[aria-hidden="true"] { display: none; }
+  .brand-cloud {
+    overflow-x: auto;
+    mask-image: none;
+  }
+  .brand-group[aria-hidden="true"] {
+    display: none;
+  }
 }
 
 /* Keyboard users navigate a stationary, scrollable set of real links. */
-.brand-cloud:focus-within { overflow-x: auto; mask-image: none; }
-.brand-cloud:focus-within .brand-track { animation: none; }
-.brand-cloud:focus-within .brand-group[aria-hidden="true"] { display: none; }
+.brand-cloud:focus-within {
+  overflow-x: auto;
+  mask-image: none;
+}
+.brand-cloud:focus-within .brand-track {
+  animation: none;
+}
+.brand-cloud:focus-within .brand-group[aria-hidden="true"] {
+  display: none;
+}
 
-[data-brand-paused="true"] .brand-track { animation-play-state: paused; }
+[data-brand-paused="true"] .brand-track {
+  animation-play-state: paused;
+}
 
 /* Shape Landing Hero (Kokonut UI): original entrance and floating geometry. */
 @keyframes pilar-shape-enter {
-  from { opacity: 0; transform: translateY(-150px) rotate(calc(var(--shape-angle) - 15deg)); }
-  to { opacity: 1; transform: translateY(0) rotate(var(--shape-angle)); }
+  from {
+    opacity: 0;
+    transform: translateY(-150px) rotate(calc(var(--shape-angle) - 15deg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--shape-angle));
+  }
 }
 @keyframes pilar-shape-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(15px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .pilar-shape-enter { animation: pilar-shape-enter 2.4s cubic-bezier(.23,.86,.39,.96) var(--shape-delay) both; }
-  .pilar-shape-float { animation: pilar-shape-float 12s ease-in-out infinite; }
+  .pilar-shape-enter {
+    animation: pilar-shape-enter 2.4s cubic-bezier(0.23, 0.86, 0.39, 0.96)
+      var(--shape-delay) both;
+  }
+  .pilar-shape-float {
+    animation: pilar-shape-float 12s ease-in-out infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@layer components {
+  .pilar-action {
+    @apply inline-flex min-h-12 items-center justify-center gap-3 rounded-full border px-6 py-3 font-dmsans text-sm font-medium leading-5 transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .pilar-card {
+    @apply rounded-3xl border border-gray-100 bg-white shadow-[0_2px_12px_-8px_rgba(6,5,84,0.12)];
+  }
+  .pilar-card-interactive {
+    @apply transition-shadow hover:shadow-[0_12px_32px_-16px_rgba(33,28,218,0.2)];
+  }
+  .pilar-section-title {
+    @apply font-manrope text-3xl font-semibold leading-tight tracking-tight text-gray-900 lg:text-[40px];
+  }
+}
+:where(a, button, summary, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid #278deb;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }

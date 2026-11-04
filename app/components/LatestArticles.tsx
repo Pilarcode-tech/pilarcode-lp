@@ -1,3 +1,5 @@
+import { actionClassName } from "./ui/action";
+import ArrowIcon from "./ArrowIcon";
 import Link from "next/link";
 import { getPublishedPosts, formatDateBR } from "../data/blog";
 
@@ -24,11 +26,8 @@ export default function LatestArticles() {
             Guias práticos para planejar seu próximo projeto e tomar decisões
             com segurança.
           </p>
-          <Link
-            href="/blog"
-            className="mt-7 inline-flex items-center gap-4 rounded-full border border-gray-200 bg-white px-5 py-3 font-dmsans text-sm text-gray-700 hover:border-[#211cda] hover:text-[#211cda]"
-          >
-            Visitar o blog <span aria-hidden="true">↗</span>
+          <Link href="/blog" className={actionClassName("outline", "mt-7")}>
+            Visitar o blog <ArrowIcon />
           </Link>
         </div>
         <div className="divide-y divide-gray-200 lg:col-span-3">
@@ -54,7 +53,7 @@ export default function LatestArticles() {
                 aria-hidden="true"
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-[#211cda] group-hover:border-[#211cda]"
               >
-                ↗
+                <ArrowIcon />
               </span>
             </Link>
           ))}

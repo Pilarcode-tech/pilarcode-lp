@@ -1,7 +1,7 @@
 "use client";
 
-import ArrowForward from "@mui/icons-material/ArrowForward";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import { ActionButton } from "./ui/action";
+import ArrowIcon from "./ArrowIcon";
 import { openOrcamento } from "../utils/orcamento";
 
 interface ServiceCTAProps {
@@ -28,9 +28,7 @@ const ServiceCTA = ({ serviceName, source }: ServiceCTAProps) => {
             className="text-white font-manrope text-2xl font-regular mt-3 lg:text-4xl xl:text-5xl"
           >
             Pronto para investir em{" "}
-            <span className="font-blisstwin text-[#278deb]">
-              {serviceName}
-            </span>
+            <span className="font-blisstwin text-[#278deb]">{serviceName}</span>
             ?
           </h2>
           <p className="text-white/70 font-dmsans text-sm mt-3 max-w-md">
@@ -51,22 +49,14 @@ const ServiceCTA = ({ serviceName, source }: ServiceCTAProps) => {
             onClick={() => openOrcamento(`${utm}-link`)}
             className="text-white font-medium flex text-xs items-center gap-2 mt-4 cursor-pointer hover:text-[#278deb] transition-colors"
           >
-            Solicitar orçamento <ArrowOutwardIcon fontSize="small" />
+            Solicitar orçamento <ArrowIcon />
           </button>
         </div>
 
         <div className="px-8 lg:pr-16 pb-10 lg:pb-0 flex items-center z-10">
-          <div
-            className="flex items-center gap-2 cursor-pointer"
-            onClick={() => openOrcamento(utm)}
-          >
-            <button className="p-4 px-6 bg-white rounded-full font-manrope font-semibold text-xs cursor-pointer hover:bg-white/90 transition-colors">
-              SOLICITAR ORÇAMENTO
-            </button>
-            <button className="p-4 border border-white/40 hover:border-white text-white rounded-full font-manrope font-semibold text-xs cursor-pointer transition-colors">
-              <ArrowForward fontSize="small" />
-            </button>
-          </div>
+          <ActionButton variant="light" onClick={() => openOrcamento(utm)}>
+            Solicitar orçamento
+          </ActionButton>
         </div>
       </div>
     </section>

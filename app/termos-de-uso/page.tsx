@@ -1,3 +1,4 @@
+import ArrowIcon from "../components/ArrowIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
     title: "Termos de Uso | Pilarcode",
     description: "Termos de Uso do site da Pilarcode.",
     locale: "pt_BR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" }],
+    images: [
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -30,9 +33,9 @@ export default function TermosDeUso() {
       <div className="max-w-3xl mx-auto px-6 py-16">
         <Link
           href="/"
-          className="text-[#211cda] text-sm font-medium hover:underline"
+          className="inline-flex items-center gap-2 text-[#211cda] text-sm font-medium hover:underline"
         >
-          &larr; Voltar ao início
+          <ArrowIcon direction="left" /> Voltar ao início
         </Link>
 
         <h1 className="text-3xl font-medium text-gray-900 mt-8 mb-2">
@@ -72,15 +75,11 @@ export default function TermosDeUso() {
             </h2>
             <p>Este site destina-se a:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li>
-                Apresentar os serviços oferecidos pela Pilarcode;
-              </li>
+              <li>Apresentar os serviços oferecidos pela Pilarcode;</li>
               <li>
                 Facilitar o contato entre potenciais clientes e nossa equipe;
               </li>
-              <li>
-                Fornecer informações institucionais sobre a empresa.
-              </li>
+              <li>Fornecer informações institucionais sobre a empresa.</li>
             </ul>
             <p className="mt-2">
               Você se compromete a utilizar o site de forma lícita, sem
@@ -143,9 +142,9 @@ export default function TermosDeUso() {
             </h2>
             <p>
               O site pode conter links para redes sociais e plataformas de
-              terceiros (Instagram, LinkedIn). A Pilarcode não se
-              responsabiliza pelo conteúdo ou políticas de privacidade desses
-              serviços externos.
+              terceiros (Instagram, LinkedIn). A Pilarcode não se responsabiliza
+              pelo conteúdo ou políticas de privacidade desses serviços
+              externos.
             </p>
           </section>
 
@@ -182,8 +181,8 @@ export default function TermosDeUso() {
             </h2>
             <p>
               Estes Termos de Uso são regidos pela legislação da República
-              Federativa do Brasil. Qualquer controvérsia será submetida ao
-              foro da comarca de São Paulo/SP.
+              Federativa do Brasil. Qualquer controvérsia será submetida ao foro
+              da comarca de São Paulo/SP.
             </p>
           </section>
 
@@ -191,9 +190,7 @@ export default function TermosDeUso() {
             <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-3">
               11. Contato
             </h2>
-            <p>
-              Em caso de dúvidas sobre estes Termos de Uso:
-            </p>
+            <p>Em caso de dúvidas sobre estes Termos de Uso:</p>
             <ul className="list-none mt-2 space-y-1">
               <li>
                 <strong>Pilarcode</strong>

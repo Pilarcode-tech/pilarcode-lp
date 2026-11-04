@@ -1,3 +1,5 @@
+import { actionClassName } from "./ui/action";
+import ArrowIcon from "./ArrowIcon";
 import Link from "next/link";
 import { caseStudies } from "../data/cases";
 import ClientBrands from "./ClientBrands";
@@ -36,11 +38,8 @@ export default function CaseStudies({
               digitais.
             </p>
           </div>
-          <Link
-            href="/cases"
-            className="inline-flex w-fit items-center gap-4 rounded-full border border-gray-200 px-5 py-3 font-dmsans text-sm text-gray-700 hover:border-[#211cda] hover:text-[#211cda]"
-          >
-            Todos os projetos <span aria-hidden="true">↗</span>
+          <Link href="/cases" className={actionClassName("outline", "w-fit")}>
+            Todos os projetos <ArrowIcon />
           </Link>
         </div>
       )}

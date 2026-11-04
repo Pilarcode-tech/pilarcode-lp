@@ -1,3 +1,4 @@
+import ArrowIcon from "./ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import BrandMotion from "./BrandMotion";
@@ -120,7 +121,7 @@ export default function ClientBrands() {
                     </div>
                     <span className="font-dmsans text-xs text-gray-500">
                       {brand.detail}
-                      {brand.href ? <span aria-hidden="true"> ↗</span> : null}
+                      {brand.href ? <ArrowIcon /> : null}
                     </span>
                   </>
                 );

@@ -1,6 +1,6 @@
 "use client";
 
-import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
+import { ActionButton } from "../../components/ui/action";
 import { openOrcamento } from "../../utils/orcamento";
 
 interface CtaBoxProps {
@@ -31,13 +31,9 @@ const CtaBox = ({
         <p className="font-dmsans text-sm lg:text-base text-white/80 mb-6 max-w-xl">
           {children}
         </p>
-        <button
-          onClick={() => openOrcamento(source)}
-          className="bg-white text-[#211cda] px-6 py-3.5 rounded-full font-manrope font-semibold text-sm hover:bg-white/90 transition-colors cursor-pointer inline-flex items-center gap-2"
-        >
+        <ActionButton variant="light" onClick={() => openOrcamento(source)}>
           {buttonLabel}
-          <ArrowForward fontSize="small" />
-        </button>
+        </ActionButton>
       </div>
     </aside>
   );
