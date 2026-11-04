@@ -28,7 +28,7 @@ export function BentoCard({
 }) {
   return (
     <article
-      className={`group relative flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_2px_12px_-8px_rgba(6,5,84,0.12)] transition-shadow hover:shadow-[0_12px_32px_-16px_rgba(33,28,218,0.2)] ${className}`}
+      className={`group relative flex flex-col overflow-hidden pilar-card pilar-card-interactive p-6 ${className}`}
     >
       <div
         aria-hidden="true"

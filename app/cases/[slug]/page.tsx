@@ -1,3 +1,5 @@
+import CheckRounded from "@mui/icons-material/CheckRounded";
+import ArrowIcon from "../../components/ArrowIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -108,7 +110,7 @@ export default async function CasePage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="mt-8 inline-flex items-center gap-5 rounded-full bg-white px-6 py-3.5 font-manrope text-sm font-semibold text-[#211cda]"
               >
-                Visitar o site <span aria-hidden="true">↗</span>
+                Visitar o site <ArrowIcon />
               </a>
             </div>
           </header>
@@ -134,7 +136,7 @@ export default async function CasePage({ params }: Props) {
                           href={`/servicos/${serviceSlug}`}
                         >
                           {service.title}
-                          <span aria-hidden="true">↗</span>
+                          <ArrowIcon />
                         </Link>
                       </li>
                     ) : null;
@@ -165,7 +167,10 @@ export default async function CasePage({ params }: Props) {
                       className="flex gap-3 font-dmsans text-sm leading-relaxed text-gray-600"
                     >
                       <span aria-hidden="true" className="text-[#278deb]">
-                        ✓
+                        <CheckRounded
+                          aria-hidden="true"
+                          sx={{ fontSize: 16 }}
+                        />
                       </span>
                       {feature}
                     </li>

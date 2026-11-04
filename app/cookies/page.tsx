@@ -1,3 +1,4 @@
+import ArrowIcon from "../components/ArrowIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
     title: "Política de Cookies | Pilarcode",
     description: "Política de Cookies do site da Pilarcode.",
     locale: "pt_BR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" }],
+    images: [
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -30,9 +33,9 @@ export default function Cookies() {
       <div className="max-w-3xl mx-auto px-6 py-16">
         <Link
           href="/"
-          className="text-[#211cda] text-sm font-medium hover:underline"
+          className="inline-flex items-center gap-2 text-[#211cda] text-sm font-medium hover:underline"
         >
-          &larr; Voltar ao início
+          <ArrowIcon direction="left" /> Voltar ao início
         </Link>
 
         <h1 className="text-3xl font-medium text-gray-900 mt-8 mb-2">
@@ -114,8 +117,8 @@ export default function Cookies() {
               </li>
             </ul>
             <p className="mt-2">
-              A desativação de cookies pode impactar a funcionalidade de
-              algumas áreas do site.
+              A desativação de cookies pode impactar a funcionalidade de algumas
+              áreas do site.
             </p>
           </section>
 
@@ -135,9 +138,9 @@ export default function Cookies() {
               5. Base legal
             </h2>
             <p>
-              O uso de cookies essenciais é baseado no legítimo interesse para
-              o funcionamento do site. Para cookies de desempenho, solicitamos
-              seu consentimento conforme previsto na LGPD (Lei nº 13.709/2018).
+              O uso de cookies essenciais é baseado no legítimo interesse para o
+              funcionamento do site. Para cookies de desempenho, solicitamos seu
+              consentimento conforme previsto na LGPD (Lei nº 13.709/2018).
             </p>
           </section>
 

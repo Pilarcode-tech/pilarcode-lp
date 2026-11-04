@@ -1,7 +1,7 @@
 "use client";
 
 import { useMobile } from "../hooks";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import { ActionButton } from "./ui/action";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { openOrcamento } from "../utils/orcamento";
 
@@ -29,33 +29,29 @@ const AboutBanner = () => {
         {/* Left column - text */}
         <div className="lg:w-[45%] flex flex-col gap-6">
           <div>
-            <h2 className="font-extrabold text-white text-xs tracking-widest">SOBRE NÓS</h2>
+            <h2 className="font-extrabold text-white text-xs tracking-widest">
+              SOBRE NÓS
+            </h2>
             <p className="text-2xl lg:text-3xl text-white font-medium mt-3 leading-relaxed">
               Uma equipe de{" "}
               <span className="text-[#278deb] font-bold">especialistas</span>{" "}
-              dedicados a transformar ideias em soluções digitais de alto impacto.
+              dedicados a transformar ideias em soluções digitais de alto
+              impacto.
             </p>
           </div>
           <div>
             <p className="font-dmsans text-white/90 text-base">
               Inovação, qualidade e compromisso com o seu resultado.
             </p>
-            {isMobile ? (
-              <button
-                onClick={() => openOrcamento("about-mobile")}
-                className="bg-white hover:bg-white/90 mx-auto text-[#211cda] font-semibold py-3 px-6 rounded-lg mt-4 flex items-center gap-2 transition-colors duration-200"
-              >
-                Solicitar orçamento
-                <ArrowOutwardIcon fontSize="small" />
-              </button>
-            ) : (
-              <button
-                onClick={() => openOrcamento("about-desktop")}
-                className="text-white font-medium flex text-xs items-center gap-2 mt-4 hover:text-[#278deb] transition-colors"
-              >
-                Solicitar orçamento <ArrowOutwardIcon fontSize="small" />
-              </button>
-            )}
+            <ActionButton
+              variant="light"
+              className="mt-6"
+              onClick={() =>
+                openOrcamento(isMobile ? "about-mobile" : "about-desktop")
+              }
+            >
+              Solicitar orçamento
+            </ActionButton>
           </div>
         </div>
 
@@ -64,7 +60,12 @@ const AboutBanner = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="flex items-start gap-3">
               <CheckCircleOutlineIcon
-                sx={{ color: "#278deb", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
+                sx={{
+                  color: "#278deb",
+                  fontSize: 22,
+                  marginTop: "2px",
+                  flexShrink: 0,
+                }}
               />
               <div>
                 <p className="text-white font-medium text-sm">
@@ -78,7 +79,12 @@ const AboutBanner = () => {
 
             <div className="flex items-start gap-3">
               <CheckCircleOutlineIcon
-                sx={{ color: "#278deb", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
+                sx={{
+                  color: "#278deb",
+                  fontSize: 22,
+                  marginTop: "2px",
+                  flexShrink: 0,
+                }}
               />
               <div>
                 <p className="text-white font-medium text-sm">
@@ -92,7 +98,12 @@ const AboutBanner = () => {
 
             <div className="flex items-start gap-3">
               <CheckCircleOutlineIcon
-                sx={{ color: "#278deb", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
+                sx={{
+                  color: "#278deb",
+                  fontSize: 22,
+                  marginTop: "2px",
+                  flexShrink: 0,
+                }}
               />
               <div>
                 <p className="text-white font-medium text-sm">
@@ -106,7 +117,12 @@ const AboutBanner = () => {
 
             <div className="flex items-start gap-3">
               <CheckCircleOutlineIcon
-                sx={{ color: "#278deb", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
+                sx={{
+                  color: "#278deb",
+                  fontSize: 22,
+                  marginTop: "2px",
+                  flexShrink: 0,
+                }}
               />
               <div>
                 <p className="text-white font-medium text-sm">

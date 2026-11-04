@@ -1,3 +1,4 @@
+import ArrowIcon from "./ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -56,8 +57,7 @@ export default function Founder() {
               href="/blog/autor/henrique-franca"
               className="mt-5 inline-flex items-center gap-4 font-dmsans text-sm font-medium text-[#211cda] hover:text-[#060554]"
             >
-              Conheça minha visão sobre tecnologia{" "}
-              <span aria-hidden="true">↗</span>
+              Conheça minha visão sobre tecnologia <ArrowIcon />
             </Link>
           </div>
         </div>

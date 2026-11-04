@@ -1,7 +1,7 @@
 "use client";
 
 import { openOrcamento } from "../utils/orcamento";
-import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
+import { ActionButton, ActionLink } from "./ui/action";
 
 interface ServicePageHeaderProps {
   title: string;
@@ -36,19 +36,15 @@ const ServicePageHeader = ({
           {subtitle}
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-4">
-          <button
+          <ActionButton
+            variant="light"
             onClick={() => openOrcamento(source ?? "service-page-header")}
-            className="bg-white text-[#211cda] px-6 py-3.5 rounded-full font-manrope font-semibold text-sm hover:bg-white/90 transition-colors cursor-pointer flex items-center gap-2"
           >
-            Solicitar Orçamento
-            <ArrowForward fontSize="small" />
-          </button>
-          <a
-            href="/#servicos"
-            className="text-white/80 hover:text-white font-dmsans text-sm transition-colors border border-white/30 hover:border-white/60 px-6 py-3.5 rounded-full"
-          >
-            Ver Todos os Serviços
-          </a>
+            Solicitar orçamento
+          </ActionButton>
+          <ActionLink variant="outline-light" href="/#servicos">
+            Ver todos os serviços
+          </ActionLink>
         </div>
       </div>
     </section>

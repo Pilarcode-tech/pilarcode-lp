@@ -1,3 +1,4 @@
+import ArrowIcon from "../components/ArrowIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -13,14 +14,18 @@ export const metadata: Metadata = {
     url: "https://pilarcode.com.br/politica-de-privacidade",
     siteName: "Pilarcode",
     title: "Política de Privacidade | Pilarcode",
-    description: "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
+    description:
+      "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
     locale: "pt_BR",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" }],
+    images: [
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Política de Privacidade | Pilarcode",
-    description: "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
+    description:
+      "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
     images: ["/og-image.png"],
   },
 };
@@ -31,9 +36,9 @@ export default function PoliticaDePrivacidade() {
       <div className="max-w-3xl mx-auto px-6 py-16">
         <Link
           href="/"
-          className="text-[#211cda] text-sm font-medium hover:underline"
+          className="inline-flex items-center gap-2 text-[#211cda] text-sm font-medium hover:underline"
         >
-          &larr; Voltar ao início
+          <ArrowIcon direction="left" /> Voltar ao início
         </Link>
 
         <h1 className="text-3xl font-medium text-gray-900 mt-8 mb-2">
@@ -137,14 +142,14 @@ export default function PoliticaDePrivacidade() {
             <h2 className="text-lg font-semibold text-gray-800 mt-8 mb-3">
               6. Seus direitos (LGPD)
             </h2>
-            <p>
-              Conforme a LGPD, você tem direito a:
-            </p>
+            <p>Conforme a LGPD, você tem direito a:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
               <li>Confirmar a existência de tratamento de dados;</li>
               <li>Acessar seus dados pessoais;</li>
               <li>Corrigir dados incompletos ou desatualizados;</li>
-              <li>Solicitar a anonimização, bloqueio ou eliminação de dados;</li>
+              <li>
+                Solicitar a anonimização, bloqueio ou eliminação de dados;
+              </li>
               <li>Revogar o consentimento a qualquer momento;</li>
               <li>Solicitar a portabilidade dos dados.</li>
             </ul>
@@ -166,9 +171,9 @@ export default function PoliticaDePrivacidade() {
               7. Segurança dos dados
             </h2>
             <p>
-              Adotamos medidas técnicas e organizacionais adequadas para proteger
-              seus dados contra acesso não autorizado, perda, alteração ou
-              destruição. Utilizamos criptografia, controle de acesso e
+              Adotamos medidas técnicas e organizacionais adequadas para
+              proteger seus dados contra acesso não autorizado, perda, alteração
+              ou destruição. Utilizamos criptografia, controle de acesso e
               monitoramento contínuo.
             </p>
           </section>
