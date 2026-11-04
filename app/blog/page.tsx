@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://pilarcode.com.br/blog",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | Pilarcode",
+    description: "Conteúdo sobre desenvolvimento de software, apps, sites e automação para empresas que querem crescer com tecnologia sob medida.",
+    images: ["/og-image.png"],
+  },
   openGraph: {
     type: "website",
     url: "https://pilarcode.com.br/blog",

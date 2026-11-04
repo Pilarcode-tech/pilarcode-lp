@@ -2,6 +2,7 @@ import type { MDXComponents } from "mdx/types";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import CtaBox from "@/app/blog/_components/CtaBox";
+import CustoAcumuladoChart from "@/app/blog/_components/CustoAcumuladoChart";
 
 /**
  * Componentes MDX customizados do blog.
@@ -175,6 +176,7 @@ export const mdxComponents: MDXComponents = {
   },
   Callout,
   CtaBox,
+  CustoAcumuladoChart,
 };
 
 // Convencao do Next.js (@next/mdx). Inofensiva com next-mdx-remote e util se

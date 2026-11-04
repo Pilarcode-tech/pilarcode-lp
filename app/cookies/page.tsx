@@ -7,6 +7,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://pilarcode.com.br/cookies",
   },
+  openGraph: {
+    type: "website",
+    url: "https://pilarcode.com.br/cookies",
+    siteName: "Pilarcode",
+    title: "Política de Cookies | Pilarcode",
+    description: "Política de Cookies do site da Pilarcode.",
+    locale: "pt_BR",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Política de Cookies | Pilarcode",
+    description: "Política de Cookies do site da Pilarcode.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function Cookies() {

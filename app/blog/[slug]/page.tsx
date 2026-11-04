@@ -7,6 +7,7 @@ import { getPublishedPosts, getPostBySlug, formatDateBR } from "../../data/blog"
 import { getAuthorByName, authorProfileUrl } from "../../data/authors";
 import { Header, Footer } from "../../components";
 import AuthorBio from "../_components/AuthorBio";
+import BlogFAQ from "../_components/BlogFAQ";
 import { mdxComponents } from "../../../mdx-components";
 
 // So gera as paginas dos artigos publicados; slugs de draft -> 404 (nao indexavel).
@@ -131,6 +132,23 @@ export default async function BlogArticle({ params }: PageProps) {
     ],
   };
 
+  // FAQPage so quando o artigo tem perguntas frequentes (renderizadas visivelmente por BlogFAQ).
+  const faqSchema =
+    fm.faq && fm.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: fm.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <>
       <script
@@ -141,6 +159,12 @@ export default async function BlogArticle({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
 
       <Header />
 
@@ -200,6 +224,9 @@ export default async function BlogArticle({ params }: PageProps) {
               }}
             />
           </div>
+
+          {/* Perguntas frequentes (visivel + JSON-LD FAQPage) */}
+          {fm.faq && fm.faq.length > 0 ? <BlogFAQ faq={fm.faq} /> : null}
 
           {/* Bloco de autoria (E-E-A-T) */}
           {author ? (

@@ -14,11 +14,11 @@ const Hero = () => {
         </div>
         <div className="space-y-8 w-fit">
           <div>
-            <h1 className="text-5xl lg:text-6xl font-medium text-gray-800 leading-tight w-fit text-center md:text-left">
-              Inovação ao
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-gray-800 leading-tight w-fit max-w-full text-center md:text-left">
+              Desenvolvimento de
               <br />
               <span className="bg-gradient-to-b from-[#278deb] to-[#278deb] bg-clip-text text-transparent">
-                seu alcance{" "}
+                software sob medida{" "}
               </span>
               {isMobile && <br />}
             </h1>
