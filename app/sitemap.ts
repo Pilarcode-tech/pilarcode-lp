@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { services } from "./data/services";
 import { getPublishedPosts } from "./data/blog";
 import { authors, authorPageUrl } from "./data/authors";
+import { caseStudies } from "./data/cases";
 
 // Data ISO (YYYY-MM-DD) da última revisão de conteúdo das páginas estáticas (home e legais).
 // Atualize manualmente quando o conteúdo dessas páginas mudar. Evita usar a data do build
@@ -41,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...servicePages,
+    { url: "https://pilarcode.com.br/cases", lastModified: new Date(HOME_LAST_REVIEWED), priority: 0.7 },
+    ...caseStudies.map(({ slug }) => ({ url: "https://pilarcode.com.br/cases/" + slug, lastModified: new Date(HOME_LAST_REVIEWED), priority: 0.7 })),
     {
       url: "https://pilarcode.com.br/blog",
       lastModified: blogLastModified,

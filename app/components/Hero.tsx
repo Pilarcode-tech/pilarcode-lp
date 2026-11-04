@@ -1,11 +1,9 @@
 "use client";
 
 import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
-import { useMobile } from "../hooks";
 import { openOrcamento } from "../utils/orcamento";
 
 const Hero = () => {
-  const isMobile = useMobile();
   return (
     <section className="flex mt-5 md:mt-20 font-jakarta justify-center md:justify-start">
       <div className="max-w-7xl flex flex-col md:flex-row gap-10">
@@ -20,7 +18,7 @@ const Hero = () => {
               <span className="bg-gradient-to-b from-[#278deb] to-[#278deb] bg-clip-text text-transparent">
                 software sob medida{" "}
               </span>
-              {isMobile && <br />}
+              <br className="lg:hidden" />
             </h1>
           </div>
           <div className="flex items-center gap-3 justify-center md:justify-start">

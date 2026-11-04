@@ -1,108 +1,53 @@
-"use client";
+import Link from "next/link";
+import { caseStudies } from "../data/cases";
 
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { openOrcamento } from "../utils/orcamento";
-
-interface CaseCardProps {
-  title: string;
-  category: string;
-  description: string;
-  gradient: string;
-  tags: string[];
-}
-
-const cases: CaseCardProps[] = [
-  {
-    title: "Beesby",
-    category: "Plataforma Digital",
-    description:
-      "Plataforma de serviços digitais especializada em inovações tecnológicas. Modernizamos o site com recursos tecnológicos avançados e uma experiência de usuário aprimorada.",
-    gradient: "from-[#278deb] to-[#03515d]",
-    tags: ["Web", "UX/UI", "Next.js"],
-  },
-  {
-    title: "Conexão Varejo",
-    category: "E-Commerce B2B",
-    description:
-      "Canal de varejo B2B que conecta varejistas com fornecedores da indústria, oferecendo condições de compra vantajosas e uma experiência de compra simplificada.",
-    gradient: "from-[#211cda] to-[#060554]",
-    tags: ["E-Commerce", "Integração", "React"],
-  },
-];
-
-const CaseCard = ({
-  title,
-  category,
-  description,
-  gradient,
-  tags,
-}: CaseCardProps) => {
+export default function CaseStudies() {
   return (
-    <div
-      className="rounded-3xl shadow-2xl shadow-black/10 bg-white flex flex-col overflow-hidden"
-      style={{
-        boxShadow:
-          "0 0px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px 0px rgba(0, 0, 0, 0.05)",
-      }}
+    <section
+      aria-labelledby="cases-title"
+      className="max-w-[1514px] mx-auto py-12 lg:py-16"
     >
-      <div
-        className={`h-[200px] bg-gradient-to-br ${gradient} flex items-center justify-center`}
+      <p className="text-xs font-extrabold tracking-widest text-[#211cda]">
+        PROJETOS DA PILARCODE
+      </p>
+      <h2
+        id="cases-title"
+        className="font-manrope text-3xl lg:text-4xl font-semibold text-gray-900 mt-3"
       >
-        <h2 className="text-white text-4xl font-bold font-manrope">{title}</h2>
-      </div>
-      <div className="p-6 flex flex-col flex-1">
-        <span className="text-[#278deb] text-xs font-semibold uppercase tracking-wider">
-          {category}
-        </span>
-        <p className="text-gray-600 text-sm mt-3 flex-1">{description}</p>
-        <div className="flex flex-wrap gap-2 mt-4">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full"
-            >
-              {tag}
+        Software e sites em uso
+      </h2>
+      <p className="font-dmsans text-gray-600 mt-4 max-w-2xl">
+        Conheça as funcionalidades e os objetivos de projetos que fazem parte do
+        nosso trabalho.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        {caseStudies.map((project) => (
+          <Link
+            key={project.slug}
+            href={"/cases/" + project.slug}
+            className="group rounded-3xl border border-gray-200 bg-white p-6 hover:border-[#211cda]/40 transition-colors"
+          >
+            <p className="font-dmsans text-sm text-[#211cda]">
+              {project.category}
+            </p>
+            <h3 className="font-manrope text-2xl font-semibold text-gray-900 mt-3">
+              {project.name}
+            </h3>
+            <p className="font-dmsans text-gray-600 leading-relaxed mt-4">
+              {project.description}
+            </p>
+            <span className="inline-block text-sm font-semibold text-[#211cda] mt-6">
+              Conhecer o projeto →
             </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const CaseStudies = () => {
-  return (
-    <div className="max-w-[1514px] mx-auto">
-      <div className="mb-8">
-        <p className="font-extrabold text-gray-400 text-xs uppercase tracking-widest">
-          NOSSO TRABALHO
-        </p>
-        <h2 className="text-3xl lg:text-4xl font-medium text-gray-800 mt-2 font-jakarta">
-          Cases de{" "}
-          <span className="bg-gradient-to-b from-[#278deb] to-[#278deb] bg-clip-text text-transparent">
-            sucesso
-          </span>
-        </h2>
-        <p className="text-gray-500 mt-2 text-sm max-w-xl">
-          Conheça alguns dos projetos que desenvolvemos para nossos clientes.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {cases.map((c) => (
-          <CaseCard key={c.title} {...c} />
+          </Link>
         ))}
       </div>
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={() => openOrcamento("case-studies")}
-          className="text-[#211cda] hover:text-[#060554] font-medium flex text-sm items-center gap-1 transition-colors duration-200"
-        >
-          Quer um projeto como esses? Solicite seu orçamento{" "}
-          <ArrowOutwardIcon fontSize="small" />
-        </button>
-      </div>
-    </div>
+      <Link
+        href="/cases"
+        className="inline-block mt-6 text-[#211cda] font-semibold"
+      >
+        Ver todos os projetos →
+      </Link>
+    </section>
   );
-};
-
-export default CaseStudies;
+}

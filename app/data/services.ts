@@ -40,7 +40,7 @@ export interface ServiceData {
 export const services: ServiceData[] = [
   {
     slug: "desenvolvimento-de-apps",
-    updatedAt: "2026-06-24",
+    updatedAt: "2026-11-04",
     title: "Desenvolvimento de Apps",
     shortTitle: "Apps",
     subtitle:
@@ -49,7 +49,7 @@ export const services: ServiceData[] = [
       "Aplicativos intuitivos e de alta performance, personalizados para as necessidades do seu negócio.",
     metaTitle: "Desenvolvimento de Apps | Aplicativos iOS e Android",
     metaDescription:
-      "Desenvolvimento de aplicativos móveis sob medida para iOS e Android. Apps nativos e multiplataforma com alta performance, UX intuitiva e integração com sistemas existentes. Solicite um orçamento.",
+      "Desenvolvimento de aplicativos para iOS e Android sob medida, com interfaces intuitivas e integração com seus sistemas. Solicite uma proposta.",
     keywords: [
       "desenvolvimento de apps",
       "criar aplicativo",
@@ -176,10 +176,11 @@ export const services: ServiceData[] = [
       },
     ],
     relatedSlugs: ["desenvolvimento-web", "software-sob-medida", "integracao-de-sistemas"],
+    relatedPosts: ["como-contratar-empresa-desenvolvimento-software", "prazo-desenvolvimento-sistema-sob-medida"],
   },
   {
     slug: "desenvolvimento-web",
-    updatedAt: "2026-06-24",
+    updatedAt: "2026-11-04",
     title: "Desenvolvimento Web",
     shortTitle: "Web",
     subtitle:
@@ -188,7 +189,7 @@ export const services: ServiceData[] = [
       "Sites atraentes, funcionais e otimizados para todos os dispositivos, com foco em conversão.",
     metaTitle: "Desenvolvimento Web | Sites e Aplicações Web",
     metaDescription:
-      "Desenvolvimento de sites e aplicações web modernas com foco em performance, SEO e conversão. Landing pages, portais corporativos e sistemas web responsivos. Solicite um orçamento.",
+      "Criação de sites e aplicações web para empresas, com navegação responsiva, SEO e foco no contato comercial. Conheça a Pilarcode.",
     keywords: [
       "desenvolvimento web",
       "criar site",
@@ -313,10 +314,11 @@ export const services: ServiceData[] = [
       },
     ],
     relatedSlugs: ["e-commerce", "desenvolvimento-de-apps", "software-sob-medida"],
+    relatedPosts: ["como-contratar-empresa-desenvolvimento-software", "prazo-desenvolvimento-sistema-sob-medida"],
   },
   {
     slug: "software-sob-medida",
-    updatedAt: "2026-06-24",
+    updatedAt: "2026-11-04",
     title: "Software Sob Medida",
     shortTitle: "Software",
     subtitle:
@@ -325,7 +327,7 @@ export const services: ServiceData[] = [
       "Soluções de software personalizadas que atendem às necessidades específicas da sua empresa.",
     metaTitle: "Software Sob Medida | Sistemas Personalizados",
     metaDescription:
-      "Desenvolvimento de software sob medida para empresas. Sistemas de gestão, ERPs personalizados, dashboards e plataformas digitais. Tecnologia que se adapta ao seu negócio. Solicite um orçamento.",
+      "Desenvolvimento de sistemas e software sob medida para a rotina da sua empresa. Conheça as possibilidades e solicite uma proposta à Pilarcode.",
     keywords: [
       "software sob medida",
       "sistema personalizado",
@@ -455,14 +457,11 @@ export const services: ServiceData[] = [
       "automacao-de-processos",
       "desenvolvimento-web",
     ],
-    relatedPosts: [
-      "quanto-custa-sistema-sob-medida",
-      "sistema-pronto-ou-sob-medida",
-    ],
+    relatedPosts: ["quanto-custa-sistema-sob-medida", "sistema-pronto-ou-sob-medida", "como-contratar-empresa-desenvolvimento-software", "prazo-desenvolvimento-sistema-sob-medida"],
   },
   {
     slug: "integracao-de-sistemas",
-    updatedAt: "2026-06-24",
+    updatedAt: "2026-11-04",
     title: "Integração de Sistemas",
     shortTitle: "Integração",
     subtitle:
@@ -471,7 +470,7 @@ export const services: ServiceData[] = [
       "Conectamos sistemas distintos para criar um ambiente de TI coeso e eficiente.",
     metaTitle: "Integração de Sistemas | APIs e Conectores",
     metaDescription:
-      "Integração de sistemas empresariais: ERP, CRM, e-commerce, gateways de pagamento e mais. Conectamos seus sistemas via APIs para eliminar retrabalho e centralizar dados. Solicite um orçamento.",
+      "Integre ERP, CRM, e-commerce e outras ferramentas com APIs e conectores. Organize a troca de dados entre os sistemas da sua empresa.",
     keywords: [
       "integração de sistemas",
       "integração API",
@@ -601,11 +600,11 @@ export const services: ServiceData[] = [
       "automacao-de-processos",
       "e-commerce",
     ],
-    relatedPosts: ["sistema-pronto-ou-sob-medida"],
+    relatedPosts: ["sistema-pronto-ou-sob-medida", "como-contratar-empresa-desenvolvimento-software", "prazo-desenvolvimento-sistema-sob-medida", "como-integrar-erp-crm-loja-virtual"],
   },
   {
     slug: "e-commerce",
-    updatedAt: "2026-06-24",
+    updatedAt: "2026-11-04",
     title: "E-Commerce",
     shortTitle: "E-Commerce",
     subtitle:
@@ -614,7 +613,7 @@ export const services: ServiceData[] = [
       "Plataformas de comércio eletrônico eficientes, projetadas para impulsionar suas vendas online.",
     metaTitle: "E-Commerce | Loja Virtual e Plataforma de Vendas",
     metaDescription:
-      "Desenvolvimento de e-commerce e lojas virtuais completas. Plataformas de vendas online com checkout otimizado, integração com meios de pagamento e gestão de estoque. Solicite um orçamento.",
+      "Desenvolvimento de lojas virtuais com catálogo, pagamentos e integração com a gestão da sua empresa. Planeje seu e-commerce com a Pilarcode.",
     keywords: [
       "e-commerce",
       "loja virtual",
@@ -745,10 +744,11 @@ export const services: ServiceData[] = [
       "integracao-de-sistemas",
       "automacao-de-processos",
     ],
+    relatedPosts: ["como-contratar-empresa-desenvolvimento-software", "prazo-desenvolvimento-sistema-sob-medida", "como-integrar-erp-crm-loja-virtual"],
   },
   {
     slug: "automacao-de-processos",
-    updatedAt: "2026-06-24",
+    updatedAt: "2026-11-04",
     title: "Automação de Processos",
     shortTitle: "Automação",
     subtitle:
@@ -757,7 +757,7 @@ export const services: ServiceData[] = [
       "Otimize operações, reduza erros e aumente a eficiência com automação inteligente.",
     metaTitle: "Automação de Processos | RPA e Workflows",
     metaDescription:
-      "Automação de processos empresariais com RPA, workflows inteligentes e integração de sistemas. Reduza custos, elimine erros manuais e aumente a produtividade. Solicite um orçamento.",
+      "Automatize tarefas repetitivas, aprovações e trocas de dados entre sistemas. Conheça a automação de processos sob medida da Pilarcode.",
     keywords: [
       "automação de processos",
       "RPA",
@@ -888,6 +888,7 @@ export const services: ServiceData[] = [
       "software-sob-medida",
       "desenvolvimento-de-apps",
     ],
+    relatedPosts: ["como-contratar-empresa-desenvolvimento-software", "prazo-desenvolvimento-sistema-sob-medida", "como-integrar-erp-crm-loja-virtual"],
   },
 ];
 
