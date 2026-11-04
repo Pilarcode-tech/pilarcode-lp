@@ -105,6 +105,7 @@ const Footer = () => {
           </p>
         </div>
         <nav className="flex xl:mt-0 justify-around gap-4 text-white/80 text-sm" aria-label="Navegação do rodapé">
+          <Link href="/cases" className="hover:text-white transition-colors">Projetos</Link>
           <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
           <Link href="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</Link>
           <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>

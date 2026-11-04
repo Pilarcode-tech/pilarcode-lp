@@ -1,5 +1,4 @@
-"use client";
-
+import Image from "next/image";
 import {
   Header,
   Hero,
@@ -9,18 +8,15 @@ import {
   ContactCta,
   Footer,
 } from "./components";
-import { useMobile } from "./hooks";
+import CaseStudies from "./components/CaseStudies";
+import LatestArticles from "./components/LatestArticles";
 
 export default function Home() {
-  const isMobile = useMobile();
-
   return (
     <div>
-      {!isMobile && (
-        <div className="font-manrope bg-[#278deb] text-white text-center pt-4 pb-12 text-sm font-jakarta -mb-6">
-          Inovação ao seu alcance: conectamos você ao futuro
-        </div>
-      )}
+      <div className="hidden lg:block font-manrope bg-[#278deb] text-white text-center pt-4 pb-12 text-sm font-jakarta -mb-6">
+        Inovação ao seu alcance: conectamos você ao futuro
+      </div>
       <Header />
       <main className="bg-white rounded-t-3xl -mt-[90px] relative z-10 overflow-hidden bg-no-repeat">
         <div className="bg-cover bg-center bg-no-repeat pt-[90px]">
@@ -30,11 +26,13 @@ export default function Home() {
           >
             <Hero />
             {/* Decorative hero background - like deep-fire's hero-bg.png */}
-            <img
+            <Image
               alt=""
               aria-hidden="true"
               role="presentation"
               src="/hero-bg.svg"
+              width={550}
+              height={550}
               className="absolute right-0 top-[-100px] w-[550px] h-[550px] hidden lg:block pointer-events-none"
               style={{ zIndex: -1 }}
             />
@@ -49,6 +47,8 @@ export default function Home() {
             <div className="mt-6 md:mt-20">
               <WhyChooseUs />
             </div>
+            <CaseStudies />
+            <LatestArticles />
             <div id="contato" className="scroll-mt-[100px]">
               <ContactCta />
             </div>

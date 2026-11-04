@@ -1,7 +1,13 @@
 import { notFound } from "next/navigation";
+import { serviceScopes } from "../../data/service-scope";
+import { caseStudies } from "../../data/cases";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { services, getServiceBySlug, getRelatedServices } from "../../data/services";
+import {
+  services,
+  getServiceBySlug,
+  getRelatedServices,
+} from "../../data/services";
 import { getPostBySlug, type Post } from "../../data/blog";
 import { Header, Footer } from "../../components";
 import Breadcrumb from "../../components/Breadcrumb";
@@ -22,7 +28,9 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
@@ -68,12 +76,16 @@ export default async function ServicePage({ params }: PageProps) {
   }
 
   const relatedServices = getRelatedServices(service.relatedSlugs);
+  const scope = serviceScopes[service.slug];
+  const projects = caseStudies.filter((project) =>
+    project.serviceSlugs.includes(service.slug),
+  );
 
   // Artigos do blog relacionados (fecha o cluster pillar -> conteudo). So publicados.
   const relatedPosts = (service.relatedPosts ?? [])
     .map((postSlug) => getPostBySlug(postSlug))
     .filter(
-      (post): post is Post => post !== null && post.frontmatter.draft !== true
+      (post): post is Post => post !== null && post.frontmatter.draft !== true,
     );
 
   const serviceSchema = {
@@ -188,6 +200,36 @@ export default async function ServicePage({ params }: PageProps) {
           </div>
         </section>
 
+        {scope ? (
+          <section className="container mx-auto px-4 pb-12 lg:pb-16">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto rounded-3xl bg-[#f8f9fc] p-6 lg:p-10">
+              <div>
+                <h2 className="font-manrope text-2xl font-semibold text-gray-900 mb-4">
+                  Quando este serviço faz sentido
+                </h2>
+                <ul className="font-dmsans text-gray-600 leading-relaxed list-disc pl-5 space-y-3">
+                  {scope.examples.map((example) => (
+                    <li key={example}>{example}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h2 className="font-manrope text-2xl font-semibold text-gray-900 mb-4">
+                  O que definir no escopo
+                </h2>
+                <ul className="font-dmsans text-gray-600 leading-relaxed list-disc pl-5 space-y-3">
+                  {scope.deliverables.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="font-dmsans text-sm text-gray-500 mt-5">
+                  As entregas, dependências e critérios de aceite são definidos
+                  na proposta conforme o seu projeto.
+                </p>
+              </div>
+            </div>
+          </section>
+        ) : null}
         <ServiceFeatureGrid benefits={service.benefits} />
 
         <ServiceProcessSteps steps={service.processSteps} />
@@ -214,6 +256,32 @@ export default async function ServicePage({ params }: PageProps) {
 
         <ServiceFAQ faq={service.faq} serviceName={service.title} />
 
+        {projects.length > 0 ? (
+          <section className="container mx-auto px-4 py-12">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-manrope text-2xl lg:text-3xl font-semibold text-gray-900 mb-5">
+                Projetos relacionados
+              </h2>
+              <ul className="space-y-4">
+                {projects.map((project) => (
+                  <li key={project.slug}>
+                    <Link
+                      href={"/cases/" + project.slug}
+                      className="block rounded-2xl border border-gray-200 p-5 hover:border-[#211cda]/40"
+                    >
+                      <h3 className="font-manrope font-semibold text-lg text-gray-900">
+                        {project.name}
+                      </h3>
+                      <p className="font-dmsans text-gray-600 mt-2">
+                        {project.description}
+                      </p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ) : null}
         <ServiceRelatedCards services={relatedServices} />
 
         {relatedPosts.length > 0 ? (

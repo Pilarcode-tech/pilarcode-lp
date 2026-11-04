@@ -14,10 +14,10 @@ const WhyChooseUs = () => {
         <div className="lg:w-[40%] flex flex-col gap-6">
           <div>
             <p className="font-extrabold text-[#211cda] text-xs tracking-widest">DIFERENCIAIS</p>
-            <p className="text-3xl lg:text-4xl text-gray-800 font-medium mt-3 leading-tight">
+            <h2 className="text-3xl lg:text-4xl text-gray-800 font-medium mt-3 leading-tight">
               Por que escolher a{" "}
               <span className="text-[#278deb] font-medium">Pilarcode?</span>
-            </p>
+            </h2>
             <p className="font-manrope text-gray-500 text-sm mt-4 leading-relaxed">
               Combinamos expertise técnica com visão estratégica para entregar
               soluções que realmente fazem a diferença no seu negócio.
