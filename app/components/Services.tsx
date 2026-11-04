@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -160,29 +160,72 @@ const ServiceCardOnboard = () => {
 };
 
 const HorizontalScroll = ({ children }: React.PropsWithChildren) => {
+  const gesture = useRef<{
+    pointerId: number;
+    startX: number;
+    scrollLeft: number;
+    dragged: boolean;
+  } | null>(null);
+  const suppressClick = useRef(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const finishDrag = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (gesture.current?.pointerId !== event.pointerId) return;
+    gesture.current = null;
+    setIsDragging(false);
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
   return (
     <div
-      className="overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing"
-      onMouseDown={(e) => {
-        const element = e.currentTarget as HTMLDivElement;
-        const startX = e.pageX - element.offsetLeft;
-        const scrollLeft = element.scrollLeft;
-
-        const handleMouseMove = (e: MouseEvent) => {
-          const x = e.pageX - element.offsetLeft;
-          const walk = (x - startX) * 0.8;
-          element.scrollLeft = scrollLeft - walk;
+      className={`relative z-10 overflow-x-auto no-scrollbar select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+      onPointerDown={(event) => {
+        // Uma nova interação não herda o bloqueio de um arraste anterior.
+        suppressClick.current = false;
+        // O toque mantém a rolagem e a inércia nativas do navegador.
+        if (event.pointerType !== "mouse" || event.button !== 0) return;
+        gesture.current = {
+          pointerId: event.pointerId,
+          startX: event.clientX,
+          scrollLeft: event.currentTarget.scrollLeft,
+          dragged: false,
         };
-
-        const handleMouseUp = () => {
-          document.removeEventListener("mousemove", handleMouseMove);
-          document.removeEventListener("mouseup", handleMouseUp);
-        };
-
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
       }}
-      style={{ userSelect: "none" }}
+      onPointerMove={(event) => {
+        const active = gesture.current;
+        if (!active || active.pointerId !== event.pointerId) return;
+        if ((event.buttons & 1) === 0) {
+          finishDrag(event);
+          return;
+        }
+        const distance = event.clientX - active.startX;
+        if (!active.dragged && Math.abs(distance) < 6) return;
+        if (!active.dragged) {
+          active.dragged = true;
+          suppressClick.current = true;
+          event.currentTarget.setPointerCapture(event.pointerId);
+          setIsDragging(true);
+        }
+        event.preventDefault();
+        event.currentTarget.scrollLeft = active.scrollLeft - distance;
+      }}
+      onPointerUp={finishDrag}
+      onPointerCancel={finishDrag}
+      onLostPointerCapture={finishDrag}
+      onPointerLeave={(event) => {
+        if (!gesture.current?.dragged) finishDrag(event);
+      }}
+      onDragStart={(event) => event.preventDefault()}
+      onClickCapture={(event) => {
+        // Arrastar um card não abre seu link; cliques e teclado continuam funcionando.
+        if (suppressClick.current && event.detail !== 0) {
+          event.preventDefault();
+          event.stopPropagation();
+          suppressClick.current = false;
+        }
+      }}
     >
       <div className="flex space-x-1 w-max md:mx-auto md:px-20 select-none">
         {children}

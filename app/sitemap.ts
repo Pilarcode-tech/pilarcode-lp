@@ -1,25 +1,32 @@
 import type { MetadataRoute } from "next";
 import { services } from "./data/services";
 import { getPublishedPosts } from "./data/blog";
+import { authors, authorPageUrl } from "./data/authors";
 
 // Data ISO (YYYY-MM-DD) da última revisão de conteúdo das páginas estáticas (home e legais).
 // Atualize manualmente quando o conteúdo dessas páginas mudar. Evita usar a data do build
 // (new Date()), que faria todas as URLs parecerem "atualizadas" a cada deploy.
 const SITE_LAST_REVIEWED = "2026-06-24";
+const HOME_LAST_REVIEWED = "2026-11-04";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastReviewed = new Date(SITE_LAST_REVIEWED);
+  const posts = getPublishedPosts();
+  const blogLastModified = new Date(Math.max(
+    lastReviewed.getTime(),
+    ...posts.map((post) => new Date(post.frontmatter.updatedAt).getTime()),
+  ));
 
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
     url: `https://pilarcode.com.br/servicos/${service.slug}`,
-    // Usa a data real de revisão do serviço quando definida; fallback para a data do build.
-    lastModified: service.updatedAt ? new Date(service.updatedAt) : new Date(),
+    // Usa uma data de revisão estável quando o serviço não define updatedAt.
+    lastModified: service.updatedAt ? new Date(service.updatedAt) : lastReviewed,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
   // Artigos do blog (apenas publicados; drafts ficam fora do sitemap).
-  const blogPosts: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
+  const blogPosts: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `https://pilarcode.com.br/blog/${post.frontmatter.slug}`,
     lastModified: new Date(post.frontmatter.updatedAt),
     changeFrequency: "monthly",
@@ -29,18 +36,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://pilarcode.com.br",
-      lastModified: lastReviewed,
+      lastModified: new Date(HOME_LAST_REVIEWED),
       changeFrequency: "monthly",
       priority: 1,
     },
     ...servicePages,
     {
       url: "https://pilarcode.com.br/blog",
-      lastModified: lastReviewed,
+      lastModified: blogLastModified,
       changeFrequency: "weekly",
       priority: 0.7,
     },
     ...blogPosts,
+    ...authors.map((author) => ({
+      url: authorPageUrl(author.slug),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
     {
       url: "https://pilarcode.com.br/politica-de-privacidade",
       lastModified: lastReviewed,

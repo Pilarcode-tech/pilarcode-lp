@@ -32,13 +32,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!author) return {};
 
   const description =
-    author.bio || `${author.name}, ${author.role} na Pilarcode.`;
+    `${author.name}, ${author.role}. Artigos sobre desenvolvimento de software sob medida, integração de sistemas e decisões de tecnologia para empresas.`;
 
   return {
     title: `${author.name}`,
     description,
     alternates: {
       canonical: authorPageUrl(author.slug),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${author.name} | Pilarcode`,
+      description,
+      images: ["/og-image.png"],
     },
     openGraph: {
       type: "profile",
@@ -47,6 +53,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `${author.name} | Pilarcode`,
       description,
       locale: "pt_BR",
+      images: [{ url: "/og-image.png", width: 1200, height: 630, alt: author.name }],
     },
   };
 }

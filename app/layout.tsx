@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
-import Script from "next/script";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const manropeSans = Manrope({
   variable: "--font-manrope-mono",
@@ -30,7 +29,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://pilarcode.com.br"),
   title: {
-    default: "Pilarcode | Inovação ao seu alcance",
+    default: "Desenvolvimento de Software Sob Medida | Pilarcode",
     template: "%s | Pilarcode",
   },
   description:
@@ -68,7 +67,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://pilarcode.com.br",
     siteName: "Pilarcode",
-    title: "Pilarcode | Inovação ao seu alcance",
+    title: "Desenvolvimento de Software Sob Medida | Pilarcode",
     description:
       "Soluções tecnológicas sob medida para transformar sua empresa: apps, sites, software, integrações e automação.",
     locale: "pt_BR",
@@ -83,7 +82,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pilarcode | Inovação ao seu alcance",
+    title: "Desenvolvimento de Software Sob Medida | Pilarcode",
     description:
       "Soluções tecnológicas sob medida: apps, sites, software, integrações e automação de processos.",
     images: ["/og-image.png"],
@@ -108,24 +107,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {GA_MEASUREMENT_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', '${GA_MEASUREMENT_ID}');
-                `,
-              }}
-            />
-          </>
-        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -231,6 +212,7 @@ export default function RootLayout({
       <body
         className={`${DMSans.variable} ${manropeSans.variable} ${plusJakartaSans.variable} antialiased`}
       >
+        <GoogleAnalytics />
         {children}
       </body>
     </html>

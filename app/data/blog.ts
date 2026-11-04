@@ -23,7 +23,7 @@ export interface PostFrontmatter {
   readingTime: string;
   ogImage?: string;
   draft?: boolean;
-  /** Perguntas frequentes: renderiza secao visivel + JSON-LD FAQPage (bom para AI Overviews). */
+  /** Perguntas frequentes: renderiza seção visível e JSON-LD FAQPage. */
   faq?: FaqItem[];
 }
 

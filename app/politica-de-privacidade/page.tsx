@@ -8,6 +8,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://pilarcode.com.br/politica-de-privacidade",
   },
+  openGraph: {
+    type: "website",
+    url: "https://pilarcode.com.br/politica-de-privacidade",
+    siteName: "Pilarcode",
+    title: "Política de Privacidade | Pilarcode",
+    description: "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
+    locale: "pt_BR",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Pilarcode" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Política de Privacidade | Pilarcode",
+    description: "Política de Privacidade da Pilarcode conforme a Lei Geral de Proteção de Dados (LGPD).",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function PoliticaDePrivacidade() {

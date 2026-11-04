@@ -6,7 +6,7 @@ import { openOrcamento } from "../../utils/orcamento";
 interface CtaBoxProps {
   title?: string;
   children?: React.ReactNode;
-  /** UTM source (ex.: "blog-quanto-custa") */
+  /** Origem do CTA (ex.: "blog-quanto-custa") */
   source?: string;
   buttonLabel?: string;
 }

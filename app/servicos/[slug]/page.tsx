@@ -88,7 +88,7 @@ export default async function ServicePage({ params }: PageProps) {
       logo: "https://pilarcode.com.br/logo.png",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "São Paulo",
+        addressLocality: "Arujá",
         addressRegion: "SP",
         addressCountry: "BR",
       },
