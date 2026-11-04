@@ -1,5 +1,8 @@
 "use client";
 
+import { actionClassName } from "./ui/action";
+import ArrowIcon from "./ArrowIcon";
+
 import ShapeLandingHero from "./ui/shape-landing-hero";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { openOrcamento } from "../utils/orcamento";
@@ -36,11 +39,8 @@ export default function Hero() {
           >
             Vamos tirar do papel
           </InteractiveHoverButton>
-          <a
-            href="#projetos"
-            className="inline-flex min-h-12 items-center gap-5 rounded-full border border-white/20 px-6 py-3 font-dmsans text-sm font-medium text-white/85 hover:border-white/50 hover:text-white"
-          >
-            Conheça nossos projetos <span aria-hidden="true">↗</span>
+          <a href="#projetos" className={actionClassName("outline-light", "")}>
+            Conheça nossos projetos <ArrowIcon />
           </a>
         </div>
         <p className="mt-9 hidden sm:block font-dmsans text-[10px] uppercase tracking-[0.16em] text-white/40 sm:mt-12">

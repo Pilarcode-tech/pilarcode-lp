@@ -1,3 +1,4 @@
+import ArrowIcon from "../ArrowIcon";
 // Adapted from Magic UI's Interactive Hover Button (MIT).
 // https://magicui.design/docs/components/interactive-hover-button
 // Original credit: Aayush Bharti. License: /licenses/magic-ui.txt
@@ -28,7 +29,7 @@ export function InteractiveHoverButton({
         className="pointer-events-none absolute inset-0 hidden items-center justify-center gap-4 text-[#060554] opacity-0 transition-all duration-300 motion-safe:flex motion-safe:translate-x-8 motion-safe:group-hover:translate-x-0 motion-safe:group-hover:opacity-100 motion-safe:group-focus-visible:translate-x-0 motion-safe:group-focus-visible:opacity-100"
       >
         {children}
-        <span>↗</span>
+        <ArrowIcon />
       </span>
     </button>
   );

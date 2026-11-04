@@ -1,5 +1,9 @@
 "use client";
 
+import ArrowIcon from "./ArrowIcon";
+import MenuRounded from "@mui/icons-material/MenuRounded";
+import CloseRounded from "@mui/icons-material/CloseRounded";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -128,20 +132,11 @@ export default function Header() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50 lg:hidden"
             >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d={menuOpen ? "m6 6 12 12M6 18 18 6" : "M4 8h16M4 16h16"}
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  strokeLinecap="round"
-                />
-              </svg>
+              {menuOpen ? (
+                <CloseRounded aria-hidden="true" fontSize="small" />
+              ) : (
+                <MenuRounded aria-hidden="true" fontSize="small" />
+              )}
             </button>
           </div>
         </nav>
@@ -159,7 +154,7 @@ export default function Header() {
                 className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-dmsans text-sm ${active === item.id ? "bg-[#211cda]/5 text-[#211cda]" : "text-gray-600 hover:bg-gray-50"}`}
               >
                 {item.label}
-                <span aria-hidden="true">↗</span>
+                <ArrowIcon />
               </Link>
             ))}
           </nav>

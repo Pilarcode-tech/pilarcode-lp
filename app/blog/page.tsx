@@ -1,3 +1,4 @@
+import ArrowIcon from "../components/ArrowIcon";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPublishedPosts, formatDateBR } from "../data/blog";
@@ -108,7 +109,7 @@ export default function BlogIndex() {
                   <Link
                     key={fm.slug}
                     href={`/blog/${fm.slug}`}
-                    className="group flex flex-col rounded-3xl border border-gray-100 bg-[#f8f9fc] p-7 lg:p-8 hover:border-[#211cda]/20 hover:bg-white hover:shadow-lg transition-all duration-300"
+                    className="group pilar-card pilar-card-interactive flex flex-col p-6 lg:p-8"
                   >
                     <div className="flex items-center gap-3 text-xs font-dmsans text-gray-500 mb-4">
                       <time dateTime={fm.publishedAt}>
@@ -129,7 +130,7 @@ export default function BlogIndex() {
                         aria-hidden="true"
                         className="transition-transform group-hover:translate-x-1"
                       >
-                        →
+                        <ArrowIcon direction="right" />
                       </span>
                     </span>
                   </Link>

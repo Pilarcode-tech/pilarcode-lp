@@ -1,3 +1,4 @@
+import ArrowIcon from "./ArrowIcon";
 import Link from "next/link";
 import { ShineBorder } from "./ui/shine-border";
 import ProjectArtwork from "./ProjectArtwork";
@@ -20,7 +21,7 @@ export default function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <Link
       href={`/cases/${project.slug}`}
-      className="group relative flex h-full flex-col rounded-3xl border border-gray-100 bg-white p-3.5 transition-shadow hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#211cda]"
+      className="group relative flex h-full flex-col pilar-card pilar-card-interactive p-3.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#211cda]"
     >
       <ShineBorder className="opacity-0 transition-opacity group-hover:opacity-70 group-focus-visible:opacity-70" />
       <div
@@ -50,7 +51,7 @@ export default function ProjectCard({ project }: { project: CaseStudy }) {
           {project.description}
         </p>
         <span className="mt-6 flex items-center justify-between border-t border-gray-100 pt-4 font-dmsans text-sm font-medium text-[#211cda]">
-          Conhecer o projeto <span aria-hidden="true">↗</span>
+          Conhecer o projeto <ArrowIcon />
         </span>
       </div>
     </Link>

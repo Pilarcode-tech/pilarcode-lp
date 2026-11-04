@@ -1,8 +1,10 @@
 "use client";
 
+import ArrowIcon from "./ArrowIcon";
+
 import React, { useRef, useState } from "react";
 import Link from "next/link";
-import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
+import { ActionButton } from "./ui/action";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CodeIcon from "@mui/icons-material/Code";
 import WebIcon from "@mui/icons-material/Language";
@@ -108,7 +110,7 @@ const ServiceCard = ({
             aria-hidden="true"
             className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-[#211cda] transition-colors group-hover:border-[#211cda]"
           >
-            ↗
+            <ArrowIcon />
           </span>
         </div>
         <h3 className="mb-3 font-manrope text-[22px] font-medium leading-snug text-gray-900 group-hover:text-[#211cda]">
@@ -148,22 +150,13 @@ const ServiceCardOnboard = () => {
           Soluções tecnológicas <br /> sob medida para seu negócio.
         </p>
       </div>
-      <div
-        className="flex items-center align-center gap-2 cursor-pointer"
+      <ActionButton
+        variant="light"
+        className="self-start"
         onClick={() => openOrcamento("services-onboard")}
       >
-        <span className="text-black text-[12px] bg-white p-4 px-7 rounded-full font-semibold">
-          Descubra
-        </span>
-        <div className="text-white rounded-full w-12 h-12 p-2.5 px-4 border border-white flex items-center justify-center">
-          <ArrowForward
-            sx={{
-              width: 18,
-              height: 18,
-            }}
-          />
-        </div>
-      </div>
+        Descubra
+      </ActionButton>
     </div>
   );
 };
