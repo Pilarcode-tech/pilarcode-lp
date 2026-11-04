@@ -1,98 +1,76 @@
-"use client";
+import CodeRounded from "@mui/icons-material/CodeRounded";
+import TuneRounded from "@mui/icons-material/TuneRounded";
+import LayersOutlined from "@mui/icons-material/LayersOutlined";
+import ForumOutlined from "@mui/icons-material/ForumOutlined";
+import { BentoGrid, BentoCard } from "./ui/bento-grid";
 
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+const benefits = [
+  {
+    title: "Conhecimento técnico",
+    description:
+      "Especialistas em diferentes tecnologias para encontrar o caminho certo para o seu projeto.",
+    Icon: CodeRounded,
+  },
+  {
+    title: "Feito para o seu negócio",
+    description:
+      "Soluções desenhadas a partir dos processos, objetivos e necessidades da sua empresa.",
+    Icon: TuneRounded,
+  },
+  {
+    title: "Tecnologia bem aplicada",
+    description:
+      "Ferramentas e arquitetura escolhidas para sustentar a evolução do seu produto.",
+    Icon: LayersOutlined,
+  },
+  {
+    title: "Parceria de perto",
+    description:
+      "Comunicação ao longo do desenvolvimento e acompanhamento após a entrega.",
+    Icon: ForumOutlined,
+  },
+];
 
-const WhyChooseUs = () => {
+export default function WhyChooseUs() {
   return (
-    <div className="max-w-[1514px] mx-auto bg-[#f8f9fc] rounded-3xl overflow-hidden border border-gray-100 relative">
-      {/* Subtle decorative gradient orbs */}
-      <div className="absolute top-[-80px] left-[-60px] w-[300px] h-[300px] rounded-full bg-[#278deb] opacity-[0.04] blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[-60px] right-[-40px] w-[250px] h-[250px] rounded-full bg-[#211cda] opacity-[0.03] blur-[80px] pointer-events-none" />
-
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 p-8 md:p-16 relative z-10">
-        {/* Left column */}
-        <div className="lg:w-[40%] flex flex-col gap-6">
-          <div>
-            <p className="font-extrabold text-[#211cda] text-xs tracking-widest">DIFERENCIAIS</p>
-            <h2 className="text-3xl lg:text-4xl text-gray-800 font-medium mt-3 leading-tight">
-              Por que escolher a{" "}
-              <span className="text-[#278deb] font-medium">Pilarcode?</span>
-            </h2>
-            <p className="font-manrope text-gray-500 text-sm mt-4 leading-relaxed">
-              Combinamos expertise técnica com visão estratégica para entregar
-              soluções que realmente fazem a diferença no seu negócio.
-            </p>
-          </div>
-          <p className="font-manrope text-gray-800 text-base font-medium">
-            Sua parceira ideal em transformação digital.
+    <section
+      id="diferenciais"
+      aria-labelledby="difference-title"
+      className="mx-auto scroll-mt-28 max-w-[1514px] overflow-hidden rounded-3xl border border-gray-100 bg-[#f8f9fc]"
+    >
+      <div className="grid items-center gap-10 p-8 md:p-16 lg:grid-cols-5 lg:gap-16">
+        <div className="lg:col-span-2">
+          <p className="text-xs font-extrabold tracking-widest text-[#211cda]">
+            DIFERENCIAIS
           </p>
-        </div>
-
-        {/* Right column - checklist */}
-        <div className="lg:w-[60%] flex flex-col justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex items-start gap-3">
-              <CheckCircleOutlineIcon
-                sx={{ color: "#211cda", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
-              />
-              <div>
-                <p className="text-gray-800 font-medium text-sm">
-                  Equipe altamente qualificada
-                </p>
-                <p className="text-gray-500 text-xs mt-1 leading-relaxed">
-                  Profissionais especializados em diversas tecnologias, prontos para
-                  resolver os desafios mais complexos.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircleOutlineIcon
-                sx={{ color: "#211cda", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
-              />
-              <div>
-                <p className="text-gray-800 font-medium text-sm">
-                  Soluções personalizadas
-                </p>
-                <p className="text-gray-500 text-xs mt-1 leading-relaxed">
-                  Cada negócio é único. Desenvolvemos sob medida para suas
-                  necessidades específicas.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircleOutlineIcon
-                sx={{ color: "#211cda", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
-              />
-              <div>
-                <p className="text-gray-800 font-medium text-sm">
-                  Tecnologia de ponta
-                </p>
-                <p className="text-gray-500 text-xs mt-1 leading-relaxed">
-                  Utilizamos as ferramentas e frameworks mais modernos do mercado.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircleOutlineIcon
-                sx={{ color: "#211cda", fontSize: 22, marginTop: "2px", flexShrink: 0 }}
-              />
-              <div>
-                <p className="text-gray-800 font-medium text-sm">
-                  Suporte contínuo
-                </p>
-                <p className="text-gray-500 text-xs mt-1 leading-relaxed">
-                  Acompanhamento pós-entrega para garantir que tudo funcione perfeitamente.
-                </p>
-              </div>
-            </div>
+          <h2
+            id="difference-title"
+            className="mt-3 text-3xl font-medium leading-tight text-gray-800 lg:text-4xl"
+          >
+            Tecnologia é o meio.
+            <br />
+            <span className="text-[#278deb]">Seu negócio é o foco.</span>
+          </h2>
+          <p className="mt-5 max-w-md font-manrope text-sm leading-relaxed text-gray-500">
+            Combinamos visão de produto, design e desenvolvimento para
+            transformar necessidades reais em soluções que fazem sentido.
+          </p>
+          <div className="mt-8 flex items-center gap-3 font-dmsans text-xs font-medium text-gray-600">
+            <span aria-hidden="true" className="h-px w-8 bg-[#278deb]" />
+            Da estratégia à entrega.
           </div>
         </div>
+        <BentoGrid className="lg:col-span-3">
+          {benefits.map(({ title, description, Icon }) => (
+            <BentoCard
+              key={title}
+              title={title}
+              description={description}
+              icon={<Icon sx={{ fontSize: 23 }} />}
+            />
+          ))}
+        </BentoGrid>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default WhyChooseUs;
+}

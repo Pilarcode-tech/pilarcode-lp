@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ShineBorder } from "./ui/shine-border";
 import ProjectArtwork from "./ProjectArtwork";
 import type { CaseStudy } from "../data/cases";
 
@@ -19,8 +20,9 @@ export default function ProjectCard({ project }: { project: CaseStudy }) {
   return (
     <Link
       href={`/cases/${project.slug}`}
-      className="group flex h-full flex-col rounded-3xl border border-gray-100 bg-white p-3.5 transition-shadow hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#211cda]"
+      className="group relative flex h-full flex-col rounded-3xl border border-gray-100 bg-white p-3.5 transition-shadow hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#211cda]"
     >
+      <ShineBorder className="opacity-0 transition-opacity group-hover:opacity-70 group-focus-visible:opacity-70" />
       <div
         aria-hidden="true"
         className={`relative flex h-48 items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br ${visual.gradient}`}

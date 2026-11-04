@@ -1,5 +1,7 @@
 "use client";
 
+import { ShineBorder } from "./ui/shine-border";
+import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { openOrcamento } from "../utils/orcamento";
 
 export default function Hero() {
@@ -19,12 +21,9 @@ export default function Hero() {
           aplicativos. Da primeira ideia à solução em operação.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-5 lg:mt-9 lg:gap-7">
-          <button
-            onClick={() => openOrcamento("hero")}
-            className="inline-flex min-h-12 items-center gap-6 rounded-full bg-[#211cda] px-6 py-3.5 font-dmsans text-sm font-medium text-white hover:bg-[#060554]"
-          >
-            Conte sobre seu projeto <span aria-hidden="true">↗</span>
-          </button>
+          <InteractiveHoverButton onClick={() => openOrcamento("hero")}>
+            Conte sobre seu projeto
+          </InteractiveHoverButton>
           <a
             href="#projetos"
             className="inline-flex min-h-12 items-center gap-3 font-dmsans text-sm font-medium text-gray-700 hover:text-[#211cda]"
@@ -48,6 +47,7 @@ export default function Hero() {
         aria-hidden="true"
         className="relative hidden aspect-square max-h-[460px] overflow-hidden rounded-[40px] border border-[#e8edf8] bg-[#f5f7fc] lg:block"
       >
+        <ShineBorder />
         <svg viewBox="0 0 460 460" fill="none" className="h-full w-full">
           <defs>
             <linearGradient

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { openOrcamento } from "../utils/orcamento";
 
 const navigation = [
@@ -107,12 +108,12 @@ export default function Header() {
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <button
+            <InteractiveHoverButton
               onClick={() => openOrcamento("header-desktop")}
-              className="hidden items-center gap-5 rounded-full bg-[#211cda] px-5 py-3.5 font-dmsans text-sm font-medium text-white transition-colors hover:bg-[#060554] lg:inline-flex"
+              className="hidden lg:inline-flex"
             >
-              Vamos conversar <span aria-hidden="true">↗</span>
-            </button>
+              Vamos conversar
+            </InteractiveHoverButton>
             <button
               onClick={() => openOrcamento("header-mobile")}
               className="hidden min-[360px]:inline-flex rounded-full bg-[#211cda] px-4 py-2.5 font-dmsans text-xs font-medium text-white hover:bg-[#060554] lg:hidden"
