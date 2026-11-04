@@ -18,7 +18,7 @@ export default function Home() {
         <div>
           <div
             id="inicio"
-            className="mx-auto max-w-[1514px] scroll-mt-24 px-6 md:px-10 lg:px-16"
+            className="mx-auto max-w-[1514px] scroll-mt-24 px-4 md:px-10 lg:px-16"
           >
             <Hero />
           </div>
