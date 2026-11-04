@@ -71,3 +71,11 @@ html {
     scrollbar-width: none;
   }
 }
+/* Magic UI Shine Border: restrained motion in the Pilarcode palette. */
+@keyframes pilar-shine {
+  0%, 100% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pilar-shine { animation: pilar-shine var(--shine-duration, 18s) linear infinite; }
+}

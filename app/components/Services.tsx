@@ -93,24 +93,33 @@ const ServiceCard = ({
   return (
     <Link
       href={`/servicos/${slug}`}
-      className="min-w-[325px] max-w-[325px] h-[450px] rounded-3xl shadow-2xl shadow-black/10 my-4 p-3.5 bg-white flex flex-col group hover:shadow-xl transition-shadow duration-300"
+      className="min-w-[325px] max-w-[325px] h-[430px] rounded-3xl border border-gray-100 my-4 p-3.5 bg-white flex flex-col group hover:shadow-xl transition-shadow duration-300"
       style={{
         boxShadow:
           "0 0px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px 0px rgba(0, 0, 0, 0.05)",
       }}
     >
-      <div className="p-4 flex-1">
-        <div className="flex items-center justify-between mb-4">
-          <span className="bg-[#278deb] p-2.5 px-4 rounded-full text-[10px] text-white font-dmsans">
-            Disponível
+      <div className="flex-1 p-4">
+        <div className="mb-6 flex items-center justify-between">
+          <span className="font-dmsans text-[10px] font-medium uppercase tracking-widest text-gray-500">
+            Soluções digitais
           </span>
-          <div className="w-4 h-4 bg-black/20 rounded-full" />
+          <span
+            aria-hidden="true"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-[#211cda] transition-colors group-hover:border-[#211cda]"
+          >
+            ↗
+          </span>
         </div>
-        <h3 className="font-medium text-[22px] mb-2 w-[220px] group-hover:text-[#211cda] transition-colors">{title}</h3>
-        <span className="text-[#A0A0A0] text-[14px]">{description}</span>
+        <h3 className="mb-3 font-manrope text-[22px] font-medium leading-snug text-gray-900 group-hover:text-[#211cda]">
+          {title}
+        </h3>
+        <p className="font-dmsans text-sm leading-relaxed text-gray-500">
+          {description}
+        </p>
       </div>
       <div
-        className={`h-[200px] relative rounded-2xl overflow-hidden bg-gradient-to-br ${gradient} flex items-center justify-center`}
+        className={`h-[170px] relative rounded-2xl overflow-hidden bg-gradient-to-br ${gradient} flex items-center justify-center`}
       >
         {icon}
       </div>
@@ -121,7 +130,7 @@ const ServiceCard = ({
 const ServiceCardOnboard = () => {
   return (
     <div
-      className="min-w-[325px] max-w-[325px] h-[450px] rounded-3xl shadow-2xl shadow-black/10 my-4 ml-4 p-12 pt-10 bg-gradient-to-br from-[#211cda] to-[#060554] flex flex-col justify-between"
+      className="min-w-[325px] max-w-[325px] h-[430px] rounded-3xl shadow-2xl shadow-black/10 my-4 p-12 pt-10 bg-gradient-to-br from-[#211cda] to-[#060554] flex flex-col justify-between"
       style={{
         boxShadow:
           "0 0px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px 0px rgba(0, 0, 0, 0.05)",
@@ -227,7 +236,7 @@ const HorizontalScroll = ({ children }: React.PropsWithChildren) => {
         }
       }}
     >
-      <div className="flex space-x-1 w-max md:mx-auto md:px-20 select-none">
+      <div className="flex gap-4 w-max px-6 md:px-10 lg:px-16 select-none">
         {children}
       </div>
     </div>
@@ -253,9 +262,7 @@ const Services = () => {
           />
         ))}
       </HorizontalScroll>
-      <div
-        className="bg-gradient-to-r from-[#060554] to-[#211cda] bg-cover bg-center bg-no-repeat pt-20 pb-3 h-[300px] -mt-[260px] flex items-end"
-      >
+      <div className="bg-gradient-to-r from-[#060554] to-[#211cda] bg-cover bg-center bg-no-repeat pt-20 pb-3 h-[300px] -mt-[260px] flex items-end">
         <div className="overflow-hidden whitespace-nowrap">
           <div className="animate-scroll inline-block">
             {phrases.map((phrase, index) => (

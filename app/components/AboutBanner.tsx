@@ -25,7 +25,7 @@ const AboutBanner = () => {
       <div className="absolute top-[-100px] right-[-50px] w-[400px] h-[400px] rounded-full bg-[#278deb] opacity-[0.08] blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-80px] left-[20%] w-[300px] h-[300px] rounded-full bg-[#278deb] opacity-[0.06] blur-[100px] pointer-events-none" />
 
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 p-10 md:p-16 relative z-10">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 p-8 md:p-16 relative z-10">
         {/* Left column - text */}
         <div className="lg:w-[45%] flex flex-col gap-6">
           <div>

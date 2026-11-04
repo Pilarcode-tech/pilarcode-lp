@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog | Pilarcode",
-    description: "Conteúdo sobre desenvolvimento de software, apps, sites e automação para empresas que querem crescer com tecnologia sob medida.",
+    description:
+      "Conteúdo sobre desenvolvimento de software, apps, sites e automação para empresas que querem crescer com tecnologia sob medida.",
     images: ["/og-image.png"],
   },
   openGraph: {
@@ -80,7 +81,7 @@ export default function BlogIndex() {
       <Header />
 
       <main className="bg-white min-h-screen">
-        <section className="container mx-auto px-4 py-12 lg:py-20">
+        <section className="mx-auto max-w-[1514px] px-6 py-12 md:px-10 lg:px-16 lg:py-20">
           <header className="max-w-3xl mb-10 lg:mb-16">
             <p className="font-extrabold text-[#278deb] text-xs tracking-widest mb-3">
               BLOG
@@ -107,7 +108,7 @@ export default function BlogIndex() {
                   <Link
                     key={fm.slug}
                     href={`/blog/${fm.slug}`}
-                    className="group flex flex-col rounded-3xl border border-gray-200 bg-white p-6 hover:border-[#211cda]/30 hover:shadow-xl transition-all duration-300"
+                    className="group flex flex-col rounded-3xl border border-gray-100 bg-[#f8f9fc] p-7 lg:p-8 hover:border-[#211cda]/20 hover:bg-white hover:shadow-lg transition-all duration-300"
                   >
                     <div className="flex items-center gap-3 text-xs font-dmsans text-gray-500 mb-4">
                       <time dateTime={fm.publishedAt}>
@@ -116,15 +117,18 @@ export default function BlogIndex() {
                       <span aria-hidden="true">·</span>
                       <span>{fm.readingTime} de leitura</span>
                     </div>
-                    <h2 className="font-manrope text-xl font-semibold text-gray-900 mb-2 group-hover:text-[#211cda] transition-colors">
+                    <h2 className="font-manrope text-xl font-semibold leading-snug text-gray-900 mb-4 group-hover:text-[#211cda] transition-colors">
                       {fm.title}
                     </h2>
-                    <p className="font-dmsans text-sm text-gray-600 leading-relaxed flex-1">
+                    <p className="font-dmsans text-sm text-gray-500 leading-relaxed flex-1">
                       {fm.description}
                     </p>
-                    <span className="font-manrope font-semibold text-sm text-[#211cda] mt-5 inline-flex items-center gap-1">
+                    <span className="font-manrope font-semibold text-sm text-[#211cda] mt-7 pt-5 border-t border-gray-200 inline-flex items-center justify-between gap-1">
                       Ler artigo
-                      <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                      <span
+                        aria-hidden="true"
+                        className="transition-transform group-hover:translate-x-1"
+                      >
                         →
                       </span>
                     </span>
