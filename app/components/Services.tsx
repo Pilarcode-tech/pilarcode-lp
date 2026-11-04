@@ -182,9 +182,10 @@ const HorizontalScroll = ({ children }: React.PropsWithChildren) => {
     <div
       className={`relative z-10 overflow-x-auto no-scrollbar select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
       onPointerDown={(event) => {
+        // Uma nova interação não herda o bloqueio de um arraste anterior.
+        suppressClick.current = false;
         // O toque mantém a rolagem e a inércia nativas do navegador.
         if (event.pointerType !== "mouse" || event.button !== 0) return;
-        suppressClick.current = false;
         gesture.current = {
           pointerId: event.pointerId,
           startX: event.clientX,
