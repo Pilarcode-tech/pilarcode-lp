@@ -1,296 +1,169 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import ArrowForward from "@mui/icons-material/ArrowForwardRounded";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { openOrcamento } from "../utils/orcamento";
 
-const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("inicio");
-  const scrollingProgrammaticallyRef = useRef(false);
+const navigation = [
+  { id: "inicio", label: "Início", href: "/#inicio" },
+  { id: "servicos", label: "Serviços", href: "/#servicos" },
+  { id: "projetos", label: "Projetos", href: "/#projetos" },
+  { id: "sobre", label: "Sobre", href: "/#sobre" },
+  { id: "blog", label: "Blog", href: "/blog" },
+];
+
+export default function Header() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const isBlog = pathname.startsWith("/blog");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [section, setSection] = useState("inicio");
+  const active = pathname.startsWith("/cases")
+    ? "projetos"
+    : pathname.startsWith("/servicos")
+      ? "servicos"
+      : pathname.startsWith("/blog")
+        ? "blog"
+        : pathname === "/"
+          ? section
+          : "";
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const sectionIds = [
-    "inicio",
-    "servicos",
-    "sobre",
-    "contato",
-  ];
-
-  const sectionLabels: Record<string, string> = {
-    inicio: "Início",
-    servicos: "Serviços",
-    sobre: "Sobre",
-    contato: "Contato",
-  };
-
-  const getHeaderOffset = () => {
-    const headerEl = document.querySelector("header");
-    const h = headerEl
-      ? (headerEl as HTMLElement).getBoundingClientRect().height
-      : 90;
-    return h + 20;
-  };
-
-  useEffect(() => {
-    if (!isHome) return;
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
-    if (!sections.length) return;
-
+    if (pathname !== "/") return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (scrollingProgrammaticallyRef.current) return;
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) =>
-            b.intersectionRatio === a.intersectionRatio
-              ? a.target.getBoundingClientRect().top -
-                b.target.getBoundingClientRect().top
-              : b.intersectionRatio - a.intersectionRatio
-          );
-        if (visible.length) {
-          setActiveSection(visible[0].target.id);
-        }
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length) setSection(visible[0].target.id);
       },
-      {
-        threshold: [0.25, 0.5, 0.75],
-        rootMargin: "-10% 0px -55% 0px",
-      }
+      { rootMargin: "-100px 0px -55% 0px", threshold: 0 },
     );
-    sections.forEach((s) => observer.observe(s));
+    navigation.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
     return () => observer.disconnect();
-  }, [isHome]);
+  }, [pathname]);
 
   useEffect(() => {
-    if (!isHome) return;
-    const handleManualScroll = () => {
-      if (scrollingProgrammaticallyRef.current) return;
-      const scrollPos = window.scrollY + getHeaderOffset() + 4;
-      let current = sectionIds[0];
-      for (const id of sectionIds) {
-        const el = document.getElementById(id);
-        if (!el) continue;
-        if (el.offsetTop <= scrollPos) current = id;
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        document.getElementById("navigation-toggle")?.focus();
       }
-      if (current !== activeSection) setActiveSection(current);
     };
-    window.addEventListener("scroll", handleManualScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleManualScroll);
-  }, [activeSection, isHome]);
-
-  useEffect(() => {
-    if (!isHome) return;
-    if (location.hash) {
-      const id = location.hash.replace("#", "");
-      if (sectionIds.includes(id)) {
-        requestAnimationFrame(() => {
-          const el = document.getElementById(id);
-          if (el) {
-            const y =
-              el.getBoundingClientRect().top +
-              window.scrollY -
-              getHeaderOffset();
-            window.scrollTo({ top: y });
-            setActiveSection(id);
-          }
-        });
-      }
-    }
-  }, [isHome]);
-
-  const getNavHref = (id: string) => {
-    return isHome ? `#${id}` : `/#${id}`;
-  };
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    id: string
-  ) => {
-    if (!isHome) {
-      closeMobileMenu();
-      return;
-    }
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (!el) return;
-    const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-    const offsetPosition = elementPosition - getHeaderOffset();
-    scrollingProgrammaticallyRef.current = true;
-    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-    setActiveSection(id);
-    setTimeout(() => {
-      scrollingProgrammaticallyRef.current = false;
-    }, 600);
-    history.replaceState(null, "", `#${id}`);
-    closeMobileMenu();
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   return (
-    <header
-      className={`sticky top-0 z-50 relative transition-all duration-300 bg-gradient-to-r lg:bg-none from-[#278deb] via-[#211cda] to-[#060554] overflow-hidden ${
-        isScrolled ? "lg:bg-white/70 lg:backdrop-blur-md" : "lg:bg-transparent"
-      }`}
-    >
-      <div className="lg:hidden absolute top-0 right-0 w-96 h-32 bg-gradient-to-l from-white/10 to-transparent transform -rotate-12 translate-x-24 -translate-y-8"></div>
-      <div className="lg:hidden absolute top-0 right-20 w-80 h-28 bg-gradient-to-br from-[#278deb]/20 to-transparent transform rotate-6 translate-x-12 translate-y-2"></div>
-
-      <div className="mx-auto xl:container w-full px-4 sm:px-0 relative z-10">
-        <nav className="flex items-center justify-between py-4 gap-4 lg:gap-8">
-          <Link href="/" className="flex items-center gap-2.5">
-            <Image alt="Pilarcode" src="/icon.png" width={50} height={37} className="h-8 w-auto lg:h-10 shrink-0" />
-            <div className="flex flex-col leading-none" style={{ fontFamily: "OpenSauceOne, sans-serif" }}>
-              <span className="font-bold text-[20px] lg:text-[24px] text-white lg:text-gray-900 tracking-tight leading-none">
+    <header className="sticky top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-xl">
+      <div className="mx-auto max-w-[1514px] px-5 md:px-8 lg:px-16">
+        <nav
+          aria-label="Navegação principal"
+          className="flex h-20 items-center justify-between gap-5 lg:h-24"
+        >
+          <Link
+            href="/"
+            aria-label="Pilarcode — início"
+            onClick={() => setMenuOpen(false)}
+            className="flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#211cda]"
+          >
+            <Image
+              alt=""
+              src="/icon.png"
+              width={50}
+              height={37}
+              className="h-8 w-auto lg:h-9"
+            />
+            <span
+              className="flex flex-col"
+              style={{ fontFamily: "OpenSauceOne, sans-serif" }}
+            >
+              <span className="text-[21px] font-bold leading-none tracking-tight text-gray-900 lg:text-[23px]">
                 pilarcode
               </span>
-              <span className="font-semibold text-[7px] lg:text-[8px] text-white/70 lg:text-[#278deb] tracking-wide uppercase leading-none mt-[6px]">
+              <span className="mt-1.5 text-[8px] font-semibold uppercase leading-none tracking-[0.18em] text-[#278deb]">
                 tech
               </span>
-            </div>
+            </span>
           </Link>
-
-          <div className="hidden lg:flex items-center space-x-8">
-            {sectionIds.map((id) => (
-              <a
-                key={id}
-                href={getNavHref(id)}
-                onClick={(e) => handleNavClick(e, id)}
-                className={`transition-colors duration-200 text-sm font-medium tracking-wide ${
-                  isHome && activeSection === id
-                    ? "text-gray-900"
-                    : "text-gray-500 hover:text-gray-900"
-                }`}
+          <div className="hidden items-center gap-1 lg:flex">
+            {navigation.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                aria-current={
+                  active === item.id
+                    ? pathname === "/"
+                      ? "location"
+                      : "page"
+                    : undefined
+                }
+                className={`rounded-full px-4 py-2.5 font-dmsans text-sm transition-colors ${active === item.id ? "bg-[#211cda]/5 text-[#211cda]" : "text-gray-500 hover:bg-gray-50 hover:text-gray-900"}`}
               >
-                {sectionLabels[id]}
-              </a>
+                {item.label}
+              </Link>
             ))}
-            <Link
-              href="/blog"
-              className={`transition-colors duration-200 text-sm font-medium tracking-wide ${
-                isBlog ? "text-gray-900" : "text-gray-500 hover:text-gray-900"
-              }`}
-            >
-              Blog
-            </Link>
           </div>
-
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="flex items-center gap-3">
             <button
               onClick={() => openOrcamento("header-desktop")}
-              className="bg-[#211cda] hover:bg-[#060554] text-white px-4 lg:px-3 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 shadow-lg flex items-center space-x-2 group cursor-pointer"
+              className="hidden items-center gap-5 rounded-full bg-[#211cda] px-5 py-3.5 font-dmsans text-sm font-medium text-white transition-colors hover:bg-[#060554] lg:inline-flex"
             >
-              <span className="font-normal text-sm">Solicitar orçamento</span>
-              <div className="bg-white/20 p-1.5 rounded-lg flex">
-                <ArrowForward
-                  fontSize="small"
-                  sx={{
-                    width: "16px",
-                    height: "16px",
-                  }}
-                />
-              </div>
+              Vamos conversar <span aria-hidden="true">↗</span>
             </button>
-          </div>
-
-          <div className="flex lg:hidden items-center space-x-2">
             <button
               onClick={() => openOrcamento("header-mobile")}
-              className="bg-gradient-to-r from-[#211cda] to-[#060554] hover:from-[#060554] hover:to-[#211cda] text-white px-3 py-2 rounded-lg font-semibold text-xs transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="hidden min-[360px]:inline-flex rounded-full bg-[#211cda] px-4 py-2.5 font-dmsans text-xs font-medium text-white hover:bg-[#060554] lg:hidden"
             >
               Orçamento
             </button>
-
             <button
-              onClick={toggleMobileMenu}
-              className="text-white lg:text-gray-600 p-2 hover:bg-white/10 lg:hover:bg-gray-100 rounded-lg transition-colors duration-200 relative z-50"
-              aria-label="Toggle mobile menu"
+              id="navigation-toggle"
+              aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 text-gray-800 hover:bg-gray-50 lg:hidden"
             >
-              <div className="relative w-6 h-6">
-                <span
-                  className={`absolute block h-0.5 w-6 bg-white lg:bg-gray-600 transform transition duration-300 ease-in-out ${
-                    isMobileMenuOpen
-                      ? "rotate-45 translate-y-2.5"
-                      : "translate-y-1"
-                  }`}
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d={menuOpen ? "m6 6 12 12M6 18 18 6" : "M4 8h16M4 16h16"}
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
                 />
-                <span
-                  className={`absolute block h-0.5 w-6 bg-white lg:bg-gray-600 transform transition duration-300 ease-in-out translate-y-2.5 ${
-                    isMobileMenuOpen ? "opacity-0" : "opacity-100"
-                  }`}
-                />
-                <span
-                  className={`absolute block h-0.5 w-6 bg-white lg:bg-gray-600 transform transition duration-300 ease-in-out ${
-                    isMobileMenuOpen
-                      ? "-rotate-45 translate-y-2.5"
-                      : "translate-y-4"
-                  }`}
-                />
-              </div>
+              </svg>
             </button>
           </div>
         </nav>
-
-        <div
-          className={`lg:hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen
-              ? "max-h-96 opacity-100 pb-6"
-              : "max-h-0 opacity-0 overflow-hidden"
-          }`}
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-sm rounded-xl">
-            {sectionIds.map((id) => (
-              <a
-                key={id}
-                href={getNavHref(id)}
-                onClick={(e) => handleNavClick(e, id)}
-                className={`block px-4 py-3 rounded-lg transition-colors duration-200 text-sm font-medium ${
-                  isHome && activeSection === id
-                    ? "bg-white/15 text-white"
-                    : "text-white hover:bg-white/10"
-                }`}
+        {menuOpen && (
+          <nav
+            id="mobile-navigation"
+            aria-label="Navegação mobile"
+            className="border-t border-gray-100 pb-5 pt-3 lg:hidden"
+          >
+            {navigation.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center justify-between rounded-xl px-4 py-3.5 font-dmsans text-sm ${active === item.id ? "bg-[#211cda]/5 text-[#211cda]" : "text-gray-600 hover:bg-gray-50"}`}
               >
-                {sectionLabels[id]}
-              </a>
+                {item.label}
+                <span aria-hidden="true">↗</span>
+              </Link>
             ))}
-            <Link
-              href="/blog"
-              onClick={closeMobileMenu}
-              className={`block px-4 py-3 rounded-lg transition-colors duration-200 text-sm font-medium ${
-                isBlog ? "bg-white/15 text-white" : "text-white hover:bg-white/10"
-              }`}
-            >
-              Blog
-            </Link>
-          </div>
-        </div>
+          </nav>
+        )}
       </div>
     </header>
   );
-};
-
-export default Header;
+}

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Header,
   Hero,
@@ -14,28 +13,14 @@ import LatestArticles from "./components/LatestArticles";
 export default function Home() {
   return (
     <div>
-      <div className="hidden lg:block font-manrope bg-[#278deb] text-white text-center pt-4 pb-12 text-sm font-jakarta -mb-6">
-        Inovação ao seu alcance: conectamos você ao futuro
-      </div>
       <Header />
-      <main className="bg-white rounded-t-3xl -mt-[90px] relative z-10 overflow-hidden bg-no-repeat">
-        <div className="bg-cover bg-center bg-no-repeat pt-[90px]">
+      <main className="overflow-hidden bg-white">
+        <div>
           <div
             id="inicio"
-            className="container mx-auto px-4 mb-5 md:mb-20 z-99 scroll-mt-[100px] relative"
+            className="mx-auto max-w-[1514px] scroll-mt-24 px-6 md:px-10 lg:px-16"
           >
             <Hero />
-            {/* Decorative hero background - like deep-fire's hero-bg.png */}
-            <Image
-              alt=""
-              aria-hidden="true"
-              role="presentation"
-              src="/hero-bg.svg"
-              width={550}
-              height={550}
-              className="absolute right-0 top-[-100px] w-[550px] h-[550px] hidden lg:block pointer-events-none"
-              style={{ zIndex: -1 }}
-            />
           </div>
           <div id="servicos" className="scroll-mt-[100px]">
             <Services />
