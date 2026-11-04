@@ -79,3 +79,43 @@ html {
 @media (prefers-reduced-motion: no-preference) {
   .pilar-shine { animation: pilar-shine var(--shine-duration, 18s) linear infinite; }
 }
+
+/* Brand rail: one real set and one inert visual copy for a seamless loop. */
+@keyframes pilar-brands {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .brand-track { animation: pilar-brands 72s linear infinite; }
+  .brand-cloud:hover .brand-track,
+  .brand-cloud:focus-within .brand-track,
+  .brand-cloud:active .brand-track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-cloud { overflow-x: auto; mask-image: none; }
+  .brand-group[aria-hidden="true"] { display: none; }
+}
+
+/* Keyboard users navigate a stationary, scrollable set of real links. */
+.brand-cloud:focus-within { overflow-x: auto; mask-image: none; }
+.brand-cloud:focus-within .brand-track { animation: none; }
+.brand-cloud:focus-within .brand-group[aria-hidden="true"] { display: none; }
+
+[data-brand-paused="true"] .brand-track { animation-play-state: paused; }
+
+/* Shape Landing Hero (Kokonut UI): original entrance and floating geometry. */
+@keyframes pilar-shape-enter {
+  from { opacity: 0; transform: translateY(-150px) rotate(calc(var(--shape-angle) - 15deg)); }
+  to { opacity: 1; transform: translateY(0) rotate(var(--shape-angle)); }
+}
+@keyframes pilar-shape-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pilar-shape-enter { animation: pilar-shape-enter 2.4s cubic-bezier(.23,.86,.39,.96) var(--shape-delay) both; }
+  .pilar-shape-float { animation: pilar-shape-float 12s ease-in-out infinite; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

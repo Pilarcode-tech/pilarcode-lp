@@ -3,7 +3,6 @@ import { Manrope, Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
 
-
 const manropeSans = Manrope({
   variable: "--font-manrope-mono",
   subsets: ["latin"],
@@ -18,7 +17,6 @@ const DMSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
 });
-
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -105,7 +103,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"

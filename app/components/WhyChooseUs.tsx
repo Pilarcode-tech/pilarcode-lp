@@ -2,7 +2,8 @@ import CodeRounded from "@mui/icons-material/CodeRounded";
 import TuneRounded from "@mui/icons-material/TuneRounded";
 import LayersOutlined from "@mui/icons-material/LayersOutlined";
 import ForumOutlined from "@mui/icons-material/ForumOutlined";
-import { BentoGrid, BentoCard } from "./ui/bento-grid";
+import FeatureCarousel from "./FeatureCarousel";
+import { BentoCard } from "./ui/bento-grid";
 
 const benefits = [
   {
@@ -60,7 +61,7 @@ export default function WhyChooseUs() {
             Da estratégia à entrega.
           </div>
         </div>
-        <BentoGrid className="lg:col-span-3">
+        <FeatureCarousel>
           {benefits.map(({ title, description, Icon }) => (
             <BentoCard
               key={title}
@@ -69,7 +70,7 @@ export default function WhyChooseUs() {
               icon={<Icon sx={{ fontSize: 23 }} />}
             />
           ))}
-        </BentoGrid>
+        </FeatureCarousel>
       </div>
     </section>
   );

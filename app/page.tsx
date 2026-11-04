@@ -8,6 +8,7 @@ import {
   Footer,
 } from "./components";
 import CaseStudies from "./components/CaseStudies";
+import Founder from "./components/Founder";
 import LatestArticles from "./components/LatestArticles";
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
             <div className="mt-6 md:mt-20">
               <WhyChooseUs />
             </div>
+            <Founder />
             <CaseStudies />
             <LatestArticles />
             <div id="contato" className="scroll-mt-[100px]">
