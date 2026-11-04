@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { caseStudies } from "../data/cases";
+import ClientBrands from "./ClientBrands";
 import ProjectCard from "./ProjectCard";
 
 export default function CaseStudies({
@@ -21,17 +22,18 @@ export default function CaseStudies({
         <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-xl">
             <p className="text-xs font-extrabold tracking-widest text-[#211cda]">
-              PROJETOS
+              PROJETOS & PARCERIAS
             </p>
             <h2
               id="cases-title"
               className="mt-3 text-3xl font-medium leading-tight text-gray-800 lg:text-4xl"
             >
-              Ideias que se tornam{" "}
-              <span className="text-[#278deb]">soluções digitais.</span>
+              Marcas e operações que{" "}
+              <span className="text-[#278deb]">contam com a gente.</span>
             </h2>
             <p className="mt-4 font-manrope text-sm leading-relaxed text-gray-500">
-              Conheça os produtos e sites que fazem parte do nosso trabalho.
+              Parcerias que ganham forma em produtos, plataformas e experiências
+              digitais.
             </p>
           </div>
           <Link
@@ -42,11 +44,15 @@ export default function CaseStudies({
           </Link>
         </div>
       )}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {caseStudies.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
+      {listing ? (
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {caseStudies.map((project) => (
+            <ProjectCard key={project.slug} project={project} />
+          ))}
+        </div>
+      ) : (
+        <ClientBrands />
+      )}
     </section>
   );
 }

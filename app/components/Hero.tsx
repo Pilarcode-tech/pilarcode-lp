@@ -1,69 +1,60 @@
 "use client";
 
-import BackgroundPaths from "./ui/background-paths";
+import ShapeLandingHero from "./ui/shape-landing-hero";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { openOrcamento } from "../utils/orcamento";
 
 export default function Hero() {
   return (
-    <section
-      aria-label="Desenvolvimento de software sob medida"
-      className="py-6 lg:py-10"
-    >
-      <BackgroundPaths
-        count={27}
-        speed={0.3}
-        spread={1.4}
-        angle={-12}
-        interactive={false}
-        className="flex min-h-[550px] items-center justify-center rounded-[32px] bg-gradient-to-b from-[#f5f8ff] via-white to-white py-8 sm:min-h-[580px] lg:min-h-[640px] lg:py-16"
-      >
-        <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-3 text-center md:px-10">
-          <p className="mb-5 inline-flex lg:mb-7 items-center gap-2.5 rounded-full border border-[#211cda]/10 bg-white/90 px-4 py-2 font-dmsans text-[10px] font-medium uppercase tracking-[0.14em] text-[#211cda] sm:text-[11px]">
-            <span
-              aria-hidden="true"
-              className="h-1.5 w-1.5 rounded-full bg-[#278deb]"
-            />
-            Pilarcode · Tecnologia com propósito
-          </p>
-          <h1 className="font-manrope text-[32px] font-medium leading-[1.1] tracking-[-0.045em] text-gray-900 sm:text-5xl lg:text-[72px]">
-            Software sob medida.
-            <br />
-            <span className="bg-gradient-to-r from-[#278deb] to-[#211cda] bg-clip-text text-transparent">
-              Para o seu próximo passo.
-            </span>
-          </h1>
-          <p className="mt-5 max-w-xl font-dmsans text-sm sm:text-base leading-relaxed text-gray-600 lg:mt-7 lg:text-lg">
-            Seu negócio é único. A tecnologia também pode ser. Criamos sistemas,
-            sites e aplicativos que conectam sua operação e dão forma às suas
-            ideias.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:gap-6 lg:mt-9">
-            <InteractiveHoverButton onClick={() => openOrcamento("hero")}>
-              Conte sobre seu projeto
-            </InteractiveHoverButton>
-            <a
-              href="#projetos"
-              className="inline-flex min-h-12 items-center gap-3 rounded-full px-3 font-dmsans text-sm font-medium text-gray-700 hover:text-[#211cda]"
-            >
-              Conheça nossos projetos <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <div className="mt-10 hidden flex-wrap sm:flex items-center justify-center gap-x-5 gap-y-2 font-dmsans text-[11px] text-gray-500 lg:mt-12">
-            <span>Estratégia de produto</span>
-            <span
-              aria-hidden="true"
-              className="h-1 w-1 rounded-full bg-[#278deb]/40"
-            />
-            <span>Design de experiência</span>
-            <span
-              aria-hidden="true"
-              className="h-1 w-1 rounded-full bg-[#278deb]/40"
-            />
-            <span>Engenharia de software</span>
-          </div>
+    <div className="pb-10 pt-5 lg:pb-16 lg:pt-8">
+      <ShapeLandingHero>
+        <p className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 font-dmsans text-[10px] font-medium uppercase tracking-[0.15em] text-white/75 sm:text-xs">
+          <span
+            aria-hidden="true"
+            className="h-1.5 w-1.5 rounded-full bg-[#64b5ff]"
+          />
+          Software, Design e Tecnologia
+        </p>
+        <h1 className="font-manrope text-[32px] font-semibold leading-[1.2] tracking-[-0.045em] text-white sm:text-5xl lg:text-[64px]">
+          <span className="block">Software sob medida</span>
+          <span className="mt-2 block font-medium">
+            para sua{" "}
+            <span className="inline-block -rotate-3 px-1 font-blisstwin text-[1.55em] font-normal leading-[0.8] tracking-normal text-[#64b5ff]">
+              ideia
+            </span>{" "}
+            ir além.
+          </span>
+        </h1>
+        <p className="mx-auto mt-8 max-w-xl font-dmsans text-sm leading-relaxed text-white/65 sm:text-base lg:mt-9 lg:text-lg">
+          Sistemas, sites e aplicativos que respeitam o jeito que seu negócio
+          funciona. Da primeira conversa ao produto em operação.
+        </p>
+        <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <InteractiveHoverButton
+            onClick={() => openOrcamento("hero")}
+            className="border border-white/15"
+          >
+            Vamos tirar do papel
+          </InteractiveHoverButton>
+          <a
+            href="#projetos"
+            className="inline-flex min-h-12 items-center gap-5 rounded-full border border-white/20 px-6 py-3 font-dmsans text-sm font-medium text-white/85 hover:border-white/50 hover:text-white"
+          >
+            Conheça nossos projetos <span aria-hidden="true">↗</span>
+          </a>
         </div>
-      </BackgroundPaths>
-    </section>
+        <p className="mt-9 hidden sm:block font-dmsans text-[10px] uppercase tracking-[0.16em] text-white/40 sm:mt-12">
+          Estratégia de produto{" "}
+          <span aria-hidden="true" className="mx-2 text-[#64b5ff]/50">
+            /
+          </span>{" "}
+          Design{" "}
+          <span aria-hidden="true" className="mx-2 text-[#64b5ff]/50">
+            /
+          </span>{" "}
+          Engenharia
+        </p>
+      </ShapeLandingHero>
+    </div>
   );
 }
