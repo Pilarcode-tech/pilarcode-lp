@@ -20,6 +20,7 @@
 
 @font-face {
   font-family: "Blisstwin";
+  font-display: swap;
   src: url("/fonts/Blisstwin.eot"); /* IE9 Compat Modes */
   src: url("/fonts/Blisstwin.eot?#iefix") format("embedded-opentype"),
     /* IE6-IE8 */ url("/fonts/Blisstwin.woff") format("woff"),

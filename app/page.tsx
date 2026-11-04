@@ -1,3 +1,4 @@
+import { preload } from "react-dom";
 import {
   Header,
   Hero,
@@ -12,6 +13,11 @@ import Founder from "./components/Founder";
 import LatestArticles from "./components/LatestArticles";
 
 export default function Home() {
+  preload("/fonts/Blisstwin.woff", {
+    as: "font",
+    type: "font/woff",
+    crossOrigin: "anonymous",
+  });
   return (
     <div>
       <Header />
