@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
       <div className="absolute top-[-80px] left-[-60px] w-[300px] h-[300px] rounded-full bg-[#278deb] opacity-[0.04] blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-60px] right-[-40px] w-[250px] h-[250px] rounded-full bg-[#211cda] opacity-[0.03] blur-[80px] pointer-events-none" />
 
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 p-10 md:p-16 relative z-10">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 p-8 md:p-16 relative z-10">
         {/* Left column */}
         <div className="lg:w-[40%] flex flex-col gap-6">
           <div>

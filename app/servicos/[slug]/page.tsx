@@ -16,6 +16,7 @@ import ServiceFeatureGrid from "../../components/ServiceFeatureGrid";
 import ServiceProcessSteps from "../../components/ServiceProcessSteps";
 import ServiceFAQ from "../../components/ServiceFAQ";
 import ServiceRelatedCards from "../../components/ServiceRelatedCards";
+import ProjectCard from "../../components/ProjectCard";
 import ServiceCTA from "../../components/ServiceCTA";
 
 export function generateStaticParams() {
@@ -202,12 +203,12 @@ export default async function ServicePage({ params }: PageProps) {
 
         {scope ? (
           <section className="container mx-auto px-4 pb-12 lg:pb-16">
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto rounded-3xl bg-[#f8f9fc] p-6 lg:p-10">
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto rounded-3xl border border-gray-100 bg-[#f8f9fc] p-8 lg:p-12">
               <div>
                 <h2 className="font-manrope text-2xl font-semibold text-gray-900 mb-4">
                   Quando este serviço faz sentido
                 </h2>
-                <ul className="font-dmsans text-gray-600 leading-relaxed list-disc pl-5 space-y-3">
+                <ul className="font-dmsans text-sm text-gray-500 leading-relaxed list-disc pl-5 space-y-3">
                   {scope.examples.map((example) => (
                     <li key={example}>{example}</li>
                   ))}
@@ -217,7 +218,7 @@ export default async function ServicePage({ params }: PageProps) {
                 <h2 className="font-manrope text-2xl font-semibold text-gray-900 mb-4">
                   O que definir no escopo
                 </h2>
-                <ul className="font-dmsans text-gray-600 leading-relaxed list-disc pl-5 space-y-3">
+                <ul className="font-dmsans text-sm text-gray-500 leading-relaxed list-disc pl-5 space-y-3">
                   {scope.deliverables.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -257,28 +258,19 @@ export default async function ServicePage({ params }: PageProps) {
         <ServiceFAQ faq={service.faq} serviceName={service.title} />
 
         {projects.length > 0 ? (
-          <section className="container mx-auto px-4 py-12">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="font-manrope text-2xl lg:text-3xl font-semibold text-gray-900 mb-5">
-                Projetos relacionados
-              </h2>
-              <ul className="space-y-4">
-                {projects.map((project) => (
-                  <li key={project.slug}>
-                    <Link
-                      href={"/cases/" + project.slug}
-                      className="block rounded-2xl border border-gray-200 p-5 hover:border-[#211cda]/40"
-                    >
-                      <h3 className="font-manrope font-semibold text-lg text-gray-900">
-                        {project.name}
-                      </h3>
-                      <p className="font-dmsans text-gray-600 mt-2">
-                        {project.description}
-                      </p>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          <section className="container mx-auto px-4 py-16 lg:py-24">
+            <h2 className="mb-4 text-center font-manrope text-2xl font-semibold text-gray-900 lg:text-4xl">
+              Projetos relacionados
+            </h2>
+            <p className="mx-auto mb-10 max-w-2xl text-center font-dmsans text-gray-500">
+              Conheça este trabalho na prática.
+            </p>
+            <div
+              className={`mx-auto grid max-w-5xl grid-cols-1 gap-6 ${projects.length === 1 ? "md:max-w-md" : projects.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}
+            >
+              {projects.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
             </div>
           </section>
         ) : null}

@@ -28,11 +28,22 @@ export default function CasesPage() {
   return (
     <>
       <Header />
-      <main className="container mx-auto px-4 py-10">
-        <h1 className="font-manrope text-4xl lg:text-5xl font-semibold text-gray-900">
-          Projetos de software e sites da Pilarcode
-        </h1>
-        <CaseStudies />
+      <main className="bg-white">
+        <header className="mx-4 mb-12 rounded-3xl bg-gradient-to-br from-[#211cda] to-[#060554] lg:mx-auto lg:max-w-[1514px]">
+          <div className="px-6 py-14 lg:px-16 lg:py-20">
+            <p className="text-xs font-extrabold tracking-widest text-white/70">
+              PROJETOS DA PILARCODE
+            </p>
+            <h1 className="mt-4 max-w-3xl font-manrope text-3xl font-semibold leading-tight text-white lg:text-5xl">
+              Tecnologia pensada para cada negócio.
+            </h1>
+            <p className="mt-5 max-w-2xl font-dmsans text-base leading-relaxed text-white/80">
+              Conheça nossos projetos de software, plataformas web e sites: do
+              desafio inicial à solução desenvolvida.
+            </p>
+          </div>
+        </header>
+        <CaseStudies listing />
       </main>
       <Footer />
     </>

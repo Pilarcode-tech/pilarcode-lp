@@ -1,53 +1,52 @@
 import Link from "next/link";
 import { caseStudies } from "../data/cases";
+import ProjectCard from "./ProjectCard";
 
-export default function CaseStudies() {
+export default function CaseStudies({
+  listing = false,
+}: {
+  listing?: boolean;
+}) {
   return (
     <section
-      aria-labelledby="cases-title"
-      className="max-w-[1514px] mx-auto py-12 lg:py-16"
+      id={listing ? undefined : "projetos"}
+      aria-labelledby={listing ? undefined : "cases-title"}
+      className={
+        listing
+          ? "max-w-[1514px] mx-auto px-6 lg:px-16 pb-16 lg:pb-24"
+          : "max-w-[1514px] mx-auto px-8 md:px-16 py-16 lg:py-24"
+      }
     >
-      <p className="text-xs font-extrabold tracking-widest text-[#211cda]">
-        PROJETOS DA PILARCODE
-      </p>
-      <h2
-        id="cases-title"
-        className="font-manrope text-3xl lg:text-4xl font-semibold text-gray-900 mt-3"
-      >
-        Software e sites em uso
-      </h2>
-      <p className="font-dmsans text-gray-600 mt-4 max-w-2xl">
-        Conheça as funcionalidades e os objetivos de projetos que fazem parte do
-        nosso trabalho.
-      </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        {caseStudies.map((project) => (
+      {!listing && (
+        <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-xl">
+            <p className="text-xs font-extrabold tracking-widest text-[#211cda]">
+              PROJETOS
+            </p>
+            <h2
+              id="cases-title"
+              className="mt-3 text-3xl font-medium leading-tight text-gray-800 lg:text-4xl"
+            >
+              Ideias que se tornam{" "}
+              <span className="text-[#278deb]">soluções digitais.</span>
+            </h2>
+            <p className="mt-4 font-manrope text-sm leading-relaxed text-gray-500">
+              Conheça os produtos e sites que fazem parte do nosso trabalho.
+            </p>
+          </div>
           <Link
-            key={project.slug}
-            href={"/cases/" + project.slug}
-            className="group rounded-3xl border border-gray-200 bg-white p-6 hover:border-[#211cda]/40 transition-colors"
+            href="/cases"
+            className="inline-flex w-fit items-center gap-4 rounded-full border border-gray-200 px-5 py-3 font-dmsans text-sm text-gray-700 hover:border-[#211cda] hover:text-[#211cda]"
           >
-            <p className="font-dmsans text-sm text-[#211cda]">
-              {project.category}
-            </p>
-            <h3 className="font-manrope text-2xl font-semibold text-gray-900 mt-3">
-              {project.name}
-            </h3>
-            <p className="font-dmsans text-gray-600 leading-relaxed mt-4">
-              {project.description}
-            </p>
-            <span className="inline-block text-sm font-semibold text-[#211cda] mt-6">
-              Conhecer o projeto →
-            </span>
+            Todos os projetos <span aria-hidden="true">↗</span>
           </Link>
+        </div>
+      )}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {caseStudies.map((project) => (
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
-      <Link
-        href="/cases"
-        className="inline-block mt-6 text-[#211cda] font-semibold"
-      >
-        Ver todos os projetos →
-      </Link>
     </section>
   );
 }
