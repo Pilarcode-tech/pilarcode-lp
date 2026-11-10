@@ -20,6 +20,19 @@ export default function Home() {
   });
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://pilarcode.com.br/#website",
+            name: "Pilarcode",
+            url: "https://pilarcode.com.br/",
+            inLanguage: "pt-BR",
+          }),
+        }}
+      />
       <Header />
       <main className="overflow-hidden bg-white">
         <div>

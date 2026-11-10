@@ -318,16 +318,16 @@ export const services: ServiceData[] = [
   },
   {
     slug: "software-sob-medida",
-    updatedAt: "2026-11-04",
-    title: "Software Sob Medida",
+    updatedAt: "2026-11-10",
+    title: "Desenvolvimento de Software Sob Medida",
     shortTitle: "Software",
     subtitle:
-      "Sistemas personalizados que se adaptam perfeitamente aos processos da sua empresa, não o contrário.",
+      "Sistemas de gestão, plataformas SaaS e integrações desenvolvidos para os processos da sua empresa.",
     description:
       "Soluções de software personalizadas que atendem às necessidades específicas da sua empresa.",
-    metaTitle: "Software Sob Medida | Sistemas Personalizados",
+    metaTitle: "Desenvolvimento de Software Sob Medida",
     metaDescription:
-      "Desenvolvimento de sistemas e software sob medida para a rotina da sua empresa. Conheça as possibilidades e solicite uma proposta à Pilarcode.",
+      "Desenvolvemos sistemas de gestão, plataformas SaaS e integrações para sua empresa. Veja projetos reais e solicite um orçamento de software sob medida.",
     keywords: [
       "software sob medida",
       "sistema personalizado",
@@ -343,9 +343,9 @@ export const services: ServiceData[] = [
     gradient: "from-[#211cda] to-[#060554]",
     iconName: "Settings",
     introduction: [
-      "Softwares genéricos limitam o crescimento da sua empresa. Na Pilarcode, desenvolvemos sistemas sob medida que se adaptam perfeitamente aos processos do seu negócio, eliminando as limitações de soluções prontas e oferecendo exatamente o que você precisa.",
-      "Nosso time de engenheiros de software projeta e constrói desde sistemas de gestão empresarial (ERP) até plataformas SaaS complexas, sempre com arquitetura escalável, segurança robusta e interfaces intuitivas que sua equipe vai adorar usar.",
-      "Cada linha de código é pensada para resolver problemas reais do seu negócio. Automatizamos processos manuais, centralizamos informações dispersas e criamos ferramentas que aumentam a produtividade e reduzem custos operacionais.",
+      "A Pilarcode desenvolve software sob medida para empresas que precisam organizar operações, integrar ferramentas e atender regras de negócio específicas. Criamos sistemas de gestão, portais e plataformas SaaS a partir dos fluxos que sua equipe precisa executar.",
+      "O projeto começa pelo mapeamento dos processos, usuários e integrações. A proposta define escopo, etapas, dependências e critérios de aceite; o desenvolvimento acontece em ciclos com validação das entregas. Quando faz sentido, começamos por um MVP para testar o fluxo principal antes de ampliar o sistema.",
+      "Entre os projetos da Pilarcode estão o nPonto, para controle de ponto eletrônico, e o Fieldis, para rotinas de RH e departamento pessoal. Conheça os cases abaixo e os guias sobre custo, prazo e contratação para avaliar o próximo passo do seu projeto.",
     ],
     benefits: [
       {
