@@ -325,7 +325,7 @@ export const services: ServiceData[] = [
       "Sistemas de gestão, plataformas SaaS e integrações desenvolvidos para os processos da sua empresa.",
     description:
       "Soluções de software personalizadas que atendem às necessidades específicas da sua empresa.",
-    metaTitle: "Desenvolvimento de Software Sob Medida",
+    metaTitle: "Software Sob Medida para Empresas",
     metaDescription:
       "Desenvolvemos sistemas de gestão, plataformas SaaS e integrações para sua empresa. Veja projetos reais e solicite um orçamento de software sob medida.",
     keywords: [
