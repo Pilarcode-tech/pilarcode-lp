@@ -6,6 +6,14 @@ import ArrowIcon from "./ArrowIcon";
 import ShapeLandingHero from "./ui/shape-landing-hero";
 import { InteractiveHoverButton } from "./ui/interactive-hover-button";
 import { openOrcamento } from "../utils/orcamento";
+import { CountUp } from "./ui/count-up";
+
+// Início da carreira do fundador em desenvolvimento de software.
+const CAREER_START_YEAR = 2020;
+const yearsSince = (year: number) => new Date().getFullYear() - year;
+const yearsActive = () => yearsSince(CAREER_START_YEAR);
+// Estimativa conservadora: conta só os projetos rastreáveis; há outros em repositórios de clientes.
+const DELIVERED_PROJECTS = 15;
 
 export default function Hero() {
   return (
@@ -43,17 +51,32 @@ export default function Hero() {
             Conheça nossos projetos <ArrowIcon />
           </a>
         </div>
-        <p className="mt-9 hidden sm:block font-dmsans text-[10px] uppercase tracking-[0.16em] text-white/40 sm:mt-12">
-          Estratégia de produto{" "}
-          <span aria-hidden="true" className="mx-2 text-[#64b5ff]/50">
+        <ul className="mt-9 flex flex-col items-center justify-center gap-2 font-dmsans text-xs text-white/80 sm:mt-12 sm:flex-row sm:gap-0 sm:text-sm">
+          <li>
+            <CountUp
+              to={yearsSince(CAREER_START_YEAR)}
+              getValue={yearsActive}
+              suffix="+"
+              className="font-semibold text-white"
+            />{" "}
+            anos desenvolvendo software
+          </li>
+          <li aria-hidden="true" className="mx-4 hidden text-[#64b5ff] sm:block">
             /
-          </span>{" "}
-          Design{" "}
-          <span aria-hidden="true" className="mx-2 text-[#64b5ff]/50">
+          </li>
+          <li>
+            <CountUp
+              to={DELIVERED_PROJECTS}
+              suffix="+"
+              className="font-semibold text-white"
+            />{" "}
+            projetos entregues
+          </li>
+          <li aria-hidden="true" className="mx-4 hidden text-[#64b5ff] sm:block">
             /
-          </span>{" "}
-          Engenharia
-        </p>
+          </li>
+          <li>Web, iOS e Android</li>
+        </ul>
       </ShapeLandingHero>
     </div>
   );
