@@ -12,6 +12,8 @@ import { CountUp } from "./ui/count-up";
 const CAREER_START_YEAR = 2020;
 const yearsSince = (year: number) => new Date().getFullYear() - year;
 const yearsActive = () => yearsSince(CAREER_START_YEAR);
+// Estimativa conservadora: conta só os projetos rastreáveis; há outros em repositórios de clientes.
+const DELIVERED_PROJECTS = 15;
 
 export default function Hero() {
   return (
@@ -49,7 +51,7 @@ export default function Hero() {
             Conheça nossos projetos <ArrowIcon />
           </a>
         </div>
-        <ul className="mt-9 flex flex-col items-center justify-center gap-2 font-dmsans text-xs text-white/80 sm:mt-12 sm:flex-row sm:gap-0 sm:text-sm">
+        <ul className="mt-9 flex flex-col items-center justify-center gap-2 font-dmsans text-xs text-white/80 sm:mt-12 sm:flex-row sm:flex-wrap sm:gap-y-2 sm:text-sm">
           <li>
             <CountUp
               to={yearsSince(CAREER_START_YEAR)}
@@ -58,6 +60,17 @@ export default function Hero() {
               className="font-semibold text-white"
             />{" "}
             anos desenvolvendo software
+          </li>
+          <li aria-hidden="true" className="mx-4 hidden text-[#64b5ff] sm:block">
+            /
+          </li>
+          <li>
+            <CountUp
+              to={DELIVERED_PROJECTS}
+              suffix="+"
+              className="font-semibold text-white"
+            />{" "}
+            projetos entregues
           </li>
           <li aria-hidden="true" className="mx-4 hidden text-[#64b5ff] sm:block">
             /
