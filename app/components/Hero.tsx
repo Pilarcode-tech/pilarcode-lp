@@ -51,7 +51,7 @@ export default function Hero() {
             Conheça nossos projetos <ArrowIcon />
           </a>
         </div>
-        <ul className="mt-9 flex flex-col items-center justify-center gap-2 font-dmsans text-xs text-white/80 sm:mt-12 sm:flex-row sm:flex-wrap sm:gap-y-2 sm:text-sm">
+        <ul className="mt-9 flex flex-col items-center justify-center gap-2 font-dmsans text-xs text-white/80 sm:mt-12 sm:flex-row sm:gap-0 sm:text-sm">
           <li>
             <CountUp
               to={yearsSince(CAREER_START_YEAR)}
@@ -76,10 +76,6 @@ export default function Hero() {
             /
           </li>
           <li>Web, iOS e Android</li>
-          <li aria-hidden="true" className="mx-4 hidden text-[#64b5ff] sm:block">
-            /
-          </li>
-          <li>Atendimento em todo o Brasil</li>
         </ul>
       </ShapeLandingHero>
     </div>
