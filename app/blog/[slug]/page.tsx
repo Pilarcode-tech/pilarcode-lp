@@ -168,7 +168,7 @@ export default async function BlogArticle({ params }: PageProps) {
 
       <Header />
 
-      <main className="bg-white">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white">
         <article className="container mx-auto px-4 py-10 lg:py-16">
           {/* Breadcrumb: Inicio > Blog > Artigo */}
           <nav aria-label="Breadcrumb" className="mb-8 max-w-[68ch] mx-auto">

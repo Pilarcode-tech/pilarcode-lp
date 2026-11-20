@@ -95,7 +95,7 @@ export default async function AuthorPage({ params }: PageProps) {
 
       <Header />
 
-      <main className="bg-white min-h-screen">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white min-h-screen">
         <section className="container mx-auto px-4 py-12 lg:py-20">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-10 max-w-3xl mx-auto">

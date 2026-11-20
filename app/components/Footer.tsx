@@ -20,7 +20,7 @@ const Footer = () => {
             e.preventDefault();
             openOrcamento("footer-cta");
           }}
-          className="text-2xl lg:text-4xl 2xl:text-6x1 text-white/20 hover:text-white/40 transition-colors"
+          className="text-2xl lg:text-4xl 2xl:text-6x1 text-white/75 hover:text-white transition-colors"
           aria-label="Solicitar orçamento online"
         >
           Solicitar orçamento
@@ -40,7 +40,7 @@ const Footer = () => {
             <h3 className="font-semibold">E-mail</h3>
             <a
               href="mailto:contato@pilarcode.com.br"
-              className="font-regular text-sm text-white/80 hover:text-white transition-colors"
+              className="inline-flex min-h-11 items-center break-all font-regular text-sm text-white/80 hover:text-white transition-colors lg:min-h-0"
             >
               contato@pilarcode.com.br
             </a>
@@ -56,7 +56,7 @@ const Footer = () => {
                 e.preventDefault();
                 openOrcamento("footer-orcamento");
               }}
-              className="font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors"
+              className="inline-flex min-h-11 items-center break-all font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors lg:min-h-0"
             >
               orcamento.pilarcode.com.br
             </a>
@@ -66,12 +66,12 @@ const Footer = () => {
           <div className="flex flex-col gap-1 w-full md:gap-2 lg:gap-3">
             <Image alt="Ícone de redes sociais" src="/brand.svg" width={24} height={24} />
             <h3 className="font-semibold">Redes Sociais</h3>
-            <div className="grid grid-cols-2 gap-1 lg:grid-cols-2">
+            <div className="grid grid-cols-2 gap-x-4 lg:gap-1">
               <a
                 href="https://instagram.com/pilarcode"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors"
+                className="inline-flex min-h-11 items-center break-all font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors lg:min-h-0"
               >
                 Instagram
               </a>
@@ -79,7 +79,7 @@ const Footer = () => {
                 href="https://linkedin.com/company/pilarcode"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors"
+                className="inline-flex min-h-11 items-center break-all font-regular text-sm text-white/80 cursor-pointer hover:text-white transition-colors lg:min-h-0"
               >
                 LinkedIn
               </a>
@@ -89,13 +89,13 @@ const Footer = () => {
       </div>
       <div className="mt-10 pb-8 border-b border-white/10">
         <h3 className="font-semibold text-sm mb-4">Nossos Serviços</h3>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Serviços">
-          <Link href="/servicos/desenvolvimento-de-apps" className="text-sm text-white/60 hover:text-white transition-colors">Desenvolvimento de Apps</Link>
-          <Link href="/servicos/desenvolvimento-web" className="text-sm text-white/60 hover:text-white transition-colors">Desenvolvimento Web</Link>
-          <Link href="/servicos/software-sob-medida" className="text-sm text-white/60 hover:text-white transition-colors">Software Sob Medida</Link>
-          <Link href="/servicos/integracao-de-sistemas" className="text-sm text-white/60 hover:text-white transition-colors">Integração de Sistemas</Link>
-          <Link href="/servicos/e-commerce" className="text-sm text-white/60 hover:text-white transition-colors">E-Commerce</Link>
-          <Link href="/servicos/automacao-de-processos" className="text-sm text-white/60 hover:text-white transition-colors">Automação de Processos</Link>
+        <nav className="flex flex-wrap gap-x-6 gap-y-0 lg:gap-y-2" aria-label="Serviços">
+          <Link href="/servicos/desenvolvimento-de-apps" className="inline-flex min-h-11 items-center text-sm text-white/80 hover:text-white transition-colors lg:min-h-0">Desenvolvimento de Apps</Link>
+          <Link href="/servicos/desenvolvimento-web" className="inline-flex min-h-11 items-center text-sm text-white/80 hover:text-white transition-colors lg:min-h-0">Desenvolvimento Web</Link>
+          <Link href="/servicos/software-sob-medida" className="inline-flex min-h-11 items-center text-sm text-white/80 hover:text-white transition-colors lg:min-h-0">Software Sob Medida</Link>
+          <Link href="/servicos/integracao-de-sistemas" className="inline-flex min-h-11 items-center text-sm text-white/80 hover:text-white transition-colors lg:min-h-0">Integração de Sistemas</Link>
+          <Link href="/servicos/e-commerce" className="inline-flex min-h-11 items-center text-sm text-white/80 hover:text-white transition-colors lg:min-h-0">E-Commerce</Link>
+          <Link href="/servicos/automacao-de-processos" className="inline-flex min-h-11 items-center text-sm text-white/80 hover:text-white transition-colors lg:min-h-0">Automação de Processos</Link>
         </nav>
       </div>
       <div className="flex flex-col w-full gap-2 md:gap-2 lg:gap-3 xl:flex-row justify-between items-center xl:items-end mt-6">
@@ -104,12 +104,12 @@ const Footer = () => {
             &copy; 2026 Pilarcode - Todos os direitos reservados.
           </p>
         </div>
-        <nav className="flex xl:mt-0 justify-around gap-4 text-white/80 text-sm" aria-label="Navegação do rodapé">
-          <Link href="/cases" className="hover:text-white transition-colors">Projetos</Link>
-          <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-          <Link href="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</Link>
-          <Link href="/cookies" className="hover:text-white transition-colors">Cookies</Link>
-          <Link href="/politica-de-privacidade" className="hover:text-white transition-colors">LGPD</Link>
+        <nav className="flex flex-wrap xl:mt-0 justify-center gap-x-4 text-white/80 text-sm" aria-label="Navegação do rodapé">
+          <Link href="/cases" className="inline-flex min-h-11 items-center hover:text-white transition-colors lg:min-h-0">Projetos</Link>
+          <Link href="/blog" className="inline-flex min-h-11 items-center hover:text-white transition-colors lg:min-h-0">Blog</Link>
+          <Link href="/termos-de-uso" className="inline-flex min-h-11 items-center hover:text-white transition-colors lg:min-h-0">Termos de Uso</Link>
+          <Link href="/cookies" className="inline-flex min-h-11 items-center hover:text-white transition-colors lg:min-h-0">Cookies</Link>
+          <Link href="/politica-de-privacidade" className="inline-flex min-h-11 items-center hover:text-white transition-colors lg:min-h-0">LGPD</Link>
         </nav>
       </div>
     </footer>

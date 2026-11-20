@@ -6,6 +6,8 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { ActionButton } from "./ui/action";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import PauseRounded from "@mui/icons-material/PauseRounded";
+import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
 import CodeIcon from "@mui/icons-material/Code";
 import WebIcon from "@mui/icons-material/Language";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -237,6 +239,7 @@ const HorizontalScroll = ({ children }: React.PropsWithChildren) => {
 };
 
 const Services = () => {
+  const [phrasesPaused, setPhrasesPaused] = useState(false);
   return (
     <div>
       {/* Título de seção para hierarquia de headings (H1 > H2 > H3) e SEO.
@@ -255,42 +258,47 @@ const Services = () => {
           />
         ))}
       </HorizontalScroll>
-      <div className="bg-gradient-to-r from-[#060554] to-[#211cda] bg-cover bg-center bg-no-repeat pt-20 pb-3 h-[300px] -mt-[260px] flex items-end">
-        <div className="overflow-hidden whitespace-nowrap">
-          <div className="animate-scroll inline-block">
-            {phrases.map((phrase, index) => (
-              <div key={index} className="mx-8 inline-block">
-                <span className="flex items-center gap-2 text-white text-sm font-medium">
-                  <AddCircleOutlineIcon fontSize="small" />
-                  {phrase}
-                </span>
-              </div>
-            ))}
-            {phrases.map((phrase, index) => (
-              <div key={`duplicate-${index}`} className="mx-8 inline-block">
-                <span className="flex items-center gap-2 text-white text-sm font-medium">
-                  <AddCircleOutlineIcon fontSize="small" />
-                  {phrase}
-                </span>
-              </div>
-            ))}
+      <div
+        data-phrases-paused={phrasesPaused}
+        className="bg-gradient-to-r from-[#060554] to-[#211cda] bg-cover bg-center bg-no-repeat pt-20 pb-3 h-[300px] -mt-[260px] flex items-end"
+      >
+        <div className="phrase-rail flex w-full items-center gap-2 overflow-hidden whitespace-nowrap">
+          <div className="min-w-0 flex-1 overflow-hidden">
+            <div className="phrase-track inline-block">
+              {[false, true].map((duplicate) =>
+                phrases.map((phrase, index) => (
+                  <div
+                    key={`${duplicate ? "dup" : "main"}-${index}`}
+                    aria-hidden={duplicate ? true : undefined}
+                    className="mx-8 inline-block"
+                  >
+                    <span className="flex items-center gap-2 text-white text-sm font-medium">
+                      <AddCircleOutlineIcon fontSize="small" aria-hidden="true" />
+                      {phrase}
+                    </span>
+                  </div>
+                )),
+              )}
+            </div>
           </div>
+          <button
+            type="button"
+            aria-pressed={phrasesPaused}
+            aria-label={
+              phrasesPaused
+                ? "Retomar movimento da faixa de serviços"
+                : "Pausar movimento da faixa de serviços"
+            }
+            onClick={() => setPhrasesPaused(!phrasesPaused)}
+            className="mr-3 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white/80 hover:bg-white/10 hover:text-white motion-reduce:hidden"
+          >
+            {phrasesPaused ? (
+              <PlayArrowRounded aria-hidden="true" sx={{ fontSize: 18 }} />
+            ) : (
+              <PauseRounded aria-hidden="true" sx={{ fontSize: 18 }} />
+            )}
+          </button>
         </div>
-
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-
-          .animate-scroll {
-            animation: scroll 50s linear infinite;
-          }
-        `}</style>
       </div>
     </div>
   );

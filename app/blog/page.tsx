@@ -81,7 +81,7 @@ export default function BlogIndex() {
 
       <Header />
 
-      <main className="bg-white min-h-screen">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white min-h-screen">
         <section className="mx-auto max-w-[1514px] px-6 py-12 md:px-10 lg:px-16 lg:py-20">
           <header className="max-w-3xl mb-10 lg:mb-16">
             <p className="font-extrabold text-[#278deb] text-xs tracking-widest mb-3">

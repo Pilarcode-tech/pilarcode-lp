@@ -34,7 +34,7 @@ const AboutBanner = () => {
             </h2>
             <p className="text-2xl lg:text-3xl text-white font-medium mt-3 leading-relaxed">
               Uma equipe de{" "}
-              <span className="text-[#278deb] font-bold">especialistas</span>{" "}
+              <span className="text-[#75bcff] font-bold">especialistas</span>{" "}
               dedicados a transformar ideias em soluções digitais de alto
               impacto.
             </p>
@@ -71,7 +71,7 @@ const AboutBanner = () => {
                 <p className="text-white font-medium text-sm">
                   Entrega de Excelência
                 </p>
-                <p className="text-white/60 text-xs mt-1 leading-relaxed">
+                <p className="text-white/85 text-xs mt-1 leading-relaxed">
                   Os mais altos níveis de qualidade em todas as soluções.
                 </p>
               </div>
@@ -90,7 +90,7 @@ const AboutBanner = () => {
                 <p className="text-white font-medium text-sm">
                   Sempre Disponíveis
                 </p>
-                <p className="text-white/60 text-xs mt-1 leading-relaxed">
+                <p className="text-white/85 text-xs mt-1 leading-relaxed">
                   Equipe pronta para te ajudar a qualquer momento.
                 </p>
               </div>
@@ -109,7 +109,7 @@ const AboutBanner = () => {
                 <p className="text-white font-medium text-sm">
                   Abertos a Revisões
                 </p>
-                <p className="text-white/60 text-xs mt-1 leading-relaxed">
+                <p className="text-white/85 text-xs mt-1 leading-relaxed">
                   Ajustamos o necessário para garantir sua total satisfação.
                 </p>
               </div>
@@ -128,7 +128,7 @@ const AboutBanner = () => {
                 <p className="text-white font-medium text-sm">
                   Parceria de Longo Prazo
                 </p>
-                <p className="text-white/60 text-xs mt-1 leading-relaxed">
+                <p className="text-white/85 text-xs mt-1 leading-relaxed">
                   Relacionamentos duradouros baseados em confiança e resultados.
                 </p>
               </div>

@@ -74,7 +74,7 @@ export default async function CasePage({ params }: Props) {
         }}
       />
       <Header />
-      <main className="bg-white">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white">
         <div className="mx-auto max-w-[1514px] px-6 pb-6 pt-5 lg:px-16">
           <nav
             aria-label="Breadcrumb"
