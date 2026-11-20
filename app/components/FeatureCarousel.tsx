@@ -58,7 +58,7 @@ export default function FeatureCarousel({ children }: { children: ReactNode }) {
           });
           setActive(closest);
         }}
-        className="relative -mr-8 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pr-8 no-scrollbar focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#278deb] md:mr-0 md:grid md:grid-cols-2 md:overflow-visible md:pr-0"
+        className="relative -mr-8 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pr-8 no-scrollbar focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#278deb] md:mr-0 md:grid md:grid-cols-2 md:overflow-visible md:pr-0"
       >
         {items.map((item, index) => (
           <div

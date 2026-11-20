@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function PoliticaDePrivacidade() {
   return (
-    <main className="min-h-screen bg-white">
+    <main id="conteudo" tabIndex={-1} className="focus:outline-none min-h-screen bg-white">
       <div className="max-w-3xl mx-auto px-6 py-16">
         <Link
           href="/"

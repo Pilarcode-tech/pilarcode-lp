@@ -28,7 +28,7 @@ export default function CasesPage() {
   return (
     <>
       <Header />
-      <main className="bg-white">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white">
         <header className="mx-4 mb-12 rounded-3xl bg-gradient-to-br from-[#211cda] to-[#060554] lg:mx-auto lg:max-w-[1514px]">
           <div className="px-6 py-14 lg:px-16 lg:py-20">
             <p className="text-xs font-extrabold tracking-widest text-white/70">

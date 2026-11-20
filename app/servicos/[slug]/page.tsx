@@ -175,7 +175,7 @@ export default async function ServicePage({ params }: PageProps) {
 
       <Header />
 
-      <main className="bg-white">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white">
         <Breadcrumb serviceName={service.title} />
 
         <div className="mt-2 mb-10">

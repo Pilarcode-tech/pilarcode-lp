@@ -210,6 +210,9 @@ export default function RootLayout({
       <body
         className={`${DMSans.variable} ${manropeSans.variable} ${plusJakartaSans.variable} antialiased`}
       >
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
         <GoogleAnalytics />
         {children}
       </body>

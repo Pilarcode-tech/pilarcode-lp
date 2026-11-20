@@ -34,7 +34,7 @@ export default function Home() {
         }}
       />
       <Header />
-      <main className="overflow-hidden bg-white">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none overflow-hidden bg-white">
         <div>
           <div
             id="inicio"

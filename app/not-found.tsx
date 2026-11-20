@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="bg-white min-h-[60vh] flex items-center justify-center px-4">
+      <main id="conteudo" tabIndex={-1} className="focus:outline-none bg-white min-h-[60vh] flex items-center justify-center px-4">
         <div className="text-center max-w-lg">
           <p className="text-[#211cda] font-manrope font-bold text-sm tracking-widest mb-4">
             ERRO 404
